@@ -173,8 +173,7 @@ ggplot(res_final, aes(effect, neglog10_fdr)) +
   geom_hline(yintercept = -log10(0.05), linetype = "dashed") +
   theme_classic()
 
-
-library(dplyr)
+#Building forest plot for effect size
 
 res_forest <- res_limma %>%
   mutate(
@@ -211,3 +210,86 @@ ggplot(res_forest, aes(y = iSensor, x = effect)) +
   )
 ggsave(plot = get_last_plot(), filename = paste0(out_path, "iSensors_microarray_effect_size.jpg"), dpi = 300)
 
+#Vizulizing concordance data results
+
+
+res_plot <- res_final %>%
+  mutate(sig = p_adj < 0.05)
+
+ggplot(res_plot,
+       aes(x = median_delta,
+           y = frac_positive,
+           color = sig,
+           size = sd_delta)) +
+  geom_point(alpha = 0.8) +
+  scale_color_manual(
+    values = c(`TRUE` = "#D73027", `FALSE` = "grey70"),
+    labels = c(`TRUE` = "FDR < 0.05", `FALSE` = "n.s."),
+    name = NULL
+  ) +
+  scale_size_continuous(name = "Effect heterogeneity\n(SD across experiments)") +
+  geom_hline(yintercept = 0.5, linetype = "dashed", color = "grey50") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
+  labs(
+    x = "Median Aux–Ctr effect across experiments",
+    y = "Fraction of experiments with positive effect"
+  ) +
+  theme_classic()
+
+#Interpretation:
+#Top-right: consistently auxin-induced sensors
+#Bottom-left: consistently repressed sensors
+#Near y ≈ 0.5: directionally unstable sensors
+#Large points: strong heterogeneity (context-dependent)
+
+#Concordance vizualization per one iSensor
+sensor_sel <- "AT-aux-trans-ARF"
+#sensor_sel <- "AT-aux-trans-IAA"
+
+pb_sensor <- pb_exp %>%
+  filter(iSensor == sensor_sel)
+
+ggplot(pb_sensor, aes(x = delta, y = experiment_ID)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_point(size = 2) +
+  labs(
+    title = sensor_sel,
+    x = "Aux – Ctr effect (per experiment)",
+    y = "Experiment"
+  ) +
+  theme_classic()
+
+ggsave(plot = get_last_plot(), filename = paste0(out_path, "04-microarray-concordance-test-ARF.jpg"), dpi = 300)
+#ggsave(plot = get_last_plot(), filename = paste0(out_path, "04-microarray-concordance-test-IAA.jpg"), dpi = 300)
+
+#Heterogeneity vs significance plot
+ggplot(res_final,
+       aes(x = sd_delta,
+           y = -log10(p_adj + 1e-300),
+           color = frac_positive > 0.75 | frac_positive < 0.25)) +
+  geom_point(alpha = 0.8) +
+  scale_color_manual(
+    values = c(`TRUE` = "#4575B4", `FALSE` = "grey70"),
+    labels = c(`TRUE` = "Directionally consistent",
+               `FALSE` = "Mixed direction"),
+    name = NULL
+  ) +
+  labs(
+    x = "Effect heterogeneity (SD across experiments)",
+    y = expression(-log[10]("FDR"))
+  ) +
+  theme_classic()
+
+res_final <- res_final %>%
+  mutate(class = case_when(
+    p_adj < 0.05 & frac_positive >= 0.75 ~ "Consistent activation",
+    p_adj < 0.05 & frac_positive <= 0.25 ~ "Consistent repression",
+    p_adj < 0.05                        ~ "Context-dependent",
+    TRUE                                ~ "Not significant"
+  ))
+ggplot(res_final, aes(class)) +
+  geom_bar(fill = "grey60") +
+  labs(x = NULL, y = "Number of iSensors") +
+  theme_classic()
+
+ggsave(plot = get_last_plot(), filename = paste0(out_path, "04-microarray-concordance-test-summary.jpg"), dpi = 300)
