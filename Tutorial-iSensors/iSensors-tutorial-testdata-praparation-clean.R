@@ -266,6 +266,6 @@ minimal <- list(
   cells = colnames(counts)
 )
 
-out_file <- "C:/!Victoria/GitHub/iSensors-supplementary/Tutorial-iSensors/data/stemcellniche_clusters014_minimal.rds"
+out_file <- "C:/!Victoria/GitHub/iSensors-supplementary/Tutorial-iSensors/data/stemcellniche_minimal_github.rds"
 saveRDS(minimal, file = out_file, compress = "xz")
 
