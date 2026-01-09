@@ -72,14 +72,16 @@ seu <- NormalizeData(seu, verbose = FALSE)
 # Optional (safe to skip if not needed)
 # seu <- FindVariableFeatures(seu, verbose = FALSE)
 
+#Set Idents to custom annotation
+Idents(seu) <-"cluster_annot"
+
 # ----------------------------
-# 6) Example plot (sanity check)
+# 6) Example plot
 # ----------------------------
 
 DimPlot(
   seu,
   reduction = "umap",
-  group.by = "cluster_annot",
   label = TRUE,
   repel = TRUE,
   split.by = "orig.ident2"

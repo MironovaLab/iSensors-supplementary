@@ -181,7 +181,7 @@ new_ids <- c(
   "2" = "CSC_LRCEI",
   "3" = "Vasculature",
   "4" = "Stele_initials",
-  "5" = "TransitInitials"
+  "5" = "MixedInitials"
 )
 
 seu <- RenameIdents(seu, new_ids)
@@ -202,24 +202,24 @@ seu_small <- subset(seu, subset = cluster_id %in% keep_clusters)
 # Extract original UMAP
 umap <- Embeddings(seu_small, reduction = "umap")
 
-# Rotate 1800° clockwise: (x, y) -> (y, -x)
+# (optional) Rotate 180°: (x, y) -> (-x, -y) for visualization purposes
 umap_rot <- cbind(
   UMAP_1 = -umap[, 1],
   UMAP_2 = -umap[, 2]
 )
-
 rownames(umap_rot) <- rownames(umap)
 
-# Store as a NEW reduction (so no ambiguity)
-seu_small[["umap_rot"]] <- CreateDimReducObject(
+# Replace the existing UMAP reduction
+seu_small[["umap"]] <- CreateDimReducObject(
   embeddings = umap_rot,
-  key = "UMAP180_",
+  key = "UMAP_",
   assay = DefaultAssay(seu_small)
 )
 
+
 p <- DimPlot(
   seu_small,
-  reduction = "umap_rot",
+  reduction = "umap",
   group.by = "cluster_annot",
   repel = TRUE,
   split.by = "orig.ident2"
@@ -248,10 +248,7 @@ ggsave(
 
 
 
-# Ensure UMAP exists
-stopifnot("umap" %in% Reductions(seu_small))
-
-# Minimal export (Option B list)
+# Export minimal dataset
 counts <- GetAssayData(seu_small, assay = "RNA", layer = "counts")
 counts <- as(counts, "dgCMatrix")
 
