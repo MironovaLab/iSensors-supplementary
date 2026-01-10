@@ -176,12 +176,12 @@ plots
 seu$cluster_id <- as.character(Idents(seu))
 
 new_ids <- c(
-  "0" = "QC_CEI_S",
-  "1" = "LRCEI",
-  "2" = "CSC_LRCEI",
-  "3" = "Vasculature",
-  "4" = "Stele_initials",
-  "5" = "MixedInitials"
+  "0" = "Daughters_CEI",
+  "1" = "Daughters_LRCEI",
+  "2" = "EarlyRootCap",
+  "3" = "Daughters_Vasc",
+  "4" = "Initials",
+  "5" = "TransitInitials"
 )
 
 seu <- RenameIdents(seu, new_ids)
