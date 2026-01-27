@@ -271,3 +271,50 @@ ggsave(out_pdf, plot = p5, width = 4, height = 10, units = "cm", useDingbats = F
 
 # PNG (raster; 300–600 dpi for slides/figures)
 ggsave(out_png, plot = p5, width = 4, height = 10, units = "cm", dpi = 600, bg = "white")
+
+
+
+
+#alternative way to combine plots
+
+library(ggplot2)
+library(patchwork)
+library(cowplot)
+
+# helper: extract legend grob
+get_leg <- function(p) cowplot::get_legend(
+  p + theme(
+    legend.position = "right",
+    legend.justification = "center",
+    legend.text = element_text(size = 5),
+    legend.key.height = unit(0.25, "cm"),
+    legend.key.width  = unit(0.25, "cm"),
+    legend.background = element_rect(fill = "white", color = NA)
+  )
+)
+
+# helper: bind plot + its legend in two columns
+plot_with_leg <- function(p, leg_width = 0.33) {
+  leg <- get_leg(p)
+  p_noleg <- p + theme(legend.position = "none")
+  cowplot::plot_grid(
+    p_noleg, leg,
+    ncol = 2,
+    rel_widths = c(1, leg_width),
+    align = "h",
+    axis = "tb"
+  )
+}
+
+# Build each row (adjust leg_width per variable; clusters may need wider)
+row1 <- plot_with_leg(p1, leg_width = 0.40)  # e.g. 20 clusters
+row2 <- plot_with_leg(p2, leg_width = 0.30)
+row3 <- plot_with_leg(p3, leg_width = 0.30)
+row4 <- plot_with_leg(p4, leg_width = 0.30)
+
+p5 <- cowplot::plot_grid(row1, row2, row3, row4, ncol = 1, rel_heights = c(1,1,1,1))
+p5
+
+ggsave("01-bulk-data-obtain-and-analyze/Out/UMAP_4panels_vertical.pdf", p5,
+       width = 4.5, height = 14, units = "cm",
+       device = cairo_pdf)
