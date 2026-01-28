@@ -8,11 +8,9 @@ library(stringr)
 library(broom)
 library(ggrepel)
 
-rdylbu5 <- rev(brewer.pal(n = 5, name = "RdYlBu"))
-
-
+set.seed(100)
 iSensors_obj <- readRDS(file = "C:/!Victoria/!Projects/DigitalSensors/Data/Martin-Arevalillo-2025/iSensors-Martin-Arevalillo-auxin-root2025.rds")
-iSensors_obj <- readRDS(file = "in/iSensors-Martin-Arevalillo-auxin-root2025.rds")
+iSensors_obj <- readRDS(file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025.rds")
 
 DefaultAssay(iSensors_obj) <-"iSensors_mean_normed"
 
@@ -92,8 +90,8 @@ hm_df <- pb_wide %>%
     names_to = "iSensor",
     values_to = "value"
   ) %>%
-  filter(iSensor %in% is_order) %>%
-  mutate(iSensor = factor(iSensor, levels = is_order)) %>%
+#  filter(iSensor %in% is_order) %>%
+#  mutate(iSensor = factor(iSensor, levels = is_order)) %>%
   group_by(iSensor) %>%
   mutate(value_z = as.numeric(scale(value))) %>%   # z-score per sensor
   ungroup()
@@ -112,8 +110,8 @@ res_global <- pb_long %>%
     lo = effect - 1.96 * std.error,
     hi = effect + 1.96 * std.error,
     class = case_when(
-      p_adj < 0.05 & effect > 0 ~ "Up",
-      p_adj < 0.05 & effect < 0 ~ "Down",
+      p_adj < 0.05 & effect > 0.05 ~ "Up",
+      p_adj < 0.05 & effect < -0.05 ~ "Down",
       TRUE                     ~ "n.s."
     )
   ) %>%
@@ -232,7 +230,7 @@ p_final <- (p_heat | p_class_strip | p_forest) +
 p_final
 
 ggsave(
-  "out/auxin/iSensors_replica_heatmap_plus_forest.pdf",
+  "02-single-cell-data-analysis/out/iSensors_replica_heatmap_plus_forest_2.pdf",
   plot = p_final,
   width = 10,
   height = 8,
@@ -369,7 +367,7 @@ p_final2 <- (p_heat | p_class_strip | p_forest| p_fc_heatmap) +
 
 p_final2
 ggsave(
-  "out/auxin/iSensors_replica_heatmap_plus_forest.pdf",
+  "02-single-cell-data-analysis/out/iSensors_replica_heatmap_plus_forest.pdf",
   plot = p_final2,
   width = 14,
   height = 8,
