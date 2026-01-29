@@ -20,7 +20,7 @@ id,rho.rho,p_value,iSensor,assay,clean_panel,significance,reg_class
 19,0.026641202,0.892953161,AT-aux-cis-IR8-ARF8,iSensor_mean_normed,IR8-ARF8,not significant,cis
 20,0.029937021,0.879799755,AT-aux-cistrans-IR8-ARF1-up,iSensor_mean_normed,IR8-ARF1-up,not significant,reg
 21,0.039000523,0.843798502,AT-aux-cistrans-IR8-ARF8-up,iSensor_mean_normed,IR8-ARF8-up,not significant,reg
-22,0.043944252,0.824285464,AT-aux-cist-IR8-ARF5-2,iSensor_mean_normed,IR8-ARF5-2,not significant,cis
+22,0.043944252,0.824285464,AT-aux-cis-IR8-ARF5-2,iSensor_mean_normed,IR8-ARF5-2,not significant,cis
 23,0.058500785,0.767461546,AT-aux-cistrans-IR8-ARF5-1-up,iSensor_mean_normed,IR8-ARF5-1-up,not significant,reg
 24,0.079374304,0.688055942,AT-aux-cistrans-DR5-ARF8-up,iSensor_mean_normed,DR5-ARF8-up,not significant,reg
 25,0.086515245,0.661570332,AT-aux-cistrans-IR8-ARF5syn-up,iSensor_mean_normed,IR8-ARF5syn-up,not significant,reg
@@ -28,7 +28,7 @@ id,rho.rho,p_value,iSensor,assay,clean_panel,significance,reg_class
 27,0.093656186,0.635477419,AT-aux-cis-DR5-ARF1,iSensor_mean_normed,DR5-ARF1,not significant,cis
 28,0.11535366,0.55886929,random1,iSensor_mean_normed,random1,not significant,other
 29,0.119748085,0.54388515,AT-aux-cistrans-IR8-ARF3-up,iSensor_mean_normed,IR8-ARF3-up,not significant,reg
-30,0.121121343,0.539241505,AT-aux-cist-IR8-ARF5-1,iSensor_mean_normed,IR8-ARF5-1,not significant,cis
+30,0.121121343,0.539241505,AT-aux-cis-IR8-ARF5-1,iSensor_mean_normed,IR8-ARF5-1,not significant,cis
 31,0.143917424,0.465001542,AT-aux-cistrans-DR5-ARF5-1-up,iSensor_mean_normed,DR5-ARF5-1-up,not significant,reg
 32,0.146389288,0.457287227,AT-aux-cistrans-IR8-ARF6-up,iSensor_mean_normed,IR8-ARF6-up,not significant,reg
 33,0.151333016,0.442063658,AT-aux-cis-IR8-ARF5syn,iSensor_mean_normed,IR8-ARF5syn,not significant,cis
@@ -43,10 +43,10 @@ id,rho.rho,p_value,iSensor,assay,clean_panel,significance,reg_class
 42,0.192805404,0.32561751,AT-aux-cistrans-IR8-ARF5syn-down,iSensor_mean_normed,IR8-ARF5syn-down,not significant,reg
 43,0.195826571,0.317946828,AT-aux-cis-IR8-TGTCNN,iSensor_mean_normed,IR8-TGTCNN,not significant,cis
 44,0.196650526,0.315874327,AT-aux-cistrans-DR5-ARF3-up,iSensor_mean_normed,DR5-ARF3-up,not significant,reg
-45,0.212305665,0.278089544,AT-aux-cist-DR5-ARF5-2,iSensor_mean_normed,DR5-ARF5-2,not significant,cis
+45,0.212305665,0.278089544,AT-aux-cis-DR5-ARF5-2,iSensor_mean_normed,DR5-ARF5-2,not significant,cis
 46,0.21670009,0.268027824,AT-aux-cis-DR5-TGTCNN,iSensor_mean_normed,DR5-TGTCNN,not significant,cis
 47,0.228510108,0.242166757,AT-aux-cistrans-IR8-ARF5-1-down,iSensor_mean_normed,IR8-ARF5-1-down,not significant,reg
-48,0.244439899,0.209985685,AT-aux-cist-DR5-ARF5-1,iSensor_mean_normed,DR5-ARF5-1,not significant,cis
+48,0.244439899,0.209985685,AT-aux-cis-DR5-ARF5-1,iSensor_mean_normed,DR5-ARF5-1,not significant,cis
 49,0.249383627,0.200621061,AT-aux-cistrans-DR5-ARF2-up,iSensor_mean_normed,DR5-ARF2-up,not significant,reg
 50,0.249658279,0.200109357,AT-aux-cistrans-DR5-ARF5syn-down,iSensor_mean_normed,DR5-ARF5syn-down,not significant,reg
 51,0.27245436,0.160717249,AT-aux-cis-DR5-ARF3,iSensor_mean_normed,DR5-ARF3,not significant,cis
@@ -63,4 +63,4 @@ id,rho.rho,p_value,iSensor,assay,clean_panel,significance,reg_class
 62,0.661360986,0.00012714,AT-aux-trans-Synthesis,iSensor_mean_normed,Synthesis,significant,trans
 63,0.666579366,0.000107488,AT-aux-trans-IAA,iSensor_mean_normed,IAA,significant,trans
 64,0.703657328,2.94815E-05,AT-aux-trans-Transport,iSensor_mean_normed,Transport,significant,trans
-65,0.810771441,1.68527E-07,AT-aux-trans-EffluxInflux,iSensor_mean_normed,PAT,significant,trans
+65,0.810771441,1.68527E-07,AT-aux-trans-PolarAuxinTransport,iSensor_mean_normed,PAT,significant,trans
