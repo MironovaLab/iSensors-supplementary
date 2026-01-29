@@ -6,12 +6,13 @@ library(tibble)
 library(stringr)
 library(statmod)
 library(iSensors)
+library(RColorBrewer)
 set.seed(100)
 
 #install.packages("statmod")
 in_path <- "01-bulk-data-obtain-and-analyze/Data/"
 out_path <- "01-bulk-data-obtain-and-analyze/Out/"
-pseudocells <- readRDS(paste0(in_path, "seurat_auxin_microarrays.rds"))
+pseudocells <- readRDS(paste0(in_path, "seurat_auxin_microarrays_no_cb.rds"))
 
 DimPlot(pseudocells)
 meta_pseudo <- pseudocells@meta.data
@@ -48,6 +49,48 @@ DimPlot(
 )
 
 DefaultAssay(iSensors_obj2) <-"iSensors_mean_normed"
+
+#FeaturePlot
+
+
+feat <- "AT-aux-trans-A-ARF"
+rdylbu5<- rev(brewer.pal(n=5, name = "RdYlBu"))
+p <- FeaturePlot(
+  object = iSensors_obj2,
+  features = feat,
+  #  split.by = "orig.ident2",
+  combine = TRUE
+)
+
+p <- p &
+  scale_color_gradientn(
+    colors = rdylbu5,
+#    limits = lims,
+    oob = scales::squish
+  ) &
+  guides(
+    color = guide_colorbar(
+      #      title = "iSensor activity",
+      #      title.position = "top",
+      title.hjust = 0.4,
+      barwidth = unit(3, "cm"),
+      barheight = unit(0.4, "cm"),
+      ticks = FALSE
+    )
+  ) &
+  theme(
+    legend.position = "bottom",
+    legend.justification = "center",
+    axis.line  = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text  = element_blank(),
+    axis.title = element_blank()
+  )
+
+
+p
+ggsave("02-single-cell-data-analysis/out/bulk_ARF_FeaturePlot.svg", last_plot(), width = 4, height = 4.0, dpi = 300)
+
 
 # evaluate iSensors
 
