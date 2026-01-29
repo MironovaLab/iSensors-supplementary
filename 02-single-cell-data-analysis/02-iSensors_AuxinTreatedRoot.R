@@ -10,7 +10,7 @@ library(scales)
 rdylbu5 <- rev(brewer.pal(n = 5, name = "RdYlBu"))
 
 
-#The datasets is found here: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE241573
+#The datasets is found here: https:/www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE241573
 
 load("C:/!Victoria/!Projects/DigitalSensors/Data/Martin-Arevalillo-2025/GSE241573_Seurat_Object_Ath_Root_Auxin_treatment_DR5_DR15_IR8_ER13.RData")
 ls()
