@@ -119,6 +119,9 @@ DefaultAssay(seurat_obj_spearman) <- "iSensor_mean_normed"
 
 head(seurat_obj_spearman@assays$iSensor_mean_normed@counts@Dimnames)
 feat <- "AT-aux-trans-A-ARF"
+lims <- c(0, 5)
+rdylbu5 <- rev(brewer.pal(n = 5, name = "RdYlBu"))
+
 p <- FeaturePlot(
   object = seurat_obj_spearman,
   features = feat,
@@ -126,11 +129,12 @@ p <- FeaturePlot(
   combine = TRUE
 )
 
+
 p <- p &
   scale_color_gradientn(
     colors = rdylbu5,
     limits = lims,
-    oob = scales::squish
+#    oob = scales::squish
   ) &
   guides(
     color = guide_colorbar(
@@ -153,4 +157,5 @@ p <- p &
 
 
 p
-ggsave("out/auxin/AuxinTreated_ARF_FeaturePlot.pdf", last_plot(), width = 4, height = 4.0, dpi = 300)
+file_path <- file.path(output_dir, "shahan_dataset_featureplotARF2.svg")
+ggsave(file_path, last_plot(), width = 4, height = 4.0, dpi = 300)

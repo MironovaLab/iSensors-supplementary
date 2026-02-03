@@ -147,6 +147,7 @@ library(scales)
 cols_use <- c(
     "effect__Statistics-exo-scdata",
   "Rho1__PerformanseTest1_stat",
+  "Rho1__PerformanseTest3_stat",
   "rho.rho__iSensors_spearman_sc-endo"
 
 )
@@ -155,6 +156,7 @@ cols_use <- c(
   "effect__Statistics-exo-scdata",
   #    "effect__bulk-limma-results", 
   "Rho1__PerformanseTest1_stat",
+  "Rho__PerformanseTest3_stat",
   "rho.rho__iSensors_spearman_sc-endo"
   
 )
@@ -222,16 +224,17 @@ rho_cutoff <- 0.45
 
 
 
-merged_f<- read.csv("02-single-cell-data-analysis/out/statistics_merged_by_iSensor_polished.csv")
+merged_f<- read.csv("02-single-cell-data-analysis/out/statistics_merged_by_iSensor_polished2.csv")
 merged_f <- merged_f %>%
   filter(
     rho.rho__iSensors_spearman_sc.endo > rho_cutoff
   )
 
 metric_cols <- c(
-  "rho.rho__iSensors_spearman_sc.endo",
   "Rho1__PerformanseTest1_stat",
-  "estimate__Statistics.exo.scdata"
+  "Rho__PerformanseTest3_stat",
+  "estimate__Statistics.exo.scdata",
+  "rho.rho__iSensors_spearman_sc.endo"
 )
 
 names(merged_f)
@@ -240,9 +243,10 @@ names(merged_f)
 
 
 pval_map <- c(
-"rho.rho__iSensors_spearman_sc.endo" = "p_value__iSensors_spearman_sc.endo",
  "Rho1__PerformanseTest1_stat"        = "p.value__PerformanseTest1_stat",
- "estimate__Statistics.exo.scdata"      = "p_adj__Statistics.exo.scdata"
+ "Rho__PerformanseTest3_stat" = "p3__PerformanseTest3_stat",
+ "estimate__Statistics.exo.scdata"      = "p_adj__Statistics.exo.scdata",
+ "rho.rho__iSensors_spearman_sc.endo" = "p_value__iSensors_spearman_sc.endo"
 )
 
 
@@ -319,7 +323,7 @@ p_arrow_sig <- ggplot(df_long, aes(x = metric, y = iSensor)) +
 
 p_arrow_sig
 
-file_path <- file.path("02-single-cell-data-analysis/out/statistics_merged_by_iSensor.svg")
+file_path <- file.path("02-single-cell-data-analysis/out/statistics_merged4_by_iSensor.svg")
 
 ggsave(file_path, plot = p_arrow_sig,
        width = 2.5, height = 3, dpi = 300)
