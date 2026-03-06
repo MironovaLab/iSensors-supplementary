@@ -143,8 +143,8 @@ unmapped_treat <- md2 %>%
 
 unmapped_treat
 
-
-
+meta <- seurat_obj@meta.data
+saveRDS(seurat_obj, file = "D:/!GitHub/iSensors-supplementary/01-bulk-data-obtain-and-analyze/Data/surat_auxin_microarrays_01022026.rds")
 
 meta_cols <- c(
   "Type",

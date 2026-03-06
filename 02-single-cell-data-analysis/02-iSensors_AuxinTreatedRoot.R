@@ -6,7 +6,6 @@ library(RColorBrewer)
 library(scales)
 
 
-
 rdylbu5 <- rev(brewer.pal(n = 5, name = "RdYlBu"))
 
 
@@ -14,10 +13,12 @@ rdylbu5 <- rev(brewer.pal(n = 5, name = "RdYlBu"))
 
 load("C:/!Victoria/!Projects/DigitalSensors/Data/Martin-Arevalillo-2025/GSE241573_Seurat_Object_Ath_Root_Auxin_treatment_DR5_DR15_IR8_ER13.RData")
 ls()
+load("E:/Users/vmironova/OneDrive - Radboud Universiteit/Datasets/scTranscriptomics/Martin-Arevalillo-2025/GSE241573_Seurat_Object_Ath_Root_Auxin_treatment_DR5_DR15_IR8_ER13.RData")
 
 seurat_obj <-
   UpdateSeuratObject(Seurat_Object_Ath_Root_Auxin_treatment_DR5_DR15_IR8_ER13)
 
+saveRDS(seurat_obj, file = "02-single-cell-data-analysis/in/MartinArevalillo2025.rds")
 
 DimPlot(seurat_obj)
 
