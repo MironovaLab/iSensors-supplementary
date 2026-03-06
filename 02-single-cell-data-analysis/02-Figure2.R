@@ -69,11 +69,45 @@ ggsave("02-single-cell-data-analysis/out/AuxinTreated_DimPlot_splitted.pdf", las
 #For Figure B
 #Publication ready featureplots
 feat = "ATH-aux-trans-ARF"
-feat = "ATH-aux-trans-PolarAuxinTransport"
 
 vals <- FetchData(iSensors_obj, vars = feat)[, 1]
 lim  <- max(abs(quantile(vals, probs = c(0.02, 0.98), na.rm = TRUE)))
 lims <- c(0, lim)
+
+p <- FeaturePlot(
+  object = iSensors_obj,
+  features = feat,
+  combine = TRUE
+)
+
+p <- p &
+  scale_color_gradientn(
+    colors = rdylbu5,
+    limits = lims,
+    oob = scales::squish
+  ) &
+  guides(
+    color = guide_colorbar(
+      #      title = "iSensor activity",
+      #      title.position = "top",
+      title.hjust = 0.4,
+      barwidth = unit(3, "cm"),
+      barheight = unit(0.4, "cm"),
+      ticks = FALSE
+    )
+  ) &
+  theme(
+    legend.position = "bottom",
+    legend.justification = "center",
+    axis.line  = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text  = element_blank(),
+    axis.title = element_blank()
+  )
+
+
+p
+ggsave("02-single-cell-data-analysis/out/AuxinTreated_ARF_FeaturePlot_integrated.svg", last_plot(), width = 3, height = 3.0, dpi = 300)
 
 
 p <- FeaturePlot(
