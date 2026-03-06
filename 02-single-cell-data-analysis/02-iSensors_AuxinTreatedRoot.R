@@ -62,7 +62,7 @@ p+theme(
     
   )
 
-#This is the piublication ready figure for Auxin data
+#This is the publication ready figure for Auxin data
 ggsave("out/auxin/AuxinTreated_DimPlot_split.pdf", last_plot(), width = 8, height = 4.0, dpi = 300)
 
 meta <- seurat_obj@meta.data
@@ -72,7 +72,7 @@ set.seed(100)
 #Create iSensors object ----
 
 #Loading custom panels
-customTransPanel <- LoadSensors(setName = 'Auxin', species = 'AT', hormone = 'aux',
+customTransPanel <- LoadSensors(setName = 'Auxin', species = 'ATH', hormone = 'aux',
                                 customPanels = FALSE,
                                 randomInfo = list('n' = 3, 'sizes' = c(100, 200, 300), 
                                 majortrend = TRUE))
@@ -109,6 +109,8 @@ DefaultAssay(iSensors_obj) <-"iSensors_mean_normed"
 
 isensors_list <- unlist(iSensors_obj@assays$iSensors_mean_normed@counts@Dimnames[1])
 
+saveRDS(iSensors_obj, file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025.rds")
+
 isensors_list
 #Summary all the plots
 pdf("out/Auxin/iSensors_Auxin_FeaturePlots_split.pdf", width = 12, height = 6)
@@ -143,8 +145,8 @@ for (feat in isensors_list) {
 dev.off()
 
 #Publication ready featureplots
-feat = "AT-aux-trans-ARF"
-feat = "AT-aux-trans-PolarAuxinTransport"
+feat = "ATH-aux-trans-ARF"
+feat = "ATH-aux-trans-PolarAuxinTransport"
 
 vals <- FetchData(iSensors_obj, vars = feat)[, 1]
 lim  <- max(abs(quantile(vals, probs = c(0.02, 0.98), na.rm = TRUE)))
@@ -193,7 +195,7 @@ ggsave("out/auxin/AuxinTreated_PAT_FeaturePlot.pdf", last_plot(), width = 4, hei
 # Compute unified limits from ALL cells (both conditions)
 
 saveRDS(iSensors_obj, file = "C:/!Victoria/!Projects/DigitalSensors/Data/Martin-Arevalillo-2025/iSensors-Martin-Arevalillo-auxin-root2025.rds")
-
+saveRDS(iSensors_obj, file = "C:/!Victoria/!Projects/DigitalSensors/Data/Martin-Arevalillo-2025/iSensors-Martin-Arevalillo-auxin-root2025.rds")
 
 # check if the data contains mTQ reporter expression
 
