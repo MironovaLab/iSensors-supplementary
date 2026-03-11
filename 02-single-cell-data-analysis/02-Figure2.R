@@ -5,7 +5,7 @@ library(RColorBrewer)
 library(scales)
 
 seurat_obj <- readRDS(file = "02-single-cell-data-analysis/in/MartinArevalillo2025.rds")
-isensors_obj <- readRDS(file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025.rds")
+iSensors_obj <- readRDS(file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025.rds")
 
 #For Figure A
 p <- DimPlot(
@@ -144,5 +144,9 @@ p <- p &
 
 
 p
-ggsave("out/auxin/AuxinTreated_ARF_FeaturePlot.pdf", last_plot(), width = 4, height = 4.0, dpi = 300)
-ggsave("out/auxin/AuxinTreated_PAT_FeaturePlot.pdf", last_plot(), width = 4, height = 4.0, dpi = 300)
+ggsave("out/auxin/AuxinTreated_ARF_FeaturePlot_split.pdf", last_plot(), width = 4, height = 4.0, dpi = 300)
+
+#Figure C
+
+#see 02-iSensors-AuxinRoot-global-evaluation.R
+
