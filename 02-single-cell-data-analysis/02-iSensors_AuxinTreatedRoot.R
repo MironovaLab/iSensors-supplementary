@@ -20,6 +20,8 @@ seurat_obj <-
 
 saveRDS(seurat_obj, file = "02-single-cell-data-analysis/in/MartinArevalillo2025.rds")
 
+#seurat_obj <- readRDS(file = "02-single-cell-data-analysis/in/MartinArevalillo2025.rds")
+
 DimPlot(seurat_obj)
 
 seurat_obj$orig.ident2 <- recode(
@@ -95,7 +97,7 @@ iSensors_obj <- CalcSensors(
   seurat_obj,
   seurLayer = 'data',
   panelSet = customTransPanel,
-  signals = c("mean_normed")
+  signals = c("mean", "mean_normed")
 )
 
 DimPlot(
@@ -105,15 +107,19 @@ DimPlot(
   combine = TRUE
 )
 
-DefaultAssay(iSensors_obj) <-"iSensors_mean_normed"
+DefaultAssay(iSensors_obj) <-"iSensors_mean"
+#DefaultAssay(iSensors_obj) <-"iSensors_mean_normed"
 
-isensors_list <- unlist(iSensors_obj@assays$iSensors_mean_normed@counts@Dimnames[1])
+isensors_list <- unlist(iSensors_obj@assays$iSensors_mean@counts@Dimnames[1])
+isensors_list
 
-saveRDS(iSensors_obj, file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025.rds")
+saveRDS(iSensors_obj, file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
 
 isensors_list
 #Summary all the plots
-pdf("out/Auxin/iSensors_Auxin_FeaturePlots_split.pdf", width = 12, height = 6)
+pdf("02-single-cell-data-analysis/out/iSensors_Auxin_FeaturePlots_split_mean.pdf", width = 12, height = 6)
+
+getwd()
 
 for (feat in isensors_list) {
   
@@ -195,7 +201,7 @@ ggsave("out/auxin/AuxinTreated_PAT_FeaturePlot.pdf", last_plot(), width = 4, hei
 # Compute unified limits from ALL cells (both conditions)
 
 saveRDS(iSensors_obj, file = "C:/!Victoria/!Projects/DigitalSensors/Data/Martin-Arevalillo-2025/iSensors-Martin-Arevalillo-auxin-root2025.rds")
-saveRDS(iSensors_obj, file = "C:/!Victoria/!Projects/DigitalSensors/Data/Martin-Arevalillo-2025/iSensors-Martin-Arevalillo-auxin-root2025.rds")
+saveRDS(iSensors_obj, file = "D:/!GitHub/iSensors-supplementary/02-single-cell-data-analysis/iSensors-Martin-Arevalillo-auxin-root2025.rds")
 
 # check if the data contains mTQ reporter expression
 
