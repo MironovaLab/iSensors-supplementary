@@ -31,6 +31,7 @@ meta <- iSensors_obj@meta.data %>%
   ) %>%
   filter(!is.na(condition))
 
+meta
 table(meta$sample_id, meta$condition, useNA = "ifany")
 table(meta$condition, useNA = "ifany")
 isensors_list <- unlist(iSensors_obj@assays$iSensors_mean_normed@counts@Dimnames[1])
@@ -47,19 +48,19 @@ df <- meta %>%
 sensor_meta <- tibble(iSensor = isensors_list) %>%
   mutate(
     sensor_class = case_when(
-      str_detect(iSensor, "^AT-aux-cistrans-") ~ "cistrans",
-      str_detect(iSensor, "^AT-aux-cis-")      ~ "cis",
-      str_detect(iSensor, "^AT-aux-trans-")    ~ "trans",
+      str_detect(iSensor, "^ATH-aux-reg-") ~ "reg",
+      str_detect(iSensor, "^ATH-aux-cis-")      ~ "cis",
+      str_detect(iSensor, "^ATH-aux-trans-")    ~ "trans",
       TRUE                                     ~ "other"
     ),
     sensor_label = iSensor %>%
-      str_remove("^AT-aux-cistrans-") %>%
-      str_remove("^AT-aux-cis-") %>%
-      str_remove("^AT-aux-trans-")
+      str_remove("^ATH-aux-reg-") %>%
+      str_remove("^ATH-aux-cis-") %>%
+      str_remove("^ATH-aux-trans-")
   )
 
 sensor_meta$sensor_class <- factor(sensor_meta$sensor_class,
-                                   levels = c("cis","trans","cistrans","other"))
+                                   levels = c("cis","trans","reg","other"))
 
 # Ensure consistent condition naming/order
 df <- df %>%
@@ -160,7 +161,7 @@ sample_order
 class_cols <- c(
   cis      = "#fdbf6f",
   trans    = "#ff7f00",
-  cistrans = "#b15928",
+  reg = "#b15928",
   control    = "gray"
 )
 
@@ -175,7 +176,7 @@ p_class_strip <- ggplot(sensor_meta, aes(x = 1, y = sensor_label, fill = sensor_
     plot.margin = margin(0, 0, 0, 0)
   )
 
-
+p_class_strip
 
 
 p_forest <- ggplot(res_plot, aes(x = sensor_label, y = effect)) +
@@ -206,7 +207,8 @@ p_heat <- ggplot(hm_df, aes(x = sample_id, y = sensor_label, fill = value_z)) +
     axis.title = element_blank(),
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank(),
-    axis.text.y = element_text(size = 8),
+    axis.text.y = element_text(size = 8, hjust = 0),
+#    axis.text.y = element_blank(),
     axis.line    = element_blank(),   # <<< removes axis lines
     axis.ticks.y = element_blank(),
     legend.position = "bottom",
@@ -239,7 +241,7 @@ ggsave(
 )
 
 
-#izualizing fold change heatmap
+#vizualizing fold change heatmap
 
 condition_col <- "orig.ident2"
 celltype_col  <- "Cell.Ident"   # change to "Cell.Ident" if that is what you use
@@ -360,9 +362,9 @@ p_fc_heatmap <- ggplot(hm_long, aes(x = celltype, y = iSensor, fill = effect)) +
 p_fc_heatmap
 
 
-p_final2 <- (p_heat | p_class_strip | p_forest| p_fc_heatmap) +
-  plot_layout(widths = c(1.25, 0.05, 0.60, 1))&
-  theme(plot.margin = margin(6, 6, 6, 6))
+p_final2 <- (p_fc_heatmap | p_heat | p_class_strip | p_forest) +
+  plot_layout(widths = c(1, 1.25, 0.05, 0.60))&
+  theme(plot.margin = margin(0, 6, 6, 6))
 
 
 p_final2

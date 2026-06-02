@@ -200,7 +200,7 @@ ggsave("03-single-cell-rice/out/ARF_mixedmodel_contributions_stage.pdf", plot = 
 
 
 #Per tissue and stage performance ----
-
+df_wide$resid_m2   <- resid(m2)
 organ_summary <- df_wide %>%
   group_by(Organ) %>%
   summarise(
@@ -305,26 +305,48 @@ ggsave("03-single-cell-rice/out/ARF_mixedmodel_stage.pdf", last_plot(), width = 
 #Same for tissues ----
 
 df_wide$ARF_hat_m2 <- predict(m2)
-df_wide$resid_m2   <- resid(m2)
 
-tissue_summary <- df_wide %>%
-  group_by(Tissue_Cleaned) %>%
+
+library(dplyr)
+library(stringr)
+
+df_wide2 <- df_wide %>%
+  mutate(
+    Tissue_Broad = case_when(
+      str_detect(Tissue_Cleaned, regex("epidermis|guard-cell|atrichoblast|trichoblast", ignore_case = TRUE)) ~ "Epidermis",
+      str_detect(Tissue_Cleaned, regex("vascular-cylinder|procambium|xylem|phloem|stele", ignore_case = TRUE)) ~ "Vascular",
+      str_detect(Tissue_Cleaned, regex("parenchyma", ignore_case = TRUE)) ~ "Parenchyma",
+      str_detect(Tissue_Cleaned, regex("mesophyll", ignore_case = TRUE)) ~ "Mesophyll",
+      str_detect(Tissue_Cleaned, regex("cortex", ignore_case = TRUE)) ~ "Cortex",
+      str_detect(Tissue_Cleaned, regex("endodermis|exodermis", ignore_case = TRUE)) ~ "Endodermal",
+      str_detect(Tissue_Cleaned, regex("columella|root-cap|lrc", ignore_case = TRUE)) ~ "Root cap / LRC",
+      str_detect(Tissue_Cleaned, regex("meristem|initials|proliferating", ignore_case = TRUE)) ~ "Meristematic",
+      str_detect(Tissue_Cleaned, regex("fiber|sclerenchyma", ignore_case = TRUE)) ~ "Fibers",
+      str_detect(Tissue_Cleaned, regex("tapetum|pollen|ovule|ovary|stigmata|filament|lodicule|scutellum|plumule", ignore_case = TRUE)) ~ "Reproductive",
+      str_detect(Tissue_Cleaned, regex("unknown", ignore_case = TRUE)) ~ "Unknown",
+      TRUE ~ Tissue_Cleaned
+    )
+  )
+
+tissue_summary <- df_wide2 %>%
+  group_by(Tissue_Broad) %>%
   summarise(
-    mean_resid   = mean(resid_m2),
-    median_resid = median(resid_m2),
-    sd_resid     = sd(resid_m2),
+    mean_resid   = mean(resid_m2, na.rm = TRUE),
+    median_resid = median(resid_m2, na.rm = TRUE),
+    sd_resid     = sd(resid_m2, na.rm = TRUE),
     n            = n(),
     .groups = "drop"
   ) %>%
-  # optional: keep tissues with enough samples to be stable
   filter(n >= 3) %>%
   arrange(mean_resid)
+
+tissue_summary
 
 
 #same but with the intervals ----
 rse <- summary(m2)$sigma
 
-ggplot(tissue_summary, aes(x = Tissue_Cleaned, y = mean_resid)) +
+ggplot(tissue_summary, aes(x = Tissue_Broad, y = mean_resid)) +
   
   # A2 interval (extended acceptable)
   geom_rect(
@@ -382,7 +404,51 @@ theme_classic() +
 
 ggsave("03-single-cell-rice/out/ARF_mixedmodel_tissue.pdf", last_plot(), width = 6, height = 6.0, dpi = 300)
 
+ggsave("03-single-cell-rice/out/ARF_mixedmodel_tissue.svg", last_plot(), width = 6, height = 6.0, dpi = 300)
 
+
+##no axes lables:
+ggplot(tissue_summary, aes(x = Tissue_Broad, y = mean_resid)) +
+  
+  # A2 interval (extended acceptable)
+  geom_rect(
+    ymin = -1 * rse, ymax =  1 * rse,
+    xmin = -Inf, xmax = Inf,
+    fill = "grey90", alpha = 0.6
+  ) +
+  
+  # A1 interval (core acceptable)
+  geom_rect(
+    ymin = -0.3 * rse, ymax =  0.3 * rse,
+    xmin = -Inf, xmax = Inf,
+    fill = "grey80", alpha = 0.8
+  ) +
+  
+  # zero reference
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  
+  # points and uncertainty
+  geom_point(size = 3) +
+  geom_errorbar(
+    aes(
+      ymin = mean_resid - sd_resid / sqrt(n),
+      ymax = mean_resid + sd_resid / sqrt(n)
+    ),
+    width = 0.2
+  ) +
+  
+  coord_flip() +
+  ylab("") +
+  xlab("") +
+  theme_classic()+
+  theme(
+    axis.text.y  = element_blank(),
+    axis.text.x = element_blank(),
+  )
+  
+ggsave("03-single-cell-rice/out/ARF_mixedmodel_tissue_noaxeslabels.svg", last_plot(), width = 6, height = 6.0, dpi = 300)
+write.csv(df_wide2,
+          file = "03-single-cell-rice/out/rice_residual_summary.csv")
 
 # ggplot(df_wide, aes(x = ARF_hat_m2, y = ARF)) +
 #   geom_point(alpha = 0.6) +
