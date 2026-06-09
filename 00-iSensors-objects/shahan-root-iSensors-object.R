@@ -2,7 +2,6 @@
 
 install.packages("devtools")
 devtools::install_github("MironovaLab/iSensors")
-devtools::install_github("MironovaLab/iSensors", ref = "iSensors-v1.2.0-dev")
 library(iSensors)
 library(Seurat)
 library(ggplot2)
@@ -12,32 +11,31 @@ library(patchwork)
 library(cowplot)
 set.seed(100)
 
-#subsetting and normalizing shahan data ----
+#calculating iSensors for the shahan gound truth data ----
+seurat_obj <- readRDS("D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/02_ra_integrated_Shahan_20250114.rds")
+Assays(seurat_obj)
+seurat_obj[["integrated"]] <- NULL
+seurat_obj[["ALT"]] <- NULL
 
-seurat_obj <- readRDS("D:/MyPAPERS/iSensors/Data/02_ra_integrated_Shahan_20250114.rds")
-
-meta <- seurat_obj@meta.data
-
-DimPlot(seurat_obj)
-
-#reducing the object for Spearmann analysis
 clusters_to_keep <- c("QC", "CSC", "LRP", "LRCEI", "SI", "CEI", 
-                      "Columella", "CSCD", "Young LRC", 
-                      "Protoxylem_m1", "Protoxylem_m2", "LRC", "Dying LRC", 
-                      "Procambium_m1", "Procambium_m2",
+                      "Columella", "CSCD", "Young LRC", "LRC", "Dying LRC", 
+                      "Protoxylem_m1", "Protoxylem_m2",   
+                      "Procambium_m1", "Procambium_m2", 
                       "Endodermis_m1", "Endodermis_m2",
-                      "PPP_m1","PPP_m2", "XPP_m1", "XPP_m2",
+                      "PPP_m1","PPP_m2", "XPP_m1", "XPP_m2", 
                       "Cortex_m1", "Cortex_m2", 
-                      "Atrichoblast_m1", "Trichoblast_m1", "Atrichoblast_m2", "Trichoblast_m2")
+                      "Atrichoblast_m1", "Trichoblast_m1", 
+                      "Atrichoblast_m2", "Trichoblast_m2")
 
-seurat_obj_spearman <- subset(
+seurat_obj <- subset(
   seurat_obj, 
   idents = clusters_to_keep
 )
-DimPlot(seurat_obj_spearman)
+DimPlot(seurat_obj)
 
-seurat_obj_spearman <- RenameIdents(
-  seurat_obj_spearman,
+
+seurat_obj <- RenameIdents(
+  seurat_obj,
   `PPP_m1` = "Pericycle_m1",
   `PPP_m2` = "Pericycle_m2",
   `XPP_m1` = "Pericycle_m1",
@@ -46,33 +44,126 @@ seurat_obj_spearman <- RenameIdents(
   `SI` = "Initials",
   `CEI` = "Initials"
 )
+seurat_obj$root_tip <- Idents(seurat_obj)
 
-seurat_obj_spearman$seurat_obj_spearman <- Idents(seurat_obj_spearman)
-
-DefaultAssay(seurat_obj_spearman) <- "RNA"
-seurat_obj_spearman <- NormalizeData(seurat_obj_spearman)
-seurat_obj_spearman <- FindVariableFeatures(seurat_obj_spearman, selection.method = "vst", nfeatures = 3000)
-seurat_obj_spearman <- ScaleData(seurat_obj_spearman, vars.to.regress = NULL)  # e.g., c("percent.mt","nCount_RNA")
-seurat_obj_spearman <- RunPCA(seurat_obj_spearman, npcs = 50, verbose = FALSE)
+DefaultAssay(seurat_obj) <- "RNA"
+seurat_obj <- NormalizeData(seurat_obj)
+seurat_obj <- FindVariableFeatures(seurat_obj, selection.method = "vst", nfeatures = 3000)
+seurat_obj <- ScaleData(seurat_obj, vars.to.regress = NULL)  # e.g., c("percent.mt","nCount_RNA")
+seurat_obj <- RunPCA(seurat_obj, npcs = 50, verbose = FALSE)
 dims_use <- 1:30 
 
-seurat_obj_spearman <- FindNeighbors(seurat_obj_spearman, dims = dims_use)
-seurat_obj_spearman <- FindClusters(seurat_obj_spearman, resolution = 0.4)  # try a sweep below
-seurat_obj_spearman <- RunUMAP(seurat_obj_spearman, dims = dims_use)        # or RunTSNE(seurat_obj, dims = dims_use)
+seurat_obj <- FindNeighbors(seurat_obj, dims = dims_use)
+seurat_obj <- FindClusters(seurat_obj, resolution = 0.4)  # try a sweep below
+seurat_obj <- RunUMAP(seurat_obj, dims = dims_use)        # or RunTSNE(seurat_obj, dims = dims_use)
+
+
 
 # Quick look
-DimPlot(seurat_obj_spearman, reduction = "umap", label = TRUE) + NoLegend()
+DimPlot(seurat_obj, reduction = "umap", label = TRUE) + NoLegend()
+
+ 
+ AuxinPanel <- LoadSensors(setName = 'Auxin', species = 'ATH', hormone = 'aux',
+                           customPanels = FALSE,
+                           randomInfo = list('n' = 3, 'sizes' = c(100, 200, 300), 
+                                             majortrend = TRUE))
+ 
+ iSensors_obj <- CalcSensors(
+   seurat_obj,
+   seurLayer = 'data',
+   panelSet = AuxinPanel,
+   signals = c("mean"))
+ 
+ Assays(iSensors_obj)
+ 
+ Idents(iSensors_obj) <- "root_tip"
+ 
+ saveRDS(iSensors_obj, file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan_iSensors_obj_groundtruth.rds")
+
+ 
+ 
+# shahan epidermis
+epidermis_obj <- readRDS(
+   "00-iSensors-objects/data/shahan_epidermis.rds"
+ )
+ DimPlot(epidermis_obj)
+ AuxinPanel <- LoadSensors(setName    = "Auxin",
+                             species    = "ATH",
+                             hormone    = "aux",
+                             customPanels = FALSE,
+                             randomInfo = list(n = 3, sizes = c(100, 200, 300),
+                                               majortrend = TRUE))
+ epidermis_obj <- CalcSensors(
+     epidermis_obj,
+     seurLayer = "data",
+     panelSet  = AuxinPanel,
+     signals   = "mean"
+   )
+ 
+ Assays(epidermis_obj) 
+ epidermis_obj[["integrated"]] <- NULL
+ epidermis_obj[["ALT"]] <- NULL
+ saveRDS(epidermis_obj, file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan_epidermis_iSensors_obj.rds")
+ 
+#subsetting and normalizing shahan root tip data ----
+
+seurat_obj <- readRDS("D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/02_ra_integrated_Shahan_20250114.rds")
+Assays(seurat_obj)
+# 
+seurat_obj[["integrated"]] <- NULL
+seurat_obj[["ALT"]] <- NULL
+
+meta <- seurat_obj@meta.data
+levels(meta$Atlas_new)
 
 
-Idents(seurat_obj_spearman) <- "seurat_obj_spearman"
+DimPlot(seurat_obj)
+#reducing the object for Spearmann analysis
+clusters_to_keep <- c("QC", "CSC", "LRP", "LRCEI", "SI", "CEI", 
+                      "Columella", "CSCD", "Young LRC", "C1", "LRC", "Dying LRC", 
+                      "Protoxylem_m1", "Protoxylem_m2", "Protoxylem_t",
+                      "PSE_m1", "PSE_m2", "PSE_t",
+                      "PCC_m1", "PCC_m2", "PCC_t",
+                      "Metaxylem_m1", "Metaxylem_m2", "Metaxylem_t", 
+                      "Procambium_m1", "Procambium_m2", "Procambium_t",
+                      "Endodermis_m1", "Endodermis_m2", "Endodermis_t",
+                      "PPP_m1","PPP_m2", "XPP_m1", "XPP_m2", "XPP_t", "PPP_t",
+                      "Cortex_m1", "Cortex_m2", "Cortex_t",
+                      "Atrichoblast_m1", "Trichoblast_m1", "Trichoblast_t", 
+                      "Atrichoblast_m2", "Trichoblast_m2", "Atrichoblast_t")
 
-saveRDS(seurat_obj_spearman, file = "D:/MyPAPERS/iSensors/Data/shahan_obj_spearman.rds")
+seurat_obj <- subset(
+  seurat_obj, 
+  idents = clusters_to_keep
+)
+DimPlot(seurat_obj)
+
+
+seurat_obj$root_tip <- Idents(seurat_obj)
+
+DefaultAssay(seurat_obj) <- "RNA"
+seurat_obj <- NormalizeData(seurat_obj)
+seurat_obj <- FindVariableFeatures(seurat_obj, selection.method = "vst", nfeatures = 3000)
+seurat_obj <- ScaleData(seurat_obj, vars.to.regress = NULL)  # e.g., c("percent.mt","nCount_RNA")
+seurat_obj <- RunPCA(seurat_obj, npcs = 50, verbose = FALSE)
+dims_use <- 1:30 
+
+seurat_obj <- FindNeighbors(seurat_obj, dims = dims_use)
+seurat_obj <- FindClusters(seurat_obj, resolution = 0.4)  # try a sweep below
+seurat_obj <- RunUMAP(seurat_obj, dims = dims_use)        # or RunTSNE(seurat_obj, dims = dims_use)
+
+# Quick look
+DimPlot(seurat_obj, reduction = "umap", label = TRUE) + NoLegend()
+
+
+Idents(seurat_obj) <- "root_tip"
+
+saveRDS(seurat_obj, file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan_seurat_obj_root_tip.rds")
+Assays(seurat_obj)
 
 ## calculating iSensors object
 
-seurat_obj <- readRDS("D:/MyPAPERS/iSensors/Data/shahan_obj_spearman.rds")
-seurat_obj[["integrated"]] <- NULL
-seurat_obj[["ALT"]] <- NULL
+seurat_obj <- readRDS("D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan_seurat_obj_root_tip.rds")
 
 AuxinPanel <- LoadSensors(setName = 'Auxin', species = 'ATH', hormone = 'aux',
                                 customPanels = FALSE,
@@ -90,11 +181,11 @@ Assays(iSensors_obj)
 
 
 
-saveRDS(iSensors_obj, file = "D:/!GitHub/iSensors-supplementary/00-iSensors-objects/data/shahan-iSensors-obj.rds")
+saveRDS(iSensors_obj, file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan-roottip-iSensors-obj.rds")
 
 # test iSensors object ----
 
-iSensors_obj <-readRDS(file = "D:/!GitHub/iSensors-supplementary/00-iSensors-objects/data/shahan-iSensors-obj.rds")
+iSensors_obj <-readRDS(file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan-roottip-iSensors-obj.rds")
 
 
 DefaultAssay(iSensors_obj) <- "iSensors_mean"
