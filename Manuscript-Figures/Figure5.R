@@ -6,12 +6,12 @@ library(RColorBrewer)
 library(tidyverse)
 library(scales)
 
-output_dir  <- "iSensors-supplementary/Manuscript-Figures/out"
+output_dir  <- "Manuscript-Figures/out"
 rdylbu5     <- rev(brewer.pal(n = 5, name = "RdYlBu"))
 
 # ── Load full Shahan root object (used for Figure 5A) ─────────────────────────
 # Object already contains iSensors_mean assay — no recalculation needed.
-shahan_obj <- readRDS("iSensors-supplementary/00-iSensors-objects/data/shahan-iSensors-obj.rds")
+shahan_obj <- readRDS("00-iSensors-objects/data/shahan-roottip-iSensors-obj.rds")
 DefaultAssay(shahan_obj) <- "iSensors_mean"
 
 # Print sensor names once to verify spellings used below
@@ -33,16 +33,16 @@ val <- as.numeric(ae[1, ])
 clu <- colnames(ae)
 
 clusters_bar <- c(
-  "QC", "CSC", "CSCD", "Columella", "Initials",
+  "QC", "CSC", "CSCD", "Columella", 
   "Lateral-Root-Cap",       # from "LRC"
   "Lateral-Root-Primordia", # from "LRP"
-  "Protoxylem_m1", "Protoxylem_m2",
-  "Procambium_m1", "Procambium_m2",
-  "Pericycle_m1",  "Pericycle_m2",
-  "Cortex_m1",     "Cortex_m2",
-  "Endodermis_m1", "Endodermis_m2",
-  "Atrichoblast_m1", "Atrichoblast_m2",
-  "Trichoblast_m1",  "Trichoblast_m2"
+  "Protoxylem-m1", "Protoxylem-m2",
+  "Procambium-m1", "Procambium-m2",
+  "Pericycle-m1",  "Pericycle-m2",
+  "Cortex-m1",     "Cortex-m2",
+  "Endodermis-m1", "Endodermis-m2",
+  "Atrichoblast-m1", "Atrichoblast-m2",
+  "Trichoblast-m1",  "Trichoblast-m2"
 )
 
 cluster_rename_bar <- c(
@@ -69,6 +69,8 @@ p_5a_bar <- ggplot(bar_df, aes(x = value, y = cluster)) +
         axis.line     = element_line(linewidth = 0.6),
         axis.ticks    = element_line(linewidth = 0.4),
         legend.position = "none")
+
+p_5a_bar
 
 ggsave(file.path(output_dir, "Figure5A_ARF_barplot_by_celltype.svg"),
        plot = p_5a_bar, width = 4, height = 5, dpi = 300, bg = "white")
@@ -102,27 +104,9 @@ if ("ARF" %in% rownames(avg_exp_5a[["RNA"]])) {
 # ── Figure 5B: Epidermal UMAP + FeaturePlots ─────────────────────────────────
 # Load the epidermal subset; iSensors_mean must be calculated here.
 epidermis_obj <- readRDS(
-  "iSensors-supplementary/00-iSensors-objects/data/Shahan_epidermis_020625.rds"
+  "00-iSensors-objects/data/shahan_epidermis_iSensors_obj.rds"
 )
-
-# Check if iSensors_mean already exists; calculate if not.
-if (!"iSensors_mean" %in% Assays(epidermis_obj)) {
-  message("Calculating iSensors_mean for epidermis object …")
-  AuxinPanel <- LoadSensors(setName    = "Auxin",
-                            species    = "ATH",
-                            hormone    = "aux",
-                            customPanels = FALSE,
-                            randomInfo = list(n = 3, sizes = c(100, 200, 300),
-                                              majortrend = TRUE))
-  epidermis_obj <- CalcSensors(
-    epidermis_obj,
-    seurLayer = "data",
-    panelSet  = AuxinPanel,
-    signals   = "mean"
-  )
-  message("iSensors_mean calculated. Assays: ", paste(Assays(epidermis_obj), collapse = ", "))
-}
-
+DimPlot(epidermis_obj)
 DefaultAssay(epidermis_obj) <- "iSensors_mean"
 
 # UMAP DimPlot (Figure 5B left)
@@ -132,6 +116,7 @@ p_5b_dim <- DimPlot(epidermis_obj, reduction = "umap", label = FALSE,
   theme(axis.line  = element_blank(), axis.ticks = element_blank(),
         axis.text  = element_blank(), axis.title = element_blank(),
         plot.title = element_blank())
+p_5b_dim
 
 ggsave(file.path(output_dir, "Figure5B_epidermis_DimPlot.svg"),
        plot = p_5b_dim, width = 4, height = 3, dpi = 300, bg = "white")
@@ -188,9 +173,10 @@ for (i in seq_along(sensors_5b)) {
 #
 # Option 1: If the CSV has already been generated, load it here and proceed:
 #
-epi_map_path <- "iSensors-supplementary/Manuscript-Figures/in/new_ggPlantmap_epidermis.csv"
+Idents(epidermis_obj) <- "Atlas_new"
 
-if (file.exists(epi_map_path)) {
+epi_map_path <- "Manuscript-Figures/in/new_ggPlantmap_epidermis.csv"
+
   epi_map <- read.csv(epi_map_path, stringsAsFactors = FALSE)
   epi_map$x <- as.numeric(epi_map$x)
   epi_map$y <- as.numeric(epi_map$y)
@@ -205,6 +191,18 @@ if (file.exists(epi_map_path)) {
   colnames(avg_epi_df)    <- gsub("-", "_", colnames(avg_epi_df))
 
   sensors_5c <- c("ARF", "Synthesis", "PAT")
+
+  ggPlantmap_heatmap <- function(map_data, value_col, palette = "YlOrRd",
+                                 show_legend = TRUE) {
+    ar <- (max(map_data$y) - min(map_data$y)) / (max(map_data$x) - min(map_data$x))
+    ggplot(map_data, aes(x = x, y = y)) +
+      geom_polygon(aes(group = ROI.id, fill = .data[[value_col]]),
+                   colour = "black", linewidth = 0.3, show.legend = show_legend) +
+      scale_fill_distiller(palette = palette, direction = 1, na.value = "white",
+                           name = value_col) +
+      theme_void() +
+      theme(aspect.ratio = ar, legend.position = "right")
+  }
 
   for (sensor in sensors_5c) {
     if (!sensor %in% colnames(avg_epi_df)) {
@@ -222,10 +220,3 @@ if (file.exists(epi_map_path)) {
     message("Saved Figure 5C: ", sensor)
   }
 
-} else {
-  message(
-    "Figure 5C skipped: epidermal ggPlantmap layout not found at ", epi_map_path, "\n",
-    "Run CW_scripts_all/CW_AT_T_atlas.R to generate it from the epidermal SVG,\n",
-    "then save the resulting new.ggPlantmap as:\n  ", epi_map_path
-  )
-}
