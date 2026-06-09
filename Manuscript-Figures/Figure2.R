@@ -5,7 +5,7 @@ library(RColorBrewer)
 library(scales)
 
 #iSensors object for auxin treated data was created here: iSensors-supplementary/02-single-cell-data-analysis/02-iSensors_AuxinTreatedRoot.R
-iSensors_obj <- readRDS(file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
+iSensors_obj <- readRDS(file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
 str(iSensors_obj@assays)
 
 DefaultAssay(iSensors_obj) <-"iSensors_mean"
@@ -142,7 +142,7 @@ meta <- iSensors_obj@meta.data %>%
 meta
 table(meta$sample_id, meta$condition, useNA = "ifany")
 table(meta$condition, useNA = "ifany")
-isensors_list <- unlist(iSensors_obj@assays$iSensors_mean_normed@counts@Dimnames[1])
+isensors_list <- rownames(iSensors_obj[["iSensors_mean"]])
 
 
 # Pull sensor values (works whether they are in meta.data or an assay, as long as FetchData can see them)
@@ -226,6 +226,11 @@ res_global <- pb_long %>%
   ) %>%
   arrange(p_adj, desc(abs(effect)))
 
+# Save statistics for reuse in Figure 4F arrow plot
+write.csv(res_global,
+          "iSensors-supplementary/Manuscript-Figures/in/Statistics-exo-scdata.csv",
+          row.names = FALSE)
+message("Saved Statistics-exo-scdata.csv")
 
 
 # Choose ordering; effect ordering is intuitive for a forest plot
@@ -372,7 +377,7 @@ iSensors_obj[[condition_col]][,1] <- factor(
   levels = c("Control", "Auxin")
 )
 
-assay_use <- "iSensors_mean_normed"  # change if your p_final uses another assay
+assay_use <- "iSensors_mean"
 DefaultAssay(iSensors_obj) <- assay_use
 
 avg_list <- AverageExpression(
