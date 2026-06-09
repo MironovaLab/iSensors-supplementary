@@ -7,13 +7,14 @@ library(circlize)
 library(ComplexHeatmap)
 library(tidyverse)
 library(ggrepel)
+library(ggPlantmap)
 
 getwd()
 # output directory
-output_dir <- "D:/!GitHub/iSensors-supplementary/Manuscript-Figures/out"
+output_dir <- "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/Manuscript-Figures/out"
 
 
-iSensors_obj <-readRDS(file = "D:/!GitHub/iSensors-supplementary/00-iSensors-objects/data/shahan-iSensors-obj.rds")
+iSensors_obj <-readRDS(file = "D:/!GitHub/iSensors-supplementary/00-iSensors-objects/data/shahan-iSensors-obj-groundtruth.rds")
 
 DimPlot(iSensors_obj)
 iSensors_obj@active.ident
@@ -142,538 +143,372 @@ ggsave(file_path, plot = p,
        width = 4, height = 6, dpi = 300)
 
 
+# figure 4A -----
+# Conceptual diagram — not generated in R.
+
+# ── Shared setup ──────────────────────────────────────────────────────────────
+library(stringr)
+library(dplyr)
+
+# Print all available sensor names so you can verify name spellings below
+message("Available iSensors in iSensors_mean assay:")
+print(rownames(iSensors_obj[["iSensors_mean"]]))
 
 
 
 
+# Ground truth auxin rank per cell type (Petersson et al. 2009; Brunoud et al. 2012)
+# QC = rank 1 (highest endogenous auxin), outer epidermis = rank 12 (lowest)
+# "Dying LRC" is excluded — no clear rank in the literature.
+auxin_rank <- c(
+  "QC"              = 1,
+  "CSC"             = 2,
+  "LRP"             = 2,
+  "Columella"       = 3,
+  "CSCD"            = 3,
+  "Young LRC"       = 3,
+  "Initials"        = 4,
+  "Protoxylem-m1"   = 5,
+  "LRC"             = 6,
+  "Protoxylem-m2"   = 6,
+  "Procambium-m1"   = 7,
+  "Procambium-m2"   = 7,
+  "Endodermis-m1"   = 8,
+  "Pericycle-m1"    = 8,
+  "Endodermis-m2"   = 9,
+  "Pericycle-m2"    = 9,
+  "Cortex-m1"       = 10,
+  "Cortex-m2"       = 10,
+  "Atrichoblast-m1" = 11,
+  "Trichoblast-m1"  = 11,
+  "Atrichoblast-m2" = 12,
+  "Trichoblast-m2"  = 12
+)
+
+# Average iSensor signal per cluster (slot = "data" matches how the object was created)
+
+DefaultAssay(iSensors_obj) <- "iSensors_mean"
+avg_exp  <- AverageExpression(iSensors_obj, assays = "iSensors_mean", slot = "data",
+                              verbose = FALSE)
+avg_mat  <- avg_exp[["iSensors_mean"]]
+
+# Filter to clusters present in both the object and the ground truth rank
+shared_clusters <- intersect(names(auxin_rank), colnames(avg_mat))
+mat_filt        <- avg_mat[, shared_clusters, drop = FALSE]
+gt_rank         <- auxin_rank[shared_clusters]
 
 
+# ── Figure 4C: Spearman scatter plots for selected iSensors ───────────────────
+# Verify/adjust these names against the printed list above if needed.
+sensors_4c <- c(
+  "ATH-aux-trans-ARF",
+  "ATH-aux-trans-Synthesis",
+  "ATH-aux-trans-PolarAuxinTransport",  # PAT panel
+  "ATH-aux-trans-IAA"                # AuxIAA; may also be "ATH-aux-trans-IAA"
+)
+
+for (feat in sensors_4c) {
+  if (!feat %in% rownames(mat_filt)) {
+    message("Sensor not found: ", feat, " — skipping (check rownames above)")
+    next
+  }
+
+  sensor_vals <- as.numeric(mat_filt[feat, ])
+  sensor_rank <- rank(-sensor_vals, ties.method = "average")
+
+  rho_test   <- cor.test(sensor_rank, gt_rank, method = "spearman", exact = FALSE)
+  rho_val    <- round(rho_test$estimate, 3)
+  clean_name <- gsub("^ATH-aux-[^-]+-", "", feat)
+
+  plot_df <- data.frame(
+    ground_truth = gt_rank,
+    predicted    = sensor_rank,
+    cell_type    = shared_clusters
+  )
+
+  p <- ggplot(plot_df, aes(x = ground_truth, y = predicted)) +
+    geom_point(color = "#1f78b4", size = 3) +
+    geom_smooth(method = "lm", color = "grey60", se = FALSE) +
+    scale_x_continuous(breaks = seq(2, 12, by = 2)) +
+    labs(x = "Ground truth rank", y = "Predicted rank, iSensors",
+         title = clean_name) +
+    annotate("text",
+             x = max(gt_rank) * 0.85, y = max(sensor_rank) * 0.95,
+             label = paste("Rho =", rho_val), size = 4) +
+    NoLegend() +
+    theme_minimal() +
+    theme(panel.grid = element_blank(), axis.line = element_line(),
+          axis.ticks = element_line(), plot.title = element_text(size = 10))
+
+  filename <- file.path(output_dir, paste0("Figure4C_", clean_name, "_spearman.svg"))
+  ggsave(filename, plot = p, width = 4, height = 3, dpi = 300)
+  message("Saved: ", filename)
+}
 
 
-# comparing significance levels figure 2G ----
+# ── Figure 4D: Rho bar plot for all iSensors ─────────────────────────────────
+all_sensors <- rownames(mat_filt)
 
-library(ggrepel)
-# import data
-exo_1 <- read.delim("D:/!GitHub/DigitalSensor-Toolbox/in/PerformanceTest1_mean_normed_corrData_2.txt", 
-                    header = TRUE)
+spearman_list <- lapply(all_sensors, function(feat) {
+  vals <- as.numeric(mat_filt[feat, ])
+  rk   <- rank(-vals, ties.method = "average")
+  test <- cor.test(rk, gt_rank, method = "spearman", exact = FALSE)
+  data.frame(panel = feat, rho = as.numeric(test$estimate),
+             p_value = test$p.value, stringsAsFactors = FALSE)
+})
+spearman_df <- bind_rows(spearman_list)
 
-exo_3 <- read.delim("D:/!GitHub/DigitalSensor-Toolbox/in/PerformanceTest3_mean_normed_corrData_2.txt", 
-                    header = TRUE)
-
-endo <- read.csv("D:/!GitHub/DigitalSensor-Toolbox/in/v0.4_rho_values.csv",
-                 header = TRUE)
-endo$panel <- gsub("cist-", "cis-", endo$panel)
-
-endo <- endo %>%
+spearman_df <- spearman_df %>%
   mutate(
-    cleanpanel = str_replace(panel, "AT-aux-[^-]+-", "")
-  )
+    reg_class = case_when(
+      str_detect(panel, "reg") ~ "reg",
+      str_detect(panel, "cis")      ~ "cis",
+      str_detect(panel, "trans")    ~ "trans",
+      TRUE                          ~ "other"
+    ),
+    clean_panel = str_replace(panel, "^ATH-aux-[^-]+-", ""),
+    clean_panel = str_replace(clean_panel, "PolarAuxinTransport", "PAT"),
+    significance = if_else(rho > 0.5 & p_value < 0.05,
+                           "significant", "not significant")
+  ) %>%
+  arrange(rho) %>%
+  mutate(clean_panel = factor(clean_panel, levels = unique(clean_panel)))
 
-# make rownames into panel column
-exo_1$panel <- rownames(exo_1)
-exo_3$panel <- rownames(exo_3)
+write.csv(spearman_df,
+          file.path(output_dir, "Figure4D_spearman_sc-endo.csv"),
+          row.names = FALSE)
 
-# Standardize panel names in exo
-colnames(exo_1)[colnames(exo_1) == "Panel"] <- "panel"
-exo_1$panel <- gsub("_", "-", exo_1$panel)
+barPlot_4d <- ggplot(spearman_df,
+                     aes(x = rho, y = clean_panel, fill = reg_class,
+                         alpha = significance)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c(cis   = "#fdbf6f", trans = "#ff7f00",
+                                reg   = "#b15928", other = "gray")) +
+  scale_alpha_manual(values = c("significant" = 1, "not significant" = 0.3)) +
+  geom_vline(xintercept = 0, linewidth = 0.4, color = "grey40") +
+  geom_vline(xintercept = 0.5, linewidth = 0.4, linetype = "dashed",
+             color = "grey40") +
+  scale_x_continuous(breaks = seq(-0.5, 1, by = 0.1)) +
+  labs(x = "Spearman correlation (Rho)", y = NULL, fill = "iSensor type") +
+  guides(fill = guide_legend(order = 1), alpha = guide_legend(order = 2)) +
+  theme_minimal() +
+  theme(panel.grid  = element_blank(),
+        axis.text.y = element_text(size = 7),
+        axis.line.x = element_line())
 
-colnames(exo_3)[colnames(exo_3) == "Panel"] <- "panel"
-exo_3$panel <- gsub("_", "-", exo_3$panel)
-
-# Rename columns in exo
-colnames(exo_1)[colnames(exo_1) == "all_corr"] <- "exo_rho"
-colnames(exo_1)[colnames(exo_1) == "all_pval"] <- "exo_p"
-
-colnames(exo_3)[colnames(exo_3) == "all_corr"] <- "exo_rho"
-colnames(exo_3)[colnames(exo_3) == "all_pval"] <- "exo_p"
-
-# Rename columns in endo
-colnames(endo)[colnames(endo) == "rho.rho"] <- "endo_rho"
-colnames(endo)[colnames(endo) == "p_value"] <- "endo_p"
-
-# Merge the data frames
-exo_1_endo <- merge(exo_1, endo, by = "panel", all.x = TRUE)
-exo_1_endo_rel <- exo_1_endo[, c("panel", "exo_rho", "exo_p", "endo_rho", "endo_p")]
-
-exo_3_endo <- merge(exo_3, endo, by = "panel", all.x = TRUE)
-exo_3_endo_rel <- exo_3_endo[, c("panel", "exo_rho", "exo_p", "endo_rho", "endo_p")]
-
-# as numeric
-exo_1_endo_rel$exo_rho <- as.numeric(exo_1_endo_rel$exo_rho)
-exo_1_endo_rel$exo_p <- as.numeric(exo_1_endo_rel$exo_p)
-exo_1_endo_rel$endo_rho <- as.numeric(exo_1_endo_rel$endo_rho)
-exo_1_endo_rel$endo_p <- as.numeric(exo_1_endo_rel$endo_p)
-
-exo_3_endo_rel$exo_rho <- as.numeric(exo_3_endo_rel$exo_rho)
-exo_3_endo_rel$exo_p <- as.numeric(exo_3_endo_rel$exo_p)
-exo_3_endo_rel$endo_rho <- as.numeric(exo_3_endo_rel$endo_rho)
-exo_3_endo_rel$endo_p <- as.numeric(exo_3_endo_rel$endo_p)
-
-# Take log of p-values
-exo_1_endo_rel$exo_logp <- -log10(exo_1_endo_rel$exo_p)
-exo_1_endo_rel$endo_logp <- -log10(exo_1_endo_rel$endo_p)
-
-exo_3_endo_rel$exo_logp <- -log10(exo_3_endo_rel$exo_p)
-exo_3_endo_rel$endo_logp <- -log10(exo_3_endo_rel$endo_p)
-
-# Assign color groups based on significance
-exo_1_endo_rel$color_rho <- case_when(
-  exo_1_endo_rel$exo_rho > 0.5 & exo_1_endo_rel$endo_rho > 0.5 ~ "Both significant",
-  exo_1_endo_rel$exo_rho > 0.5 ~ "Significant, exogenous",
-  exo_1_endo_rel$endo_rho > 0.5 ~ "Significant, endogenous",
-  TRUE ~ "Not significant"
-)
-
-exo_1_endo_rel$color_p_log <- case_when(
-  exo_1_endo_rel$exo_logp > -log10(0.05) & exo_1_endo_rel$endo_logp > -log10(0.05) ~ "Both significant",
-  exo_1_endo_rel$exo_logp > -log10(0.05) ~ "Significant, exogenous",
-  exo_1_endo_rel$endo_logp > -log10(0.05) ~ "Significant, endogenous",
-  TRUE ~ "Not significant"
-)
-
-exo_3_endo_rel$color_rho <- case_when(
-  exo_3_endo_rel$exo_rho > 0.5 & exo_3_endo_rel$endo_rho > 0.5 ~ "Both significant",
-  exo_3_endo_rel$exo_rho > 0.5 ~ "Significant, exogenous",
-  exo_3_endo_rel$endo_rho > 0.5 ~ "Significant, endogenous",
-  TRUE ~ "Not significant"
-)
-
-exo_3_endo_rel$color_p_log <- case_when(
-  exo_3_endo_rel$exo_logp > -log10(0.05) & exo_3_endo_rel$endo_logp > -log10(0.05) ~ "Both significant",
-  exo_3_endo_rel$exo_logp > -log10(0.05) ~ "Significant, exogenous",
-  exo_3_endo_rel$endo_logp > -log10(0.05) ~ "Significant, endogenous",
-  TRUE ~ "Not significant"
-)
-
-# cleanpanel join
-exo_1_endo_rel <- exo_1_endo_rel %>%
-  left_join(endo %>% select(panel, cleanpanel), by = "panel")
-
-exo_3_endo_rel <- exo_3_endo_rel %>%
-  left_join(endo %>% select(panel, cleanpanel), by = "panel")
-
-# Rename cleanpanel values
-exo_1_endo_rel$cleanpanel <- recode(exo_1_endo_rel$cleanpanel,
-                                    "R2D2" = "Response",
-                                    "R2D2v2" = "Response2",
-                                    "R2D2v3" = "Response3",
-                                    "R2D2v4" = "Response4",
-                                    "R2D2v5" = "Response5",
-                                    "R2D2v6" = "Response6",
-                                    "EffluxInflux" = "PAT")
-exo_3_endo_rel$cleanpanel <- recode(exo_3_endo_rel$cleanpanel,
-                                    "R2D2" = "Response",
-                                    "R2D2v2" = "Response2",
-                                    "R2D2v3" = "Response3",
-                                    "R2D2v4" = "Response4",
-                                    "R2D2v5" = "Response5",
-                                    "R2D2v6" = "Response6",
-                                    "EffluxInflux" = "PAT")
-
-# Plot scale
-x_limits <- c(0, 13)
-y_limits <- c(0, 7)
-x_breaks <- seq(0, 13, by = 1)
-y_breaks <- seq(0, 7, by = 1)
+barPlot_4d
+ggsave(file.path(output_dir, "Figure4D_spearman_barplot.svg"),
+       plot = barPlot_4d, width = 8, height = 10, dpi = 300)
+ggsave(file.path(output_dir, "Figure4D_spearman_barplot.pdf"),
+       plot = barPlot_4d, width = 8, height = 10, dpi = 300)
 
 
+# ── Figure 4E & 4H: Realistic root layouts with ggRootCellAtlas ──────────────
 
-p1 <- ggplot(
-  exo_1_endo_rel,
-  aes(x = exo_logp, y = endo_logp, color = color_rho, shape = color_p_log)
-) +
-  geom_point(size = 3) +
-  scale_color_manual(values = c(
-    "Both significant" = "#1f78b4",
-    "Significant, exogenous" = "#33a02c",
-    "Significant, endogenous" = "#e31a1c",
-    "Not significant" = "gray70"
-  )) +
-  scale_shape_manual(values = c(
-    "Both significant" = 15,  # square
-    "Significant, exogenous" = 19,
-    "Significant, endogenous" = 17,
-    "Not significant" = 18
-  )) +
-  # LABELS driven by p-significance
-  geom_text_repel(
-    data = subset(exo_1_endo_rel, color_p_log == "Both significant"),
-    aes(x = exo_logp, y = endo_logp, label = cleanpanel),  # <- supply x & y
-    inherit.aes = FALSE,
-    color = "gray40",
-    size = 4,
-    max.overlaps = 100
-  ) +
-  scale_x_continuous(breaks = x_breaks, limits = x_limits) +
-  scale_y_continuous(breaks = y_breaks, limits = y_limits) +
-  # Clean background, keep axes, bigger fonts
-  theme_classic(base_size = 16) +
-  theme(
-    axis.line   = element_line(linewidth = 0.6),  # <- linewidth, not size
-    axis.ticks  = element_line(linewidth = 0.4),
-    legend.title = element_text(size = 14),
-    legend.text  = element_text(size = 12)
-  ) +
-  labs(
-    x = expression(-log[10]("Exogenous concentration, p-value")),
-    y = expression(-log[10]("Endogenous concentration, p-value")),
-    color = "rho",
-    shape = "p-value"
-  )
-
-p1
-
-file_path <- file.path(output_dir, "exo1-endo-comparison.svg")
-
-ggsave(file_path, plot = p1, width = 7, height = 5, dpi = 300, bg = "white")
-
-
-# Plot for exo_3_endo_rel
-p3 <- ggplot(
-  exo_3_endo_rel,
-  aes(x = exo_logp, y = endo_logp, color = color_rho, shape = color_p_log)
-) +
-  geom_point(size = 3) +
-  scale_color_manual(values = c(
-    "Both significant" = "#1f78b4",
-    "Significant, exogenous" = "#33a02c",
-    "Significant, endogenous" = "#e31a1c",
-    "Not significant" = "gray70"
-  )) +
-  scale_shape_manual(values = c(
-    "Both significant" = 15,  # square
-    "Significant, exogenous" = 19,
-    "Significant, endogenous" = 17,
-    "Not significant" = 18
-  )) +
-  # LABELS driven by p-significance
-  geom_text_repel(
-    data = subset(exo_3_endo_rel, color_p_log == "Both significant"),
-    aes(x = exo_logp, y = endo_logp, label = cleanpanel),  # <- supply x & y
-    inherit.aes = FALSE,
-    color = "gray40",
-    size = 4,
-    max.overlaps = 100
-  ) +
-  scale_x_continuous(breaks = x_breaks, limits = x_limits) +
-  scale_y_continuous(breaks = y_breaks, limits = y_limits) +
-  # Clean background, keep axes, bigger fonts
-  theme_classic(base_size = 16) +
-  theme(
-    axis.line   = element_line(linewidth = 0.6),  # <- linewidth, not size
-    axis.ticks  = element_line(linewidth = 0.4),
-    legend.title = element_text(size = 14),
-    legend.text  = element_text(size = 12)
-  ) +
-  labs(
-    x = expression(-log[10]("Exogenous duration, p-value")),
-    y = expression(-log[10]("Endogenous concentration, p-value")),
-    color = "rho",
-    shape = "p-value"
-  )
-
-p3
-file_path <- file.path(output_dir, "exo3-endo-comparison.svg")
-
-ggsave(file_path, plot = p3, width = 7, height = 5, dpi = 300, bg = "white")
-
-##############################
-# Define R2D2 versions (after recoding)
-R2D2_versions <- c("Response", "Response2", "Response3", "Response4", "Response5", "Response6")
-
-# Filter R2D2 only and non-R2D2 panels for exo_1_endo_rel
-exo_1_R2D2 <- exo_1_endo_rel %>% filter(cleanpanel %in% R2D2_versions)
-exo_1_nonR2D2 <- exo_1_endo_rel %>% filter(!cleanpanel %in% R2D2_versions)
-
-# Filter R2D2 only and non-R2D2 panels for exo_3_endo_rel
-exo_3_R2D2 <- exo_3_endo_rel %>% filter(cleanpanel %in% R2D2_versions)
-exo_3_nonR2D2 <- exo_3_endo_rel %>% filter(!cleanpanel %in% R2D2_versions)
-
-# Function for R2D2 plots
-plot_logp_R2D2 <- function(data) {
-  ggplot(data, aes(x = exo_logp, y = endo_logp, color = color_rho, shape = color_p_log)) +
-    geom_point(size = 3) +
-    scale_color_manual(values = c(
-      "Both significant" = "#1f78b4",
-      "Significant for exogenous data" = "#33a02c",
-      "Significant for endogenous data" = "#e31a1c",
-      "Other" = "gray70"
-    )) +
-    scale_shape_manual(values = c(
-      "Both significant" = 15,
-      "Significant for exogenous data" = 19,
-      "Significant for endogenous data" = 17,
-      "Other" = 18
-    )) +
-    geom_text_repel(
-      aes(label = cleanpanel),
-      size = 3,
-      max.overlaps = 10
-    ) +
-    scale_x_continuous(breaks = x_breaks, limits = x_limits) +
-    scale_y_continuous(breaks = y_breaks, limits = y_limits) +
-    theme_minimal() +
-    labs(
-      x = expression(-log[10]("Exogenous auxin p-value")),
-      y = expression(-log[10]("Endogenous auxin p-value")),
-      color = "rho significance",
-      shape = "p significance"
-    )
+if (!requireNamespace("ggPlantmap", quietly = TRUE)) {
+  devtools::install_github("leonardojo/ggPlantmap")
+} else {
+  message("ggPlantmap is already installed")
 }
 
-# Function for non-R2D2 plots
-plot_logp_nonR2D2 <- function(data) {
-  ggplot(data, aes(x = exo_logp, y = endo_logp, color = color_rho, shape = color_p_log)) +
-    geom_point(size = 3) +
-    scale_color_manual(values = c(
-      "Both significant" = "#1f78b4",
-      "Significant for exogenous data" = "#33a02c",
-      "Significant for endogenous data" = "#e31a1c",
-      "Other" = "gray70"
-    )) +
-    scale_shape_manual(values = c(
-      "Both significant" = 15,
-      "Significant for exogenous data" = 19,
-      "Significant for endogenous data" = 17,
-      "Other" = 18
-    )) +
-    geom_text_repel(
-      data = subset(data, color_rho %in% c("Both significant", "Significant for endogenous data")),
-      aes(label = cleanpanel),
-      size = 3,
-      max.overlaps = 10
-    ) +
-    scale_x_continuous(breaks = x_breaks, limits = x_limits) +
-    scale_y_continuous(breaks = y_breaks, limits = y_limits) +
-    theme_minimal() +
-    labs(
-      x = expression(-log[10]("Exogenous auxin p-value")),
-      y = expression(-log[10]("Endogenous auxin p-value")),
-      color = "rho significance",
-      shape = "p significance"
-    )
+#devtools::install_github("MariaSavina91/ggRootCellAtlas", force = TRUE)
+
+if (!requireNamespace("ggRootCellAtlas", quietly = TRUE)) {
+  devtools::install_github("MariaSavina91/ggRootCellAtlas")
+} else {
+  message("ggRootCellAtlas is already installed")
+}
+library(ggRootCellAtlas)
+
+# This does not work yet!!! Correct data is missing...
+
+iSensors_obj <- readRDS("D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan-roottip-iSensors-obj.rds")
+Assays(iSensors_obj)
+DefaultAssay(iSensors_obj)<- "iSensors_mean"
+avg_exp  <- AverageExpression(iSensors_obj, assays = "iSensors_mean", slot = "data",
+                              verbose = FALSE)
+avg_mat_rrca  <- avg_exp[["iSensors_mean"]]
+
+rownames(avg_mat_rrca) <- gsub("^ATH-aux-[^-]+-", "", rownames(avg_mat_rrca))
+rownames(avg_mat_rrca) <- gsub("PolarAuxinTransport", "PAT", rownames(avg_mat_rrca))
+avg_exp_rrca <- list(RNA = avg_mat_rrca)
+
+message("Sensor names available for root atlas plots:")
+print(rownames(avg_exp_rrca[["RNA"]]))
+
+# Figure 4E: five sensors shown in the manuscript
+# Adjust names below if they differ from the printed list above.
+sensors_4e <- c("Receptors", "PAT", "Synthesis", "IAA", "majortrend")
+
+for (sensor in sensors_4e) {
+  if (!sensor %in% rownames(avg_exp_rrca[["RNA"]])) {
+    message("Sensor not found for 4E: ", sensor,
+            " — available: ", paste(rownames(avg_exp_rrca[["RNA"]]), collapse = ", "))
+    next
+  }
+  vals <- as.numeric(avg_exp_rrca[["RNA"]][sensor, ])
+  c2   <- quantile(vals[is.finite(vals)], 0.98, na.rm = TRUE)
+
+  p <- ggRootCellAtlas_expression(avg_exp_rrca, sensor)
+  ggsave(file.path(output_dir, paste0("Figure4E_", sensor, "_root.pdf")),
+         plot = p, width = 6, height = 4, dpi = 300)
+  ggsave(file.path(output_dir, paste0("Figure4E_", sensor, "_root.svg")),
+         plot = p, width = 6, height = 4, dpi = 300)
+  message("Saved Figure 4E: ", sensor)
 }
 
-# Create and save the four plots
-ggsave("Shahan/REDO_counts/exo_1_R2D2.png", plot = plot_logp_R2D2(exo_1_R2D2), width = 7, height = 5, dpi = 300, bg = "white")
-ggsave("Shahan/REDO_counts/exo_1_nonR2D2.png", plot = plot_logp_nonR2D2(exo_1_nonR2D2), width = 7, height = 5, dpi = 300, bg = "white")
-ggsave("Shahan/REDO_counts/exo_3_R2D2.png", plot = plot_logp_R2D2(exo_3_R2D2), width = 7, height = 5, dpi = 300, bg = "white")
-ggsave("Shahan/REDO_counts/exo_3_nonR2D2.png", plot = plot_logp_nonR2D2(exo_3_nonR2D2), width = 7, height = 5, dpi = 300, bg = "white")
+# Figure 4H: ARF iSensor on root layout
+if ("ARF" %in% rownames(avg_exp_rrca[["RNA"]])) {
+  vals_arf <- as.numeric(avg_exp_rrca[["RNA"]]["ARF", ])
+  c2_arf   <- quantile(vals_arf[is.finite(vals_arf)], 0.98, na.rm = TRUE)
 
-
-#Figure 3A epidermis ----
-
-assay_name <- "iSensor_mean_normed"
-feature <- "R2D2v2"
-
-ae <- AverageExpression(iSensors_obj, assays = assay_name, features = feature, slot = "data", verbose = FALSE)[[assay_name]]
-
-ae <- as.matrix(ae)                      # coerce if it’s a vector/data.frame
-
-# Use the first (and only) row
-val <- as.numeric(ae[1, ])
-clu <- colnames(ae)
-stopifnot(length(val) == length(clu))
-
-df <- tibble(cluster = clu, value = val) %>%
-  arrange(desc(value)) %>%                                 # largest on top
-  mutate(cluster = factor(cluster, levels = rev(cluster))) # order y-axis
-
-# Horizontal bar “heatmap”: clusters on Y, value on X (log scale)
-library(scales)
-p <- ggplot(df, aes(x = value, y = cluster)) +
-  geom_col(width = 0.7, fill = "#fdbf6f") +        # fixed bar color
-  scale_x_continuous(
-    trans  = scales::log1p_trans(),                # log(1+x)
-    breaks = scales::pretty_breaks(n = 3)
-  ) +
-  labs(x = "Average expression (log1p scale)", y = NULL) +  # no y-axis title
-  theme_classic(base_size = 14) +
-  theme(
-    panel.grid = element_blank(),
-    axis.line  = element_line(linewidth = 0.6),
-    axis.ticks = element_line(linewidth = 0.4),
-    legend.position = "none"                       # hide any legend
-  )
-
-p
-
-p <- ggplot(df, aes(x = value, y = cluster)) +
-  geom_col(width = 0.7, fill = "#fdbf6f") +
-  scale_x_continuous(
-    trans   = scales::log1p_trans(),
-    breaks  = scales::breaks_pretty(n = 2),            # fewer ticks
-    guide   = guide_axis(n.dodge = 2),                 # dodge if still tight
-    expand  = expansion(mult = c(0, 0.02))
-  ) +
-  labs(x = NULL, y = NULL) +
-  theme_classic(base_size = 14) +
-  theme(
-    panel.grid   = element_blank(),
-    axis.line    = element_line(linewidth = 0.6),
-    axis.ticks   = element_line(linewidth = 0.4),
-    legend.position = "none"
-  )
-
-p
-file_path <- file.path(output_dir, "Response2_barplot_epidermis.svg")
-
-ggsave(file_path, plot = p, width = 4, height = 5, dpi = 300, bg = "white")
+  p_4h <- ggRootCellAtlas_expression(avg_exp_rrca, "ARF", c1 = 0, c2 = c2_arf)
+  ggsave(file.path(output_dir, "Figure4H_ARF_root.pdf"),
+         plot = p_4h, width = 6, height = 4, dpi = 300)
+  ggsave(file.path(output_dir, "Figure4H_ARF_root.svg"),
+         plot = p_4h, width = 6, height = 4, dpi = 300)
+  message("Saved Figure 4H")
+}
 
 
 
-#Figure 3B -----
-in_path <- "E:/Users/Maria/Genetic sensor paper/Genetic sensor paper/"
-seurat_obj <- readRDS(paste0(in_path, "ra_integrated_Shahan_20250114.rds"))
 
-meta.data <- seurat_obj@meta.data
+# ── Figure 4F: Summary performance across benchmarks (arrow plot) ─────────────
+# This panel requires statistics CSV files in iSensors-supplementary/Manuscript-Figures/in/:
+#   - 2026-06-03_PerformanceTest1_stat.csv  (bulk Spearman — concentration)
+#   - 2026-06-03_PerformanceTest3_stat.csv  (bulk Spearman — duration)
+#   - Statistics-exo-scdata.csv             (exogenous sc-data; generated by Figure2.R)
+# The sc-endo Spearman is taken directly from spearman_df computed above.
 
+in_dir_stats <- "iSensors-supplementary/Manuscript-Figures/in"
 
-Idents(seurat_obj)<- factor(seurat_obj[["CellTypes", drop = TRUE]])
-DimPlot(seurat_obj)
-#exploring original annotation ----
+polish_name <- function(x) {
+  x <- gsub("^ATH-aux-cistrans-|^ATH-aux-cis-|^ATH-aux-trans-|^ATH-aux-reg-", "", x)
+  x <- gsub("^AT-aux-cistrans-|^AT-aux-cis-|^AT-aux-trans-|^AT-aux-reg-",     "", x)
+  gsub("PolarAuxinTransport", "PAT", x)
+}
 
-clusters_to_keep <- c("Epidermis")
+read_stat_file <- function(path) {
+  df <- tryCatch(read.csv(path, stringsAsFactors = FALSE), error = function(e) NULL)
+  if (is.null(df)) {
+    message("Could not read: ", path)
+    return(NULL)
+  }
+  # Ensure first or second column is the iSensor name
+  if (!any(tolower(names(df)) == "isensor")) df <- df[, -1, drop = FALSE]
+  names(df)[1] <- "iSensor"
+  df$iSensor <- polish_name(df$iSensor)
+  df
+}
 
-cells <- WhichCells(seurat_obj, idents = clusters_to_keep)
-obj_sub <- subset(seurat_obj, cells = cells)
+bulk_conc <- read_stat_file(file.path(in_dir_stats, "2026-06-03_PerformanceTest1_stat.csv"))
+bulk_dur  <- read_stat_file(file.path(in_dir_stats, "2026-06-03_PerformanceTest3_stat.csv"))
+sc_exo    <- read_stat_file(file.path(in_dir_stats, "Statistics-exo-scdata.csv"))
+sc_endo_raw <- read.csv(file.path(in_dir_stats, "Figure4D_spearman_sc-endo.csv"),
+                       stringsAsFactors = FALSE)
+sc_endo <- sc_endo_raw %>%
+  transmute(iSensor  = gsub("PolarAuxinTransport", "PAT", clean_panel),
+            rho_endo = rho,
+            p_endo   = p_value)
+sc_endo$iSensor <- as.character(sc_endo$iSensor)
 
-DimPlot(obj_sub)
+# Keep only sensors with rho_endo > 0.5 (the significant ones shown in 4F)
+sig_sensors <- sc_endo$iSensor[sc_endo$rho_endo > 0.5 & sc_endo$p_endo < 0.05]
 
-obj_sub <- NormalizeData(obj_sub)
-obj_sub <- FindVariableFeatures(obj_sub)
-obj_sub <- ScaleData(obj_sub)
-obj_sub<- RunPCA(obj_sub)
-obj_sub <- FindNeighbors(obj_sub, dims = 1:20)
-obj_sub <- FindClusters(obj_sub, resolution = 1)  # adjust as needed
-obj_sub <- RunUMAP(obj_sub, dims = 1:50)
-DimPlot(obj_sub, reduction = "umap", label = TRUE, label.size = 5)
+if (length(sig_sensors) > 0 && !is.null(bulk_conc) && !is.null(bulk_dur) && !is.null(sc_exo)) {
 
-exclude_clusters <- c("16", "22", "25")
-obj_sub <- subset(obj_sub, idents = exclude_clusters, invert = TRUE)
+  # Identify relevant columns — adjust column names if they differ in your files
+  # bulk_conc: Rho column + p-value column
+  # bulk_dur:  Rho column + p-value column
+  # sc_exo:    effect/estimate column + adj p-value column
+  # Merge all into one long table keyed on iSensor
+  merged_stats <- sc_endo %>%
+    filter(iSensor %in% sig_sensors)
 
-obj_sub <- NormalizeData(obj_sub)
-obj_sub <- FindVariableFeatures(obj_sub)
-obj_sub <- ScaleData(obj_sub)
-obj_sub<- RunPCA(obj_sub)
-obj_sub <- FindNeighbors(obj_sub, dims = 1:20)
-obj_sub <- FindClusters(obj_sub, resolution = 0.5)  # adjust as needed
-obj_sub <- RunUMAP(obj_sub, dims = 1:50)
-DimPlot(obj_sub, reduction = "umap", label = TRUE, label.size = 5)
+  # Build long-format arrow table
+  metric_list <- list()
 
-obj_sub <- RenameIdents(
-  obj_sub,
-  `0`  = "T",  `15` = "T",  `4`  = "T",  `11` = "T",  `10` = "T",  `2` = "T",  `3` = "T",
-  `1`  = "AT", `14` = "AT", `13` = "AT", `6`  = "AT", `7`  = "AT", `9` = "AT", `5` = "AT",
-  `8`  = "T_AT", `12` = "T_AT"
-)
+  # Helper: prefer BH-adjusted p; fall back to raw p column
+  pick_p_col <- function(nms) {
+    adj <- grep("^BH[0-9]|p_adj|padj|\\.adj", nms, ignore.case = TRUE, value = TRUE)
+    if (length(adj)) return(adj[1])
+    grep("^p[0-9]|p\\.val|p_val|pval", nms, ignore.case = TRUE, value = TRUE)[1]
+  }
 
-# (optional) set the order of the new identities
-Idents(obj_sub) <- factor(Idents(obj_sub), levels = c("T", "AT", "T_AT"))
+  if (!is.null(bulk_conc)) {
+    rho_col <- grep("^Rho|^rho|estimate", names(bulk_conc), value = TRUE)[1]
+    p_col   <- pick_p_col(names(bulk_conc))
+    if (!is.na(rho_col)) {
+      tmp <- bulk_conc[bulk_conc$iSensor %in% sig_sensors, c("iSensor", rho_col, p_col)]
+      names(tmp) <- c("iSensor", "value", "pval")
+      tmp$metric <- "bulk_conc"
+      metric_list[["bulk_conc"]] <- tmp
+    }
+  }
+  if (!is.null(bulk_dur)) {
+    rho_col <- grep("^Rho|^rho|estimate", names(bulk_dur), value = TRUE)[1]
+    p_col   <- pick_p_col(names(bulk_dur))
+    if (!is.na(rho_col)) {
+      tmp <- bulk_dur[bulk_dur$iSensor %in% sig_sensors, c("iSensor", rho_col, p_col)]
+      names(tmp) <- c("iSensor", "value", "pval")
+      tmp$metric <- "bulk_dur"
+      metric_list[["bulk_dur"]] <- tmp
+    }
+  }
+  if (!is.null(sc_exo)) {
+    eff_col <- grep("effect|estimate", names(sc_exo), ignore.case = TRUE, value = TRUE)[1]
+    p_col   <- grep("p_adj|padj|p.adj", names(sc_exo), ignore.case = TRUE, value = TRUE)[1]
+    if (!is.na(eff_col)) {
+      tmp <- sc_exo[sc_exo$iSensor %in% sig_sensors, c("iSensor", eff_col, p_col)]
+      names(tmp) <- c("iSensor", "value", "pval")
+      tmp$metric <- "sc_exo"
+      metric_list[["sc_exo"]] <- tmp
+    }
+  }
+  sc_endo_long <- sc_endo %>%
+    filter(iSensor %in% sig_sensors) %>%
+    transmute(iSensor, value = rho_endo, pval = p_endo, metric = "sc_endo")
+  metric_list[["sc_endo"]] <- sc_endo_long
 
-# Quick check
-levels(Idents(obj_sub))
-cols <- c("#fb9a99", "#a6cee3", "#fdbf6f")
-p <- DimPlot(
-  obj_sub,
-  reduction = "umap",
-  label = FALSE, label.size = 3,
-  cols = cols
-)+NoLegend()
+  df_long_4f <- bind_rows(metric_list) %>%
+    mutate(
+      value = suppressWarnings(as.numeric(value)),
+      pval  = suppressWarnings(as.numeric(pval)),
+      sig   = !is.na(pval) & pval < 0.05,
+      arrow = case_when(is.na(value) ~ NA_character_,
+                        value > 0    ~ "↑",
+                        value < 0    ~ "↓",
+                        TRUE         ~ "→"),
+      class = case_when(!sig      ~ "n.s.",
+                        value > 0 ~ "up",
+                        value < 0 ~ "down",
+                        TRUE      ~ "zero"),
+      metric = factor(metric,
+                      levels = c("bulk_conc", "bulk_dur", "sc_exo", "sc_endo"),
+                      labels = c("Bulk conc.", "Bulk dur.", "sc exo", "sc endo"))
+    )
 
-p
-file_path <- file.path(output_dir, "DimPlot_epidermis.svg")
+  mag_lim <- quantile(abs(df_long_4f$value[is.finite(df_long_4f$value)]), 0.98,
+                      na.rm = TRUE)
 
-ggsave(file_path, plot = p, width = 3, height = 3, dpi = 300, bg = "white")
+  p_4f <- ggplot(df_long_4f, aes(x = metric, y = iSensor)) +
+    geom_text(aes(label = arrow, size = pmin(abs(value), mag_lim), color = class),
+              na.rm = TRUE) +
+    scale_color_manual(values = c(up = "#D73027", down = "#4575B4",
+                                   "n.s." = "grey75", zero = "grey75")) +
+    scale_size(range = c(2.5, 7.5), guide = "none") +
+    labs(x = NULL, y = NULL) +
+    theme_classic(base_size = 11) +
+    theme(axis.text.x = element_text(angle = 35, hjust = 1),
+          axis.text.y = element_text(size = 8),
+          axis.ticks  = element_blank(),
+          legend.position = "none")
 
-in_dir <- "D:/!GitHub/DigitalSensor-Toolbox/in"
-file_path <- file.path(in_dir, "shahan_epidermis.rds")
-file_path
-saveRDS(obj_sub, file_path)
-
-obj_sub <- readRDS(file_path)
-
-obj_sub <- iSensor_pipeline(seuratObject=obj_sub, useParallel = FALSE, signals = c("mean_normed"),
-                            metaPanels = list('Response' = list('srcPanels' = c('AT_aux_trans_ARF', 'AT_aux_trans_IAA'),
-                                                                'rule' = prod)))
-Assays(obj_sub)
-
-
-DefaultAssay(obj_sub) <- "iSensor_mean_normed"
-
-p_transport <- FeaturePlot(
-  obj_sub,
-  features  = "AT-aux-trans-EffluxInflux",
-  reduction = "umap",
-  order     = TRUE,
-  pt.size   = 0.6,
-  min.cutoff = "q05",
-  max.cutoff = "q95",
-  cols      = c("grey90", "navy")
-) +
-  theme_minimal(base_size = 14) +
-  theme(
-    panel.grid = element_blank(),
-    axis.line  = element_line(linewidth = 0.6),
-    axis.ticks = element_line(linewidth = 0.4),
-    plot.title = element_blank()
-  ) 
-
-p_transport
-
-file_path <- file.path(output_dir, "shahan_epidermis_PAT_featureplot.svg")
-file_path
-ggsave(file_path, plot = p_transport,
-       width = 4, height = 3, dpi = 300, bg = "white")
-
-
-p_synthesis <- FeaturePlot(
-  obj_sub,
-  features  = "AT-aux-trans-Synthesis",
-  reduction = "umap",
-  order     = TRUE,
-  pt.size   = 0.6,
-  min.cutoff = "q05",
-  max.cutoff = "q95",
-  cols      = c("grey90", "navy")
-) +
-  theme_minimal(base_size = 14) +
-  theme(
-    panel.grid = element_blank(),
-    axis.line  = element_line(linewidth = 0.6),
-    axis.ticks = element_line(linewidth = 0.4),
-    plot.title = element_blank()
-  ) 
-
-p_synthesis
-
-file_path <- file.path(output_dir, "shahan_epidermis_synthesis_featureplot.svg")
-file_path
-ggsave(file_path, plot = p_synthesis,
-       width = 4, height = 3, dpi = 300, bg = "white")
-
-
-p_response <- FeaturePlot(
-  obj_sub,
-  features  = "Response",
-  reduction = "umap",
-  order     = TRUE,
-  pt.size   = 0.6,
-  min.cutoff = "q05",
-  max.cutoff = "q95",
-  cols      = c("grey90", "navy")
-) +
-  theme_minimal(base_size = 14) +
-  theme(
-    panel.grid = element_blank(),
-    axis.line  = element_line(linewidth = 0.6),
-    axis.ticks = element_line(linewidth = 0.4),
-    plot.title = element_blank()
-  ) 
-
-p_response
-
-file_path <- file.path(output_dir, "shahan_epidermis_response_featureplot.svg")
-file_path
-ggsave(file_path, plot = p_response,
-       width = 4, height = 3, dpi = 300, bg = "white")
+  ggsave(file.path(output_dir, "Figure4F_performance_summary.svg"),
+         plot = p_4f, width = 3, height = 3.5, dpi = 300)
+  ggsave(file.path(output_dir, "Figure4F_performance_summary.pdf"),
+         plot = p_4f, width = 3, height = 3.5, dpi = 300)
+  message("Saved Figure 4F")
+} else {
+  message("Figure 4F skipped: run Figure2.R first to generate Statistics-exo-scdata.csv, then check all files exist in ", in_dir_stats)
+}
