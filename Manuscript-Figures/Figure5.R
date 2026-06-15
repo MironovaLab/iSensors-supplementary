@@ -61,8 +61,8 @@ bar_df <- tibble(cluster = clu, value = val) %>%
 
 p_5a_bar <- ggplot(bar_df, aes(x = value, y = cluster)) +
   geom_col(width = 0.7, fill = "#fdbf6f") +
-  scale_x_continuous(trans  = scales::log1p_trans(),
-                     breaks = scales::pretty_breaks(n = 3)) +
+#  scale_x_continuous(trans  = scales::log1p_trans(),
+#                     breaks = scales::pretty_breaks(n = 3)) +
   labs(x = "Average expression (log1p scale)", y = NULL) +
   theme_classic(base_size = 13) +
   theme(panel.grid    = element_blank(),

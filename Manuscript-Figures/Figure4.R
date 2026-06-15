@@ -14,7 +14,7 @@ getwd()
 output_dir <- "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/Manuscript-Figures/out"
 
 
-iSensors_obj <-readRDS(file = "D:/!GitHub/iSensors-supplementary/00-iSensors-objects/data/shahan-iSensors-obj-groundtruth.rds")
+iSensors_obj <-readRDS(file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/shahan-iSensors-obj-groundtruth.rds")
 
 DimPlot(iSensors_obj)
 iSensors_obj@active.ident
@@ -198,52 +198,62 @@ mat_filt        <- avg_mat[, shared_clusters, drop = FALSE]
 gt_rank         <- auxin_rank[shared_clusters]
 
 
-# ── Figure 4C: Spearman scatter plots for selected iSensors ───────────────────
-# Verify/adjust these names against the printed list above if needed.
+# ── Figure 4C: 2×2 Spearman scatter plots ─────────────────────────────────────
+library(patchwork)
+
 sensors_4c <- c(
   "ATH-aux-trans-ARF",
+  "ATH-aux-trans-PolarAuxinTransport",
   "ATH-aux-trans-Synthesis",
-  "ATH-aux-trans-PolarAuxinTransport",  # PAT panel
-  "ATH-aux-trans-IAA"                # AuxIAA; may also be "ATH-aux-trans-IAA"
+  "ATH-aux-trans-IAA"
 )
+labels_4c <- c("ARF", "PAT", "Synthesis", "IAA")
 
-for (feat in sensors_4c) {
+make_scatter_4c <- function(feat, label) {
   if (!feat %in% rownames(mat_filt)) {
-    message("Sensor not found: ", feat, " — skipping (check rownames above)")
-    next
+    message("Sensor not found: ", feat, " — check rownames printed above")
+    return(NULL)
   }
-
   sensor_vals <- as.numeric(mat_filt[feat, ])
   sensor_rank <- rank(-sensor_vals, ties.method = "average")
+  rho_test    <- cor.test(sensor_rank, gt_rank, method = "spearman", exact = FALSE)
+  rho_val     <- round(as.numeric(rho_test$estimate), 2)
+  p_val       <- rho_test$p.value
+  p_lab       <- if (p_val < 0.001) "p < 0.001" else paste0("p = ", round(p_val, 3))
 
-  rho_test   <- cor.test(sensor_rank, gt_rank, method = "spearman", exact = FALSE)
-  rho_val    <- round(rho_test$estimate, 3)
-  clean_name <- gsub("^ATH-aux-[^-]+-", "", feat)
+  plot_df <- data.frame(ground_truth = gt_rank, predicted = sensor_rank)
 
-  plot_df <- data.frame(
-    ground_truth = gt_rank,
-    predicted    = sensor_rank,
-    cell_type    = shared_clusters
-  )
-
-  p <- ggplot(plot_df, aes(x = ground_truth, y = predicted)) +
-    geom_point(color = "#1f78b4", size = 3) +
-    geom_smooth(method = "lm", color = "grey60", se = FALSE) +
+  ggplot(plot_df, aes(x = ground_truth, y = predicted)) +
+    geom_point(color = "#b15928", size = 2.5) +
+    geom_smooth(method = "lm", color = "grey50", se = FALSE, linewidth = 0.6) +
     scale_x_continuous(breaks = seq(2, 12, by = 2)) +
-    labs(x = "Ground truth rank", y = "Predicted rank, iSensors",
-         title = clean_name) +
-    annotate("text",
-             x = max(gt_rank) * 0.85, y = max(sensor_rank) * 0.95,
-             label = paste("Rho =", rho_val), size = 4) +
-    NoLegend() +
-    theme_minimal() +
-    theme(panel.grid = element_blank(), axis.line = element_line(),
-          axis.ticks = element_line(), plot.title = element_text(size = 10))
-
-  filename <- file.path(output_dir, paste0("Figure4C_", clean_name, "_spearman.svg"))
-  ggsave(filename, plot = p, width = 4, height = 3, dpi = 300)
-  message("Saved: ", filename)
+    labs(
+      title    = label,
+      subtitle = paste0("Rho = ", rho_val, "   ", p_lab),
+      x        = "Ground truth rank",
+      y        = "iSensor rank"
+    ) +
+    theme_classic(base_size = 10) +
+    theme(
+      plot.title    = element_text(hjust = 0.5, face = "bold", size = 10),
+      plot.subtitle = element_text(hjust = 0.5, size = 8, color = "grey40"),
+      axis.line     = element_line(linewidth = 0.4),
+      axis.ticks    = element_line(linewidth = 0.3),
+      panel.grid    = element_blank()
+    )
 }
+
+plots_4c <- mapply(make_scatter_4c, sensors_4c, labels_4c, SIMPLIFY = FALSE)
+plots_4c <- Filter(Negate(is.null), plots_4c)
+
+p_4c <- wrap_plots(plots_4c, ncol = 2)
+
+p_4c
+ggsave(file.path(output_dir, "Figure4C_spearman_2x2.svg"),
+       plot = p_4c, width = 6, height = 4, dpi = 300)
+ggsave(file.path(output_dir, "Figure4C_spearman_2x2.pdf"),
+       plot = p_4c, width = 6, height = 4, dpi = 300)
+message("Saved Figure 4C (2×2)")
 
 
 # ── Figure 4D: Rho bar plot for all iSensors ─────────────────────────────────
