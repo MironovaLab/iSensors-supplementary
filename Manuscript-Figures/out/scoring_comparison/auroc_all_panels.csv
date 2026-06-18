@@ -1,0 +1,685 @@
+"SensorKey","Method","AUROC","DisplayLabel","Dataset"
+"ATH_aux_cis_DR5_ARF1","iSensors",0.468692516805232,"cis(DR5).ARF1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF2","iSensors",0.374484129250828,"cis(DR5).ARF2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF3","iSensors",0.442281748545378,"cis(DR5).ARF3","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF5_1","iSensors",0.365764058273577,"cis(DR5).ARF5-1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF5_2","iSensors",0.4068002159782,"cis(DR5).ARF5-2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF6","iSensors",0.372198230715114,"cis(DR5).ARF6","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF8","iSensors",0.40663117417312,"cis(DR5).ARF8","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_TGTCGG","iSensors",0.411011429695749,"cis(DR5).TGTCGG","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_TGTCNN","iSensors",0.280753571753933,"cis(DR5).TGTCNN","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF1","iSensors",0.333107605808822,"cis(IR8).ARF1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF2","iSensors",0.461137476610734,"cis(IR8).ARF2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF3","iSensors",0.361976703755199,"cis(IR8).ARF3","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF5_1","iSensors",0.34850296177082,"cis(IR8).ARF5-1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF5_2","iSensors",0.314657288941743,"cis(IR8).ARF5-2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF6","iSensors",0.426105682662145,"cis(IR8).ARF6","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF8","iSensors",0.360963506958056,"cis(IR8).ARF8","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_TGTCNN","iSensors",0.363637676562792,"cis(IR8).TGTCNN","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF1_down","iSensors",0.382883609703292,"DR5.ARF1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF1_up","iSensors",0.664132523940167,"DR5.ARF1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF2_down","iSensors",0.178332569836067,"DR5.ARF2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF2_up","iSensors",0.578700291123041,"DR5.ARF2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF3_down","iSensors",0.267286726918887,"DR5.ARF3(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF3_up","iSensors",0.824142733171683,"DR5.ARF3(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_1_down","iSensors",0.214705270666623,"DR5.ARF5-1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_1_up","iSensors",0.729266813734294,"DR5.ARF5-1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_2_down","iSensors",0.43370937036313,"DR5.ARF5-2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_2_up","iSensors",0.651830763073043,"DR5.ARF5-2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF6_down","iSensors",0.221255805003987,"DR5.ARF6(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF6_up","iSensors",0.496079464985056,"DR5.ARF6(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF8_down","iSensors",0.298447090267966,"DR5.ARF8(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF8_up","iSensors",0.655334792947094,"DR5.ARF8(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_TGTCNN_down","iSensors",0.20126099326551,"DR5.TGTCNN(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_TGTCNN_up","iSensors",0.568343502192472,"DR5.TGTCNN(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF1_down","iSensors",0.414760785828849,"IR8.ARF1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF1_up","iSensors",0.383635952589735,"IR8.ARF1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF2_down","iSensors",0.473336300002024,"IR8.ARF2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF2_up","iSensors",0.549508482497665,"IR8.ARF2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF3_down","iSensors",0.416518357407213,"IR8.ARF3(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF3_up","iSensors",0.520713430393171,"IR8.ARF3(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_1_down","iSensors",0.350073287711483,"IR8.ARF5-1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_1_up","iSensors",0.724830909603016,"IR8.ARF5-1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_2_down","iSensors",0.388430585846524,"IR8.ARF5-2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_2_up","iSensors",0.632672488760016,"IR8.ARF5-2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF6_down","iSensors",0.40477851234876,"IR8.ARF6(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF6_up","iSensors",0.580448272448548,"IR8.ARF6(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF8_down","iSensors",0.320635089123692,"IR8.ARF8(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF8_up","iSensors",0.693519555978497,"IR8.ARF8(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_TGTCNN_down","iSensors",0.481539628718595,"IR8.TGTCNN(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_TGTCNN_up","iSensors",0.464388531231525,"IR8.TGTCNN(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_A_ARF","iSensors",0.575517581861088,"A-ARF","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_ARF","iSensors",0.68197544684462,"ARF","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_ConjugationDeconjugation","iSensors",0.554478346379123,"Conjugation","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_IAA","iSensors",0.394853011618377,"IAA","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_PolarAuxinTransport","iSensors",0.407759932671058,"PAT","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Receptors","iSensors",0.400894542137057,"Receptors","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Synthesis","iSensors",0.333832302077754,"Synthesis","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Transport","iSensors",0.487885322797564,"Transport","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF1","UCell",0.523020189602418,"cis(DR5).ARF1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF2","UCell",0.333278344704274,"cis(DR5).ARF2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF3","UCell",0.464766619758315,"cis(DR5).ARF3","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF5_1","UCell",0.341495005975547,"cis(DR5).ARF5-1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF5_2","UCell",0.424103640622441,"cis(DR5).ARF5-2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF6","UCell",0.345890407183618,"cis(DR5).ARF6","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF8","UCell",0.392783596057911,"cis(DR5).ARF8","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_TGTCGG","UCell",0.434955121726394,"cis(DR5).TGTCGG","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_TGTCNN","UCell",0.229799516380495,"cis(DR5).TGTCNN","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF1","UCell",0.36875355790645,"cis(IR8).ARF1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF2","UCell",0.511930274553733,"cis(IR8).ARF2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF3","UCell",0.409472516849521,"cis(IR8).ARF3","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF5_1","UCell",0.313079028740965,"cis(IR8).ARF5-1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF5_2","UCell",0.344134145894401,"cis(IR8).ARF5-2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF6","UCell",0.442000140331484,"cis(IR8).ARF6","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF8","UCell",0.436581855373108,"cis(IR8).ARF8","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_TGTCNN","UCell",0.362747540575182,"cis(IR8).TGTCNN","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF1_down","UCell",0.354084820131967,"DR5.ARF1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF1_up","UCell",0.709478063095577,"DR5.ARF1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF2_down","UCell",0.151350513090374,"DR5.ARF2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF2_up","UCell",0.581061444254464,"DR5.ARF2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF3_down","UCell",0.241741051684873,"DR5.ARF3(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF3_up","UCell",0.794505742929643,"DR5.ARF3(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_1_down","UCell",0.217043268909752,"DR5.ARF5-1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_1_up","UCell",0.740415621686896,"DR5.ARF5-1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_2_down","UCell",0.485330452360454,"DR5.ARF5-2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_2_up","UCell",0.66468461499774,"DR5.ARF5-2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF6_down","UCell",0.20248250911456,"DR5.ARF6(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF6_up","UCell",0.550733327254752,"DR5.ARF6(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF8_down","UCell",0.298471062273846,"DR5.ARF8(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF8_up","UCell",0.630474805078534,"DR5.ARF8(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_TGTCNN_down","UCell",0.211724104182628,"DR5.TGTCNN(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_TGTCNN_up","UCell",0.598947995919518,"DR5.TGTCNN(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF1_down","UCell",0.423590089471861,"IR8.ARF1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF1_up","UCell",0.452619593885984,"IR8.ARF1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF2_down","UCell",0.531595531649048,"IR8.ARF2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF2_up","UCell",0.538172189574104,"IR8.ARF2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF3_down","UCell",0.507554404389985,"IR8.ARF3(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF3_up","UCell",0.497878564509872,"IR8.ARF3(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_1_down","UCell",0.41295088729735,"IR8.ARF5-1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_1_up","UCell",0.684614016231669,"IR8.ARF5-1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_2_down","UCell",0.467244876960416,"IR8.ARF5-2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_2_up","UCell",0.562936115358591,"IR8.ARF5-2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF6_down","UCell",0.428573600184017,"IR8.ARF6(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF6_up","UCell",0.584615506866887,"IR8.ARF6(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF8_down","UCell",0.402867571667425,"IR8.ARF8(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF8_up","UCell",0.703036345612657,"IR8.ARF8(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_TGTCNN_down","UCell",0.524496873384168,"IR8.TGTCNN(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_TGTCNN_up","UCell",0.430747016923685,"IR8.TGTCNN(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_A_ARF","UCell",0.5582746094132,"A-ARF","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_ARF","UCell",0.618791527281637,"ARF","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_ConjugationDeconjugation","UCell",0.598733724963771,"Conjugation","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_IAA","UCell",0.424528014750742,"IAA","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_PolarAuxinTransport","UCell",0.438817491507223,"PAT","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Receptors","UCell",0.498695933517147,"Receptors","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Synthesis","UCell",0.412770932862728,"Synthesis","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Transport","UCell",0.541065283836818,"Transport","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF1","AUCell",0.551534740711522,"cis(DR5).ARF1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF2","AUCell",0.299814473693741,"cis(DR5).ARF2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF3","AUCell",0.461058208952323,"cis(DR5).ARF3","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF5_1","AUCell",0.346413166620845,"cis(DR5).ARF5-1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF5_2","AUCell",0.423416633297809,"cis(DR5).ARF5-2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF6","AUCell",0.391304949259947,"cis(DR5).ARF6","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF8","AUCell",0.414904905547541,"cis(DR5).ARF8","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_TGTCGG","AUCell",0.416195525852832,"cis(DR5).TGTCGG","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_TGTCNN","AUCell",0.236267224488184,"cis(DR5).TGTCNN","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF1","AUCell",0.363630801171029,"cis(IR8).ARF1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF2","AUCell",0.513976112162066,"cis(IR8).ARF2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF3","AUCell",0.426481092590456,"cis(IR8).ARF3","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF5_1","AUCell",0.268606328305913,"cis(IR8).ARF5-1","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF5_2","AUCell",0.36827884885132,"cis(IR8).ARF5-2","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF6","AUCell",0.46042615882915,"cis(IR8).ARF6","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_ARF8","AUCell",0.418407779852934,"cis(IR8).ARF8","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_IR8_TGTCNN","AUCell",0.321983098643141,"cis(IR8).TGTCNN","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF1_down","AUCell",0.366583034923441,"DR5.ARF1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF1_up","AUCell",0.706854738511784,"DR5.ARF1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF2_down","AUCell",0.153330874921452,"DR5.ARF2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF2_up","AUCell",0.573663471949644,"DR5.ARF2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF3_down","AUCell",0.24988647142314,"DR5.ARF3(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF3_up","AUCell",0.797112401215681,"DR5.ARF3(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_1_down","AUCell",0.234929482123735,"DR5.ARF5-1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_1_up","AUCell",0.755422464829107,"DR5.ARF5-1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_2_down","AUCell",0.502464554768728,"DR5.ARF5-2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF5_2_up","AUCell",0.669208908043801,"DR5.ARF5-2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF6_down","AUCell",0.215802785295662,"DR5.ARF6(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF6_up","AUCell",0.532127192349451,"DR5.ARF6(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF8_down","AUCell",0.312053098931018,"DR5.ARF8(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_ARF8_up","AUCell",0.663050198511707,"DR5.ARF8(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_TGTCNN_down","AUCell",0.23323527100343,"DR5.TGTCNN(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_DR5_TGTCNN_up","AUCell",0.610366056204403,"DR5.TGTCNN(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF1_down","AUCell",0.400401605074229,"IR8.ARF1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF1_up","AUCell",0.490628304340116,"IR8.ARF1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF2_down","AUCell",0.541267745267683,"IR8.ARF2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF2_up","AUCell",0.559979467237206,"IR8.ARF2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF3_down","AUCell",0.512333991079145,"IR8.ARF3(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF3_up","AUCell",0.488318049414804,"IR8.ARF3(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_1_down","AUCell",0.436714085789166,"IR8.ARF5-1(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_1_up","AUCell",0.654488626588664,"IR8.ARF5-1(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_2_down","AUCell",0.486587943140878,"IR8.ARF5-2(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF5_2_up","AUCell",0.550817526628774,"IR8.ARF5-2(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF6_down","AUCell",0.4292937950537,"IR8.ARF6(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF6_up","AUCell",0.600891423068684,"IR8.ARF6(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF8_down","AUCell",0.410577943981107,"IR8.ARF8(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_ARF8_up","AUCell",0.697443224083358,"IR8.ARF8(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_TGTCNN_down","AUCell",0.517777899201129,"IR8.TGTCNN(dn)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_reg_IR8_TGTCNN_up","AUCell",0.410903952140543,"IR8.TGTCNN(up)","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_A_ARF","AUCell",0.542403113231543,"A-ARF","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_ARF","AUCell",0.582367609133959,"ARF","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_ConjugationDeconjugation","AUCell",0.600773924944259,"Conjugation","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_IAA","AUCell",0.440252669100091,"IAA","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_PolarAuxinTransport","AUCell",0.467905997613108,"PAT","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Receptors","AUCell",0.493995496028523,"Receptors","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Synthesis","AUCell",0.42966628221526,"Synthesis","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_trans_Transport","AUCell",0.55855035275353,"Transport","Exogenous auxin
+(Martin-Arevalillo 2025)"
+"ATH_aux_cis_DR5_ARF1","iSensors",0.661293744093122,"cis(DR5).ARF1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF2","iSensors",0.657607184306203,"cis(DR5).ARF2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF3","iSensors",0.655674236548001,"cis(DR5).ARF3","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF5_1","iSensors",0.615664508846905,"cis(DR5).ARF5-1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF5_2","iSensors",0.659727041160432,"cis(DR5).ARF5-2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF6","iSensors",0.630099882169548,"cis(DR5).ARF6","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF8","iSensors",0.658075778906834,"cis(DR5).ARF8","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_TGTCGG","iSensors",0.437535200749274,"cis(DR5).TGTCGG","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_TGTCNN","iSensors",0.615625906542908,"cis(DR5).TGTCNN","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF1","iSensors",0.653561018812998,"cis(IR8).ARF1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF2","iSensors",0.683227624905984,"cis(IR8).ARF2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF3","iSensors",0.549623659340193,"cis(IR8).ARF3","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF5_1","iSensors",0.68791724826875,"cis(IR8).ARF5-1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF5_2","iSensors",0.643069262432417,"cis(IR8).ARF5-2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF6","iSensors",0.684500646200979,"cis(IR8).ARF6","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF8","iSensors",0.654483180546792,"cis(IR8).ARF8","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_TGTCNN","iSensors",0.658982972805969,"cis(IR8).TGTCNN","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF1_down","iSensors",0.454886330129051,"DR5.ARF1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF1_up","iSensors",0.671902301265818,"DR5.ARF1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF2_down","iSensors",0.617631228651703,"DR5.ARF2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF2_up","iSensors",0.726919400178239,"DR5.ARF2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF3_down","iSensors",0.530092672563132,"DR5.ARF3(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF3_up","iSensors",0.568480735760709,"DR5.ARF3(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_1_down","iSensors",0.661797253702492,"DR5.ARF5-1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_1_up","iSensors",0.627445765054928,"DR5.ARF5-1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_2_down","iSensors",0.598446758179703,"DR5.ARF5-2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_2_up","iSensors",0.750389312783179,"DR5.ARF5-2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF6_down","iSensors",0.698341450617337,"DR5.ARF6(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF6_up","iSensors",0.653891016830406,"DR5.ARF6(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF8_down","iSensors",0.805715816516849,"DR5.ARF8(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF8_up","iSensors",0.603452147196509,"DR5.ARF8(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_TGTCNN_down","iSensors",0.673942558260955,"DR5.TGTCNN(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_TGTCNN_up","iSensors",0.706469660676207,"DR5.TGTCNN(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF1_down","iSensors",0.579939577256667,"IR8.ARF1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF1_up","iSensors",0.696149527515353,"IR8.ARF1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF2_down","iSensors",0.727643044296164,"IR8.ARF2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF2_up","iSensors",0.785445005253452,"IR8.ARF2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF3_down","iSensors",0.620373552627284,"IR8.ARF3(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF3_up","iSensors",0.509963866891782,"IR8.ARF3(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_1_down","iSensors",0.624242747825698,"IR8.ARF5-1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_1_up","iSensors",0.682812023993538,"IR8.ARF5-1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_2_down","iSensors",0.598622684900365,"IR8.ARF5-2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_2_up","iSensors",0.676248588739919,"IR8.ARF5-2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF6_down","iSensors",0.671650571308136,"IR8.ARF6(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF6_up","iSensors",0.78502106568677,"IR8.ARF6(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF8_down","iSensors",0.517238413434969,"IR8.ARF8(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF8_up","iSensors",0.745478859195771,"IR8.ARF8(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_TGTCNN_down","iSensors",0.573580931002496,"IR8.TGTCNN(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_TGTCNN_up","iSensors",0.577434005465307,"IR8.TGTCNN(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_A_ARF","iSensors",0.520950486124658,"A-ARF","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_ARF","iSensors",0.544393136597811,"ARF","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_ConjugationDeconjugation","iSensors",0.585685963538355,"Conjugation","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_IAA","iSensors",0.715018291966121,"IAA","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_PolarAuxinTransport","iSensors",0.584211353537909,"PAT","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Receptors","iSensors",0.523718342880612,"Receptors","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Synthesis","iSensors",0.536995338980507,"Synthesis","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Transport","iSensors",0.465624161289411,"Transport","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF1","UCell",0.597180515147151,"cis(DR5).ARF1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF2","UCell",0.652528039445432,"cis(DR5).ARF2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF3","UCell",0.615952416041082,"cis(DR5).ARF3","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF5_1","UCell",0.499724158510522,"cis(DR5).ARF5-1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF5_2","UCell",0.602513387664652,"cis(DR5).ARF5-2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF6","UCell",0.518505342244807,"cis(DR5).ARF6","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF8","UCell",0.639099039319448,"cis(DR5).ARF8","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_TGTCGG","UCell",0.366011392887611,"cis(DR5).TGTCGG","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_TGTCNN","UCell",0.517988971826639,"cis(DR5).TGTCNN","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF1","UCell",0.569898227470457,"cis(IR8).ARF1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF2","UCell",0.678719493992571,"cis(IR8).ARF2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF3","UCell",0.412324348087192,"cis(IR8).ARF3","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF5_1","UCell",0.652832107130418,"cis(IR8).ARF5-1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF5_2","UCell",0.582768011006149,"cis(IR8).ARF5-2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF6","UCell",0.69052952303017,"cis(IR8).ARF6","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF8","UCell",0.587865393567186,"cis(IR8).ARF8","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_TGTCNN","UCell",0.60939837295463,"cis(IR8).TGTCNN","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF1_down","UCell",0.409017927569913,"DR5.ARF1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF1_up","UCell",0.637651621879182,"DR5.ARF1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF2_down","UCell",0.510085955126153,"DR5.ARF2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF2_up","UCell",0.717910542758333,"DR5.ARF2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF3_down","UCell",0.435466051658947,"DR5.ARF3(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF3_up","UCell",0.590613909415937,"DR5.ARF3(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_1_down","UCell",0.605012638378427,"DR5.ARF5-1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_1_up","UCell",0.620044459040789,"DR5.ARF5-1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_2_down","UCell",0.562586937179103,"DR5.ARF5-2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_2_up","UCell",0.71172626283303,"DR5.ARF5-2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF6_down","UCell",0.64784134802903,"DR5.ARF6(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF6_up","UCell",0.64552762491791,"DR5.ARF6(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF8_down","UCell",0.776429796939557,"DR5.ARF8(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF8_up","UCell",0.634083661807401,"DR5.ARF8(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_TGTCNN_down","UCell",0.638725628618245,"DR5.TGTCNN(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_TGTCNN_up","UCell",0.675056558736188,"DR5.TGTCNN(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF1_down","UCell",0.519693337095236,"IR8.ARF1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF1_up","UCell",0.666092604820263,"IR8.ARF1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF2_down","UCell",0.678976879128156,"IR8.ARF2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF2_up","UCell",0.770650692124204,"IR8.ARF2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF3_down","UCell",0.558534738833548,"IR8.ARF3(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF3_up","UCell",0.479038611010387,"IR8.ARF3(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_1_down","UCell",0.575546517783954,"IR8.ARF5-1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_1_up","UCell",0.65972299606833,"IR8.ARF5-1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_2_down","UCell",0.51884527906345,"IR8.ARF5-2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_2_up","UCell",0.655191986034474,"IR8.ARF5-2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF6_down","UCell",0.593190275288495,"IR8.ARF6(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF6_up","UCell",0.79965517527891,"IR8.ARF6(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF8_down","UCell",0.458305715061168,"IR8.ARF8(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF8_up","UCell",0.714549985590726,"IR8.ARF8(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_TGTCNN_down","UCell",0.49311862249487,"IR8.TGTCNN(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_TGTCNN_up","UCell",0.558348744107235,"IR8.TGTCNN(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_A_ARF","UCell",0.472970217507485,"A-ARF","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_ARF","UCell",0.475254939196601,"ARF","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_ConjugationDeconjugation","UCell",0.590709928174669,"Conjugation","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_IAA","UCell",0.702559795903139,"IAA","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_PolarAuxinTransport","UCell",0.540410291207274,"PAT","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Receptors","UCell",0.470574708001001,"Receptors","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Synthesis","UCell",0.508931821771533,"Synthesis","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Transport","UCell",0.435453737484217,"Transport","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF1","AUCell",0.577934265086673,"cis(DR5).ARF1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF2","AUCell",0.63799128041139,"cis(DR5).ARF2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF3","AUCell",0.590828289358577,"cis(DR5).ARF3","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF5_1","AUCell",0.429492315299007,"cis(DR5).ARF5-1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF5_2","AUCell",0.566966738290969,"cis(DR5).ARF5-2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF6","AUCell",0.450553847649865,"cis(DR5).ARF6","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_ARF8","AUCell",0.607996753510454,"cis(DR5).ARF8","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_TGTCGG","AUCell",0.344971845165085,"cis(DR5).TGTCGG","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_DR5_TGTCNN","AUCell",0.470208194827856,"cis(DR5).TGTCNN","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF1","AUCell",0.542979858939787,"cis(IR8).ARF1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF2","AUCell",0.658294313268391,"cis(IR8).ARF2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF3","AUCell",0.363538996814773,"cis(IR8).ARF3","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF5_1","AUCell",0.622359981074932,"cis(IR8).ARF5-1","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF5_2","AUCell",0.546492390317079,"cis(IR8).ARF5-2","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF6","AUCell",0.670575570688949,"cis(IR8).ARF6","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_ARF8","AUCell",0.542310053308152,"cis(IR8).ARF8","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_cis_IR8_TGTCNN","AUCell",0.567838639506918,"cis(IR8).TGTCNN","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF1_down","AUCell",0.399185203160427,"DR5.ARF1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF1_up","AUCell",0.631637901721874,"DR5.ARF1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF2_down","AUCell",0.495111908715371,"DR5.ARF2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF2_up","AUCell",0.708889828348554,"DR5.ARF2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF3_down","AUCell",0.43169501206153,"DR5.ARF3(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF3_up","AUCell",0.583080109242533,"DR5.ARF3(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_1_down","AUCell",0.593290219873714,"DR5.ARF5-1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_1_up","AUCell",0.600793179946886,"DR5.ARF5-1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_2_down","AUCell",0.543932880651416,"DR5.ARF5-2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF5_2_up","AUCell",0.70046649552581,"DR5.ARF5-2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF6_down","AUCell",0.632802391307381,"DR5.ARF6(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF6_up","AUCell",0.63236381188648,"DR5.ARF6(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF8_down","AUCell",0.763037133070888,"DR5.ARF8(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_ARF8_up","AUCell",0.620873782432246,"DR5.ARF8(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_TGTCNN_down","AUCell",0.630586306979595,"DR5.TGTCNN(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_DR5_TGTCNN_up","AUCell",0.666158717726079,"DR5.TGTCNN(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF1_down","AUCell",0.51691178467118,"IR8.ARF1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF1_up","AUCell",0.65448791141618,"IR8.ARF1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF2_down","AUCell",0.668394948003969,"IR8.ARF2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF2_up","AUCell",0.765445036262511,"IR8.ARF2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF3_down","AUCell",0.549152192426005,"IR8.ARF3(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF3_up","AUCell",0.470264985138113,"IR8.ARF3(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_1_down","AUCell",0.561727737751133,"IR8.ARF5-1(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_1_up","AUCell",0.646431022194973,"IR8.ARF5-1(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_2_down","AUCell",0.511012827851733,"IR8.ARF5-2(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF5_2_up","AUCell",0.646036899031997,"IR8.ARF5-2(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF6_down","AUCell",0.576148133300315,"IR8.ARF6(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF6_up","AUCell",0.793137120591729,"IR8.ARF6(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF8_down","AUCell",0.447134691310176,"IR8.ARF8(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_ARF8_up","AUCell",0.699724911871656,"IR8.ARF8(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_TGTCNN_down","AUCell",0.477554777802395,"IR8.TGTCNN(dn)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_reg_IR8_TGTCNN_up","AUCell",0.546322794612804,"IR8.TGTCNN(up)","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_A_ARF","AUCell",0.464701512554356,"A-ARF","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_ARF","AUCell",0.451190885053828,"ARF","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_ConjugationDeconjugation","AUCell",0.578927966311757,"Conjugation","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_IAA","AUCell",0.699372084427811,"IAA","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_PolarAuxinTransport","AUCell",0.530786371072936,"PAT","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Receptors","AUCell",0.461555106736961,"Receptors","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Synthesis","AUCell",0.495573903951981,"Synthesis","Endogenous gradient
+(Shahan root tip)"
+"ATH_aux_trans_Transport","AUCell",0.427794479822822,"Transport","Endogenous gradient
+(Shahan root tip)"

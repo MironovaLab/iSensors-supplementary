@@ -1,0 +1,529 @@
+"organ","tissue_simple","sensor","value"
+"Rosette 14 DAG","bundle-sheath","ARF",0.160998103128907
+"Rosette 14 DAG","bundle-sheath","ConjugationDeconjugation",0.0826401145159871
+"Rosette 14 DAG","bundle-sheath","PAT",0.348315515341287
+"Rosette 14 DAG","bundle-sheath","Synthesis",0.0162246045283616
+"Rosette 14 DAG","companion-cell","ARF",0.110074761971735
+"Rosette 14 DAG","companion-cell","ConjugationDeconjugation",0.0785149472211886
+"Rosette 14 DAG","companion-cell","PAT",0.160789291890043
+"Rosette 14 DAG","companion-cell","Synthesis",0.0178654762943498
+"Rosette 14 DAG","dividing cell","ARF",0.121780812602451
+"Rosette 14 DAG","dividing cell","ConjugationDeconjugation",0.0802798125875553
+"Rosette 14 DAG","dividing cell","PAT",0.255364590478101
+"Rosette 14 DAG","dividing cell","Synthesis",0.0251543446542287
+"Rosette 14 DAG","epidermis","ARF",0.121304856204418
+"Rosette 14 DAG","epidermis","ConjugationDeconjugation",0.118921890392621
+"Rosette 14 DAG","epidermis","PAT",0.402311226376362
+"Rosette 14 DAG","epidermis","Synthesis",0.0239013423271367
+"Rosette 14 DAG","guard cell","ARF",0.136762531655916
+"Rosette 14 DAG","guard cell","ConjugationDeconjugation",0.0841893798852545
+"Rosette 14 DAG","guard cell","PAT",0.165515893815553
+"Rosette 14 DAG","guard cell","Synthesis",0.0174325407278063
+"Rosette 14 DAG","mesophyll","ARF",0.156918238301597
+"Rosette 14 DAG","mesophyll","ConjugationDeconjugation",0.105615977958127
+"Rosette 14 DAG","mesophyll","PAT",0.19055497569214
+"Rosette 14 DAG","mesophyll","Synthesis",0.0209950050487364
+"Rosette 14 DAG","phloem","ARF",0.141430596817473
+"Rosette 14 DAG","phloem","ConjugationDeconjugation",0.149378688461185
+"Rosette 14 DAG","phloem","PAT",0.258720068755734
+"Rosette 14 DAG","phloem","Synthesis",0.0276000182329437
+"Rosette 14 DAG","trichome","ARF",0.146866968332722
+"Rosette 14 DAG","trichome","ConjugationDeconjugation",0.100697502571949
+"Rosette 14 DAG","trichome","PAT",0.0858003895459639
+"Rosette 14 DAG","trichome","Synthesis",0.0315601647923658
+"Rosette 14 DAG","xylem","ARF",0.0943907444087495
+"Rosette 14 DAG","xylem","ConjugationDeconjugation",0.0658770741226213
+"Rosette 14 DAG","xylem","PAT",0.177438614837338
+"Rosette 14 DAG","xylem","Synthesis",0.0232250642919414
+"Rosette 21 DAG","companion-cell","ARF",0.110390749643931
+"Rosette 21 DAG","companion-cell","ConjugationDeconjugation",0.121388401906433
+"Rosette 21 DAG","companion-cell","PAT",0.113760364316477
+"Rosette 21 DAG","companion-cell","Synthesis",0.0156571926949178
+"Rosette 21 DAG","dividing cell","ARF",0.123063274960826
+"Rosette 21 DAG","dividing cell","ConjugationDeconjugation",0.0896788877976012
+"Rosette 21 DAG","dividing cell","PAT",0.0518586457070114
+"Rosette 21 DAG","dividing cell","Synthesis",0.0231733857089379
+"Rosette 21 DAG","epidermis","ARF",0.154126566021454
+"Rosette 21 DAG","epidermis","ConjugationDeconjugation",0.250637757275591
+"Rosette 21 DAG","epidermis","PAT",0.352860934999634
+"Rosette 21 DAG","epidermis","Synthesis",0.0322465600893103
+"Rosette 21 DAG","guard cell","ARF",0.189815337891017
+"Rosette 21 DAG","guard cell","ConjugationDeconjugation",0.124919312650011
+"Rosette 21 DAG","guard cell","PAT",0.119248382177614
+"Rosette 21 DAG","guard cell","Synthesis",0.0337080795950283
+"Rosette 21 DAG","mesophyll","ARF",0.173732059774442
+"Rosette 21 DAG","mesophyll","ConjugationDeconjugation",0.1670579948037
+"Rosette 21 DAG","mesophyll","PAT",0.118953682080609
+"Rosette 21 DAG","mesophyll","Synthesis",0.0148884940148178
+"Rosette 21 DAG","phloem","ARF",0.162901518651652
+"Rosette 21 DAG","phloem","ConjugationDeconjugation",0.257922167404805
+"Rosette 21 DAG","phloem","PAT",0.127693844334318
+"Rosette 21 DAG","phloem","Synthesis",0.0126604538590205
+"Rosette 28 DAG","bundle-sheath","ARF",0.144755882107389
+"Rosette 28 DAG","bundle-sheath","ConjugationDeconjugation",0.0989769096726305
+"Rosette 28 DAG","bundle-sheath","PAT",0.0486578002898147
+"Rosette 28 DAG","bundle-sheath","Synthesis",0.00745791858049893
+"Rosette 28 DAG","companion-cell","ARF",0.127054008985754
+"Rosette 28 DAG","companion-cell","ConjugationDeconjugation",0.132727790253492
+"Rosette 28 DAG","companion-cell","PAT",0.0919929543322377
+"Rosette 28 DAG","companion-cell","Synthesis",0.00765393389994924
+"Rosette 28 DAG","dividing cell","ARF",0.132320280252313
+"Rosette 28 DAG","dividing cell","ConjugationDeconjugation",0.112438481989752
+"Rosette 28 DAG","dividing cell","PAT",0.0622469343759351
+"Rosette 28 DAG","dividing cell","Synthesis",0.00908528228611673
+"Rosette 28 DAG","epidermis","ARF",0.153143881300407
+"Rosette 28 DAG","epidermis","ConjugationDeconjugation",0.184990719576646
+"Rosette 28 DAG","epidermis","PAT",0.231478835427357
+"Rosette 28 DAG","epidermis","Synthesis",0.0148163264631959
+"Rosette 28 DAG","guard cell","ARF",0.156733012329676
+"Rosette 28 DAG","guard cell","ConjugationDeconjugation",0.150345992618117
+"Rosette 28 DAG","guard cell","PAT",0.0791516915136745
+"Rosette 28 DAG","guard cell","Synthesis",0.00936917865760403
+"Rosette 28 DAG","mesophyll","ARF",0.15496692454252
+"Rosette 28 DAG","mesophyll","ConjugationDeconjugation",0.17769259273512
+"Rosette 28 DAG","mesophyll","PAT",0.0686864350757415
+"Rosette 28 DAG","mesophyll","Synthesis",0.0143924042992003
+"Rosette 28 DAG","phloem","ARF",0.148702372186081
+"Rosette 28 DAG","phloem","ConjugationDeconjugation",0.31098794047847
+"Rosette 28 DAG","phloem","PAT",0.0810837921803049
+"Rosette 28 DAG","phloem","Synthesis",0.0121784131319368
+"Rosette 28 DAG","xylem","ARF",0.140218785088042
+"Rosette 28 DAG","xylem","ConjugationDeconjugation",0.29726816229343
+"Rosette 28 DAG","xylem","PAT",0.0862906268855198
+"Rosette 28 DAG","xylem","Synthesis",0.0076386510205004
+"Rosette 35 DAG","companion-cell","ARF",0.085000381012434
+"Rosette 35 DAG","companion-cell","ConjugationDeconjugation",0.160643725274279
+"Rosette 35 DAG","companion-cell","PAT",0.0392984206394682
+"Rosette 35 DAG","companion-cell","Synthesis",0.00511958306346307
+"Rosette 35 DAG","epidermis","ARF",0.112849900218026
+"Rosette 35 DAG","epidermis","ConjugationDeconjugation",0.177675660720776
+"Rosette 35 DAG","epidermis","PAT",0.0787497357463499
+"Rosette 35 DAG","epidermis","Synthesis",0.0128646161954706
+"Rosette 35 DAG","guard cell","ARF",0.132457911723421
+"Rosette 35 DAG","guard cell","ConjugationDeconjugation",0.181359686550397
+"Rosette 35 DAG","guard cell","PAT",0.0560596935506182
+"Rosette 35 DAG","guard cell","Synthesis",0.00971710645407089
+"Rosette 35 DAG","mesophyll","ARF",0.166787806571503
+"Rosette 35 DAG","mesophyll","ConjugationDeconjugation",0.209280222029399
+"Rosette 35 DAG","mesophyll","PAT",0.0417086554430655
+"Rosette 35 DAG","mesophyll","Synthesis",0.00812780600134921
+"Rosette 35 DAG","phloem","ARF",0.126969008601647
+"Rosette 35 DAG","phloem","ConjugationDeconjugation",0.242125047229227
+"Rosette 35 DAG","phloem","PAT",0.0443313402290014
+"Rosette 35 DAG","phloem","Synthesis",0.00774072258080539
+"Rosette 35 DAG","xylem","ARF",0.123844889883546
+"Rosette 35 DAG","xylem","ConjugationDeconjugation",0.221565689180927
+"Rosette 35 DAG","xylem","PAT",0.0503695731779684
+"Rosette 35 DAG","xylem","Synthesis",0.00733735951716898
+"Rosette 42 DAG","companion-cell","ARF",0.108638838051952
+"Rosette 42 DAG","companion-cell","ConjugationDeconjugation",0.151425572422377
+"Rosette 42 DAG","companion-cell","PAT",0.0540826481684017
+"Rosette 42 DAG","companion-cell","Synthesis",0.029719893632232
+"Rosette 42 DAG","epidermis","ARF",0.139128334039568
+"Rosette 42 DAG","epidermis","ConjugationDeconjugation",0.295562925243404
+"Rosette 42 DAG","epidermis","PAT",0.0968944171773561
+"Rosette 42 DAG","epidermis","Synthesis",0.0866753368676041
+"Rosette 42 DAG","mesophyll","ARF",0.155742121372508
+"Rosette 42 DAG","mesophyll","ConjugationDeconjugation",0.335286869530947
+"Rosette 42 DAG","mesophyll","PAT",0.017505200130323
+"Rosette 42 DAG","mesophyll","Synthesis",0.136961500737369
+"Rosette 42 DAG","phloem","ARF",0.148663534737432
+"Rosette 42 DAG","phloem","ConjugationDeconjugation",0.211799628037458
+"Rosette 42 DAG","phloem","PAT",0.044090582592048
+"Rosette 42 DAG","phloem","Synthesis",0.10737064607974
+"Rosette 42 DAG","vascular (unspecified)","ARF",0.134888907937885
+"Rosette 42 DAG","vascular (unspecified)","ConjugationDeconjugation",0.232840081994708
+"Rosette 42 DAG","vascular (unspecified)","PAT",0.00797467202876195
+"Rosette 42 DAG","vascular (unspecified)","Synthesis",0.0363802947305883
+"Rosette 49 DAG","bundle-sheath","ARF",0.160660732743701
+"Rosette 49 DAG","bundle-sheath","ConjugationDeconjugation",0.332758157582282
+"Rosette 49 DAG","bundle-sheath","PAT",0.0221206111038045
+"Rosette 49 DAG","bundle-sheath","Synthesis",0.100993427826359
+"Rosette 49 DAG","companion-cell","ARF",0.101561251484654
+"Rosette 49 DAG","companion-cell","ConjugationDeconjugation",0.161888207772169
+"Rosette 49 DAG","companion-cell","PAT",0.0378473654383665
+"Rosette 49 DAG","companion-cell","Synthesis",0.0452221653300355
+"Rosette 49 DAG","epidermis","ARF",0.176122794310183
+"Rosette 49 DAG","epidermis","ConjugationDeconjugation",0.248456706650105
+"Rosette 49 DAG","epidermis","PAT",0.0574854650591564
+"Rosette 49 DAG","epidermis","Synthesis",0.21406554338685
+"Rosette 49 DAG","guard cell","ARF",0.117777749310145
+"Rosette 49 DAG","guard cell","ConjugationDeconjugation",0.220278147340977
+"Rosette 49 DAG","guard cell","PAT",0.0157558173350182
+"Rosette 49 DAG","guard cell","Synthesis",0.0464954350086309
+"Rosette 49 DAG","mesophyll","ARF",0.185125366974642
+"Rosette 49 DAG","mesophyll","ConjugationDeconjugation",0.256224155261843
+"Rosette 49 DAG","mesophyll","PAT",0.0150179195392894
+"Rosette 49 DAG","mesophyll","Synthesis",0.0967731632986194
+"Rosette 49 DAG","phloem","ARF",0.121901004646552
+"Rosette 49 DAG","phloem","ConjugationDeconjugation",0.238589429088996
+"Rosette 49 DAG","phloem","PAT",0.0191117471142176
+"Rosette 49 DAG","phloem","Synthesis",0.0306450526536868
+"Rosette 49 DAG","vascular (unspecified)","ARF",0.150014337579618
+"Rosette 49 DAG","vascular (unspecified)","ConjugationDeconjugation",0.276550139874542
+"Rosette 49 DAG","vascular (unspecified)","PAT",0.00400271546126622
+"Rosette 49 DAG","vascular (unspecified)","Synthesis",0.0142219396880314
+"Early flower","companion cell ","ARF",0.280907358455161
+"Early flower","companion cell ","ConjugationDeconjugation",0.0769025705197645
+"Early flower","companion cell ","PAT",0.0830081674523646
+"Early flower","companion cell ","Synthesis",0.0210279332303876
+"Early flower","cortex","ARF",0.238016256155234
+"Early flower","cortex","ConjugationDeconjugation",0.105105338490321
+"Early flower","cortex","PAT",0.0914557216253949
+"Early flower","cortex","Synthesis",0.0168147615034923
+"Early flower","dividing cell","ARF",0.5395467503834
+"Early flower","dividing cell","ConjugationDeconjugation",0.0774658704719139
+"Early flower","dividing cell","PAT",0.0449727450829656
+"Early flower","dividing cell","Synthesis",0.1446707596542
+"Early flower","epidermis","ARF",0.239077477180303
+"Early flower","epidermis","ConjugationDeconjugation",0.134989357762329
+"Early flower","epidermis","PAT",0.0960229069897522
+"Early flower","epidermis","Synthesis",0.0156562388661544
+"Early flower","guard cell","ARF",0.196609352021925
+"Early flower","guard cell","ConjugationDeconjugation",0.0770363343388319
+"Early flower","guard cell","PAT",0.0664359463229565
+"Early flower","guard cell","Synthesis",0.0104111081225376
+"Early flower","male reproductive","ARF",0.426037821898009
+"Early flower","male reproductive","ConjugationDeconjugation",0.120460106407076
+"Early flower","male reproductive","PAT",0.0791261282255347
+"Early flower","male reproductive","Synthesis",0.0258632354861495
+"Early flower","phloem","ARF",0.280059926563364
+"Early flower","phloem","ConjugationDeconjugation",0.126894017353274
+"Early flower","phloem","PAT",0.255788824586639
+"Early flower","phloem","Synthesis",0.0248160024439063
+"Early flower","procambium","ARF",0.283414263854283
+"Early flower","procambium","ConjugationDeconjugation",0.09043221468393
+"Early flower","procambium","PAT",0.0807032365199092
+"Early flower","procambium","Synthesis",0.019637836620119
+"Middle flower","cortex","ARF",0.19504402589406
+"Middle flower","cortex","ConjugationDeconjugation",0.0966386889261016
+"Middle flower","cortex","PAT",0.134552602154815
+"Middle flower","cortex","Synthesis",0.0186745641021656
+"Middle flower","dividing cell","ARF",0.200974967122601
+"Middle flower","dividing cell","ConjugationDeconjugation",0.0882447774716671
+"Middle flower","dividing cell","PAT",0.119427094594381
+"Middle flower","dividing cell","Synthesis",0.0246554302677985
+"Middle flower","epidermis","ARF",0.163365839035007
+"Middle flower","epidermis","ConjugationDeconjugation",0.0999014337045657
+"Middle flower","epidermis","PAT",0.155144002604221
+"Middle flower","epidermis","Synthesis",0.0086854230113392
+"Middle flower","female reproductive","ARF",0.201337519107626
+"Middle flower","female reproductive","ConjugationDeconjugation",0.130906075474652
+"Middle flower","female reproductive","PAT",0.150866358831193
+"Middle flower","female reproductive","Synthesis",0.0245441265859047
+"Middle flower","guard cell","ARF",0.143843792820957
+"Middle flower","guard cell","ConjugationDeconjugation",0.0833121276045194
+"Middle flower","guard cell","PAT",0.089351900577749
+"Middle flower","guard cell","Synthesis",0.00994265676575098
+"Middle flower","male reproductive","ARF",0.165672417898712
+"Middle flower","male reproductive","ConjugationDeconjugation",0.105693934548369
+"Middle flower","male reproductive","PAT",0.121941699326052
+"Middle flower","male reproductive","Synthesis",0.0155124366837296
+"Middle flower","phloem","ARF",0.183761999792556
+"Middle flower","phloem","ConjugationDeconjugation",0.164881380144779
+"Middle flower","phloem","PAT",0.2991162555217
+"Middle flower","phloem","Synthesis",0.018356423441082
+"Middle flower","procambium","ARF",0.245354260041361
+"Middle flower","procambium","ConjugationDeconjugation",0.172025978779243
+"Middle flower","procambium","PAT",0.439779676484526
+"Middle flower","procambium","Synthesis",0.022924649365622
+"Late flower","abscission zones","ARF",0.178984090620255
+"Late flower","abscission zones","ConjugationDeconjugation",0.152770591374447
+"Late flower","abscission zones","PAT",0.195447467515474
+"Late flower","abscission zones","Synthesis",0.0336119672379744
+"Late flower","cortex","ARF",0.231702493202799
+"Late flower","cortex","ConjugationDeconjugation",0.143873654049483
+"Late flower","cortex","PAT",0.289546804996731
+"Late flower","cortex","Synthesis",0.026438461775361
+"Late flower","dividing cell","ARF",0.274909246772866
+"Late flower","dividing cell","ConjugationDeconjugation",0.07023383398382
+"Late flower","dividing cell","PAT",0.141746643104082
+"Late flower","dividing cell","Synthesis",0.0221577449575151
+"Late flower","epidermis","ARF",0.186444867207908
+"Late flower","epidermis","ConjugationDeconjugation",0.107578931561084
+"Late flower","epidermis","PAT",0.125596164176835
+"Late flower","epidermis","Synthesis",0.0613026919599115
+"Late flower","female reproductive","ARF",0.236489553486907
+"Late flower","female reproductive","ConjugationDeconjugation",0.0569052997880476
+"Late flower","female reproductive","PAT",0.0541332264036029
+"Late flower","female reproductive","Synthesis",0.0196444143430607
+"Late flower","guard cell","ARF",0.174791397927408
+"Late flower","guard cell","ConjugationDeconjugation",0.0768890323521774
+"Late flower","guard cell","PAT",0.120341544923342
+"Late flower","guard cell","Synthesis",0.0103049901659614
+"Late flower","male reproductive","ARF",0.0586954311000793
+"Late flower","male reproductive","ConjugationDeconjugation",0.0511153215534881
+"Late flower","male reproductive","PAT",0.0791628814732419
+"Late flower","male reproductive","Synthesis",0.00804403449268197
+"Late flower","phloem","ARF",0.128205607569935
+"Late flower","phloem","ConjugationDeconjugation",0.0838606776217238
+"Late flower","phloem","PAT",0.115512277546793
+"Late flower","phloem","Synthesis",0.012340948981366
+"Late flower","procambium","ARF",0.332003585214621
+"Late flower","procambium","ConjugationDeconjugation",0.160477690545914
+"Late flower","procambium","PAT",0.748227754479749
+"Late flower","procambium","Synthesis",0.0472669581159416
+"Silique 0 DPA","cortex","ARF",0.199628733888391
+"Silique 0 DPA","cortex","ConjugationDeconjugation",0.209305385599224
+"Silique 0 DPA","cortex","PAT",0.217727222805927
+"Silique 0 DPA","cortex","Synthesis",0.0209203572442119
+"Silique 0 DPA","dividing cell","ARF",0.228440414245046
+"Silique 0 DPA","dividing cell","ConjugationDeconjugation",0.148724279744977
+"Silique 0 DPA","dividing cell","PAT",0.179474897732965
+"Silique 0 DPA","dividing cell","Synthesis",0.0284242378725685
+"Silique 0 DPA","epidermis","ARF",0.187840924266672
+"Silique 0 DPA","epidermis","ConjugationDeconjugation",0.166904786728916
+"Silique 0 DPA","epidermis","PAT",0.218708603088328
+"Silique 0 DPA","epidermis","Synthesis",0.0359090707410537
+"Silique 0 DPA","female reproductive","ARF",0.303309685047582
+"Silique 0 DPA","female reproductive","ConjugationDeconjugation",0.197851754348184
+"Silique 0 DPA","female reproductive","PAT",0.224037948236405
+"Silique 0 DPA","female reproductive","Synthesis",0.0227220095925305
+"Silique 0 DPA","guard cell","ARF",0.205557360094032
+"Silique 0 DPA","guard cell","ConjugationDeconjugation",0.148364544608179
+"Silique 0 DPA","guard cell","PAT",0.155278702240195
+"Silique 0 DPA","guard cell","Synthesis",0.0124556569984532
+"Silique 0 DPA","male reproductive","ARF",0.197569476223051
+"Silique 0 DPA","male reproductive","ConjugationDeconjugation",0.161162325527225
+"Silique 0 DPA","male reproductive","PAT",0.202383877508389
+"Silique 0 DPA","male reproductive","Synthesis",0.0204325909712018
+"Silique 0 DPA","phloem","ARF",0.280436935610937
+"Silique 0 DPA","phloem","ConjugationDeconjugation",0.279190195164459
+"Silique 0 DPA","phloem","PAT",0.3767785224059
+"Silique 0 DPA","phloem","Synthesis",0.0243388487026903
+"Silique 0 DPA","seed coat","ARF",0.240215631331155
+"Silique 0 DPA","seed coat","ConjugationDeconjugation",0.122637607985996
+"Silique 0 DPA","seed coat","PAT",0.102258028543137
+"Silique 0 DPA","seed coat","Synthesis",0.0164686243156072
+"Silique 0 DPA","unknown","ARF",0.180359658902378
+"Silique 0 DPA","unknown","ConjugationDeconjugation",0.154140245443344
+"Silique 0 DPA","unknown","PAT",0.171145622909401
+"Silique 0 DPA","unknown","Synthesis",0.0184537525666368
+"Silique 0 DPA","xylem","ARF",0.271052475484194
+"Silique 0 DPA","xylem","ConjugationDeconjugation",0.210998798022546
+"Silique 0 DPA","xylem","PAT",0.637812632695141
+"Silique 0 DPA","xylem","Synthesis",0.026077448693027
+"Silique 2 DPA","abscission zones","ARF",0.116947841418423
+"Silique 2 DPA","abscission zones","ConjugationDeconjugation",0.133372178392733
+"Silique 2 DPA","abscission zones","PAT",0.122634119543001
+"Silique 2 DPA","abscission zones","Synthesis",0.00943807354496174
+"Silique 2 DPA","dividing cell","ARF",0.153741440363452
+"Silique 2 DPA","dividing cell","ConjugationDeconjugation",0.0699799207432378
+"Silique 2 DPA","dividing cell","PAT",0.132254172979898
+"Silique 2 DPA","dividing cell","Synthesis",0.0156618875548254
+"Silique 2 DPA","endosperm/embryo","ARF",0.104287769908134
+"Silique 2 DPA","endosperm/embryo","ConjugationDeconjugation",0.0877020041394683
+"Silique 2 DPA","endosperm/embryo","PAT",0.0968633649128563
+"Silique 2 DPA","endosperm/embryo","Synthesis",0.020756210643415
+"Silique 2 DPA","epidermis","ARF",0.162766608540117
+"Silique 2 DPA","epidermis","ConjugationDeconjugation",0.105694601129479
+"Silique 2 DPA","epidermis","PAT",0.149128968496357
+"Silique 2 DPA","epidermis","Synthesis",0.0177824894609926
+"Silique 2 DPA","guard cell","ARF",0.141125340076642
+"Silique 2 DPA","guard cell","ConjugationDeconjugation",0.0889788963812264
+"Silique 2 DPA","guard cell","PAT",0.149262773943542
+"Silique 2 DPA","guard cell","Synthesis",0.0112058550690675
+"Silique 2 DPA","male reproductive","ARF",0.111363697749971
+"Silique 2 DPA","male reproductive","ConjugationDeconjugation",0.0716859880010108
+"Silique 2 DPA","male reproductive","PAT",0.125723164232372
+"Silique 2 DPA","male reproductive","Synthesis",0.0112194043072807
+"Silique 2 DPA","mesocarp","ARF",0.128713534882165
+"Silique 2 DPA","mesocarp","ConjugationDeconjugation",0.0865413390674254
+"Silique 2 DPA","mesocarp","PAT",0.137796344842887
+"Silique 2 DPA","mesocarp","Synthesis",0.0127940363169792
+"Silique 2 DPA","phloem","ARF",0.16905118961591
+"Silique 2 DPA","phloem","ConjugationDeconjugation",0.140925248125541
+"Silique 2 DPA","phloem","PAT",0.195682107244759
+"Silique 2 DPA","phloem","Synthesis",0.0195353873395361
+"Silique 2 DPA","procambium","ARF",0.170009470909185
+"Silique 2 DPA","procambium","ConjugationDeconjugation",0.147656534228264
+"Silique 2 DPA","procambium","PAT",0.464310061751709
+"Silique 2 DPA","procambium","Synthesis",0.0185647137494914
+"Silique 2 DPA","seed coat","ARF",0.15154327238263
+"Silique 2 DPA","seed coat","ConjugationDeconjugation",0.160930792812191
+"Silique 2 DPA","seed coat","PAT",0.137441389593625
+"Silique 2 DPA","seed coat","Synthesis",0.0290515370956573
+"Silique 2 DPA","unknown","ARF",0.131344425556285
+"Silique 2 DPA","unknown","ConjugationDeconjugation",0.0909884181274849
+"Silique 2 DPA","unknown","PAT",0.151880008770765
+"Silique 2 DPA","unknown","Synthesis",0.0166610433708895
+"Silique 2 DPA","xylem","ARF",0.153186099839057
+"Silique 2 DPA","xylem","ConjugationDeconjugation",0.113093896540689
+"Silique 2 DPA","xylem","PAT",0.1826680714552
+"Silique 2 DPA","xylem","Synthesis",0.0139909797357239
+"Silique 3 DPA","endosperm/embryo","ARF",0.082666150607662
+"Silique 3 DPA","endosperm/embryo","ConjugationDeconjugation",0.0956694867274183
+"Silique 3 DPA","endosperm/embryo","PAT",0.0740889089709384
+"Silique 3 DPA","endosperm/embryo","Synthesis",0.0155283574668994
+"Silique 3 DPA","epidermis","ARF",0.103453259351944
+"Silique 3 DPA","epidermis","ConjugationDeconjugation",0.105636142525001
+"Silique 3 DPA","epidermis","PAT",0.120486869943305
+"Silique 3 DPA","epidermis","Synthesis",0.01026344832144
+"Silique 3 DPA","guard cell","ARF",0.0838066672581893
+"Silique 3 DPA","guard cell","ConjugationDeconjugation",0.089630829119845
+"Silique 3 DPA","guard cell","PAT",0.0978048467744881
+"Silique 3 DPA","guard cell","Synthesis",0.00742869202133971
+"Silique 3 DPA","male reproductive","ARF",0.0898677140629781
+"Silique 3 DPA","male reproductive","ConjugationDeconjugation",0.0881363374367446
+"Silique 3 DPA","male reproductive","PAT",0.0879520698486752
+"Silique 3 DPA","male reproductive","Synthesis",0.0120579642028064
+"Silique 3 DPA","mesocarp","ARF",0.089103416049972
+"Silique 3 DPA","mesocarp","ConjugationDeconjugation",0.089683671231651
+"Silique 3 DPA","mesocarp","PAT",0.0868136047888687
+"Silique 3 DPA","mesocarp","Synthesis",0.0101778713342749
+"Silique 3 DPA","phloem","ARF",0.12314034310416
+"Silique 3 DPA","phloem","ConjugationDeconjugation",0.127418376995217
+"Silique 3 DPA","phloem","PAT",0.1288499141401
+"Silique 3 DPA","phloem","Synthesis",0.0134302212419951
+"Silique 3 DPA","procambium","ARF",0.112537593190984
+"Silique 3 DPA","procambium","ConjugationDeconjugation",0.130000745862994
+"Silique 3 DPA","procambium","PAT",0.261175713029307
+"Silique 3 DPA","procambium","Synthesis",0.0114350714136374
+"Silique 3 DPA","seed coat","ARF",0.108744607945844
+"Silique 3 DPA","seed coat","ConjugationDeconjugation",0.142053286710161
+"Silique 3 DPA","seed coat","PAT",0.101779161286219
+"Silique 3 DPA","seed coat","Synthesis",0.0214841936174258
+"Silique 3 DPA","unknown","ARF",0.0850670753658244
+"Silique 3 DPA","unknown","ConjugationDeconjugation",0.0940501302310482
+"Silique 3 DPA","unknown","PAT",0.107154634195329
+"Silique 3 DPA","unknown","Synthesis",0.0104918388713077
+"Silique 3 DPA","xylem","ARF",0.0829855048082894
+"Silique 3 DPA","xylem","ConjugationDeconjugation",0.0839172382044478
+"Silique 3 DPA","xylem","PAT",0.0800855632311493
+"Silique 3 DPA","xylem","Synthesis",0.0131241838522805
+"Silique 4 DPA","dividing cell","ARF",0.117321030305674
+"Silique 4 DPA","dividing cell","ConjugationDeconjugation",0.0928013102571257
+"Silique 4 DPA","dividing cell","PAT",0.075510828710682
+"Silique 4 DPA","dividing cell","Synthesis",0.0157407204734435
+"Silique 4 DPA","endosperm/embryo","ARF",0.268276598612776
+"Silique 4 DPA","endosperm/embryo","ConjugationDeconjugation",0.112194244009562
+"Silique 4 DPA","endosperm/embryo","PAT",0.0572886285041444
+"Silique 4 DPA","endosperm/embryo","Synthesis",0.0345501430953288
+"Silique 4 DPA","guard cell","ARF",0.0866866701318268
+"Silique 4 DPA","guard cell","ConjugationDeconjugation",0.10185715124285
+"Silique 4 DPA","guard cell","PAT",0.0845926753070986
+"Silique 4 DPA","guard cell","Synthesis",0.01068087575163
+"Silique 4 DPA","male reproductive","ARF",0.0827717875452101
+"Silique 4 DPA","male reproductive","ConjugationDeconjugation",0.101503768819435
+"Silique 4 DPA","male reproductive","PAT",0.0603911253256957
+"Silique 4 DPA","male reproductive","Synthesis",0.0139064865523022
+"Silique 4 DPA","mesocarp","ARF",0.0913337654813193
+"Silique 4 DPA","mesocarp","ConjugationDeconjugation",0.11013980983654
+"Silique 4 DPA","mesocarp","PAT",0.0826789818851587
+"Silique 4 DPA","mesocarp","Synthesis",0.0132808935909712
+"Silique 4 DPA","phloem","ARF",0.101091872531547
+"Silique 4 DPA","phloem","ConjugationDeconjugation",0.125637230740589
+"Silique 4 DPA","phloem","PAT",0.099859382208888
+"Silique 4 DPA","phloem","Synthesis",0.0184929731568242
+"Silique 4 DPA","procambium","ARF",0.100172064612332
+"Silique 4 DPA","procambium","ConjugationDeconjugation",0.110480678846742
+"Silique 4 DPA","procambium","PAT",0.139037827809176
+"Silique 4 DPA","procambium","Synthesis",0.0133944786446209
+"Silique 4 DPA","seed coat","ARF",0.0948986535190211
+"Silique 4 DPA","seed coat","ConjugationDeconjugation",0.161337863975358
+"Silique 4 DPA","seed coat","PAT",0.0770593110826448
+"Silique 4 DPA","seed coat","Synthesis",0.021274900994533
+"Silique 4 DPA","unknown","ARF",0.0836350182129754
+"Silique 4 DPA","unknown","ConjugationDeconjugation",0.0992550698355613
+"Silique 4 DPA","unknown","PAT",0.0685224017598374
+"Silique 4 DPA","unknown","Synthesis",0.019531057826596
+"Silique 4 DPA","xylem","ARF",0.0792094194320238
+"Silique 4 DPA","xylem","ConjugationDeconjugation",0.0943346449900343
+"Silique 4 DPA","xylem","PAT",0.0654441237350029
+"Silique 4 DPA","xylem","Synthesis",0.0155340741677743
+"Silique 5 DPA","dividing cell","ARF",0.0954030576721084
+"Silique 5 DPA","dividing cell","ConjugationDeconjugation",0.0872706118559585
+"Silique 5 DPA","dividing cell","PAT",0.038941505571459
+"Silique 5 DPA","dividing cell","Synthesis",0.013023227014228
+"Silique 5 DPA","endosperm/embryo","ARF",0.108942658357328
+"Silique 5 DPA","endosperm/embryo","ConjugationDeconjugation",0.106126054940484
+"Silique 5 DPA","endosperm/embryo","PAT",0.106656753518782
+"Silique 5 DPA","endosperm/embryo","Synthesis",0.0565751179475028
+"Silique 5 DPA","epidermis","ARF",0.17266264029069
+"Silique 5 DPA","epidermis","ConjugationDeconjugation",0.0964316392808614
+"Silique 5 DPA","epidermis","PAT",0.130016818913662
+"Silique 5 DPA","epidermis","Synthesis",0.0383437320080433
+"Silique 5 DPA","guard cell","ARF",0.0913938749303981
+"Silique 5 DPA","guard cell","ConjugationDeconjugation",0.114610566697287
+"Silique 5 DPA","guard cell","PAT",0.104426753551811
+"Silique 5 DPA","guard cell","Synthesis",0.0127752035175237
+"Silique 5 DPA","male reproductive","ARF",0.0760328468987651
+"Silique 5 DPA","male reproductive","ConjugationDeconjugation",0.116926057222718
+"Silique 5 DPA","male reproductive","PAT",0.0492265394970294
+"Silique 5 DPA","male reproductive","Synthesis",0.0153686100900987
+"Silique 5 DPA","phloem","ARF",0.0850056849980512
+"Silique 5 DPA","phloem","ConjugationDeconjugation",0.126281281187487
+"Silique 5 DPA","phloem","PAT",0.0754573379563127
+"Silique 5 DPA","phloem","Synthesis",0.0143012132105125
+"Silique 5 DPA","seed coat","ARF",0.103238845743956
+"Silique 5 DPA","seed coat","ConjugationDeconjugation",0.197558522843971
+"Silique 5 DPA","seed coat","PAT",0.0761343343058663
+"Silique 5 DPA","seed coat","Synthesis",0.0273713446786578
+"Silique 5 DPA","unknown","ARF",0.0934523272498714
+"Silique 5 DPA","unknown","ConjugationDeconjugation",0.122005616149007
+"Silique 5 DPA","unknown","PAT",0.0514410064599554
+"Silique 5 DPA","unknown","Synthesis",0.0151188940891527
+"Silique 5 DPA","xylem","ARF",0.084267892556973
+"Silique 5 DPA","xylem","ConjugationDeconjugation",0.115952695657195
+"Silique 5 DPA","xylem","PAT",0.0667496995536493
+"Silique 5 DPA","xylem","Synthesis",0.0252837195748621
+"Cauline 42 DAG","bundle-sheath","ARF",0.106267980661429
+"Cauline 42 DAG","bundle-sheath","ConjugationDeconjugation",0.115061006937439
+"Cauline 42 DAG","bundle-sheath","PAT",0.101851730244182
+"Cauline 42 DAG","bundle-sheath","Synthesis",0
+"Cauline 42 DAG","epidermis","ARF",0.158634987277342
+"Cauline 42 DAG","epidermis","ConjugationDeconjugation",0.163604600501085
+"Cauline 42 DAG","epidermis","PAT",0.320998138532441
+"Cauline 42 DAG","epidermis","Synthesis",0.0403029572592384
+"Cauline 42 DAG","guard cell","ARF",0.102193915921397
+"Cauline 42 DAG","guard cell","ConjugationDeconjugation",0.102683582027815
+"Cauline 42 DAG","guard cell","PAT",0.0813315028056618
+"Cauline 42 DAG","guard cell","Synthesis",0.0288344682291923
+"Cauline 42 DAG","mesophyll","ARF",0.132645733071199
+"Cauline 42 DAG","mesophyll","ConjugationDeconjugation",0.120408376159332
+"Cauline 42 DAG","mesophyll","PAT",0.132815418381241
+"Cauline 42 DAG","mesophyll","Synthesis",0.0697515744684493
+"Cauline 42 DAG","phloem","ARF",0.134509370441871
+"Cauline 42 DAG","phloem","ConjugationDeconjugation",0.23512996201405
+"Cauline 42 DAG","phloem","PAT",0.159372302991706
+"Cauline 42 DAG","phloem","Synthesis",0.0227459103002243
+"Cauline 42 DAG","xylem","ARF",0.156364842993428
+"Cauline 42 DAG","xylem","ConjugationDeconjugation",0.247446736826022
+"Cauline 42 DAG","xylem","PAT",0.144027905381072
+"Cauline 42 DAG","xylem","Synthesis",0.0294790109469472
+"Stem 42 DAG","bundle sheath","ARF",0.154943037807303
+"Stem 42 DAG","bundle sheath","ConjugationDeconjugation",0.1393265804558
+"Stem 42 DAG","bundle sheath","PAT",0.176216306764496
+"Stem 42 DAG","bundle sheath","Synthesis",0.0292925147150302
+"Stem 42 DAG","cortex","ARF",0.137223576711947
+"Stem 42 DAG","cortex","ConjugationDeconjugation",0.264885220407591
+"Stem 42 DAG","cortex","PAT",0.0842532110940723
+"Stem 42 DAG","cortex","Synthesis",0.102919820710179
+"Stem 42 DAG","epidermis","ARF",0.121587704690908
+"Stem 42 DAG","epidermis","ConjugationDeconjugation",0.183563297772392
+"Stem 42 DAG","epidermis","PAT",0.0814367841692605
+"Stem 42 DAG","epidermis","Synthesis",0.119159675944938
+"Stem 42 DAG","guard cell","ARF",0.167483268156289
+"Stem 42 DAG","guard cell","ConjugationDeconjugation",0.134904755871755
+"Stem 42 DAG","guard cell","PAT",0.0692251722852404
+"Stem 42 DAG","guard cell","Synthesis",0.0670227873457537
+"Stem 42 DAG","phloem","ARF",0.221767083857348
+"Stem 42 DAG","phloem","ConjugationDeconjugation",0.335390015459158
+"Stem 42 DAG","phloem","PAT",0.259617083282432
+"Stem 42 DAG","phloem","Synthesis",0.0854533033103275
+"Stem 42 DAG","pith","ARF",0.160663156410277
+"Stem 42 DAG","pith","ConjugationDeconjugation",0.17224300754736
+"Stem 42 DAG","pith","PAT",0.0560246591764249
+"Stem 42 DAG","pith","Synthesis",0.0897737400285195
+"Stem 42 DAG","procambium","ARF",0.225383796790622
+"Stem 42 DAG","procambium","ConjugationDeconjugation",0.218243405494413
+"Stem 42 DAG","procambium","PAT",0.256460785965379
+"Stem 42 DAG","procambium","Synthesis",0.0450652331919722
+"Stem 42 DAG","vascular (unspecified)","ARF",0.159958093536806
+"Stem 42 DAG","vascular (unspecified)","ConjugationDeconjugation",0.160954483106475
+"Stem 42 DAG","vascular (unspecified)","PAT",0.108112620718756
+"Stem 42 DAG","vascular (unspecified)","Synthesis",0.141816940538124
+"Stem 42 DAG","xylem","ARF",0.177789222038794
+"Stem 42 DAG","xylem","ConjugationDeconjugation",0.0995160436721703
+"Stem 42 DAG","xylem","PAT",0.068021778014493
+"Stem 42 DAG","xylem","Synthesis",0.197982608921844
