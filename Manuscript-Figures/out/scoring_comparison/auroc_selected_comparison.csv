@@ -1,0 +1,109 @@
+"SensorKey","Method","AUROC","Dataset","DisplayLabel"
+"ARF","iSensors",0.68197544684462,"Exogenous auxin
+(Martin-Arevalillo 2025)","ARF"
+"Synthesis","iSensors",0.333832302077754,"Exogenous auxin
+(Martin-Arevalillo 2025)","Synthesis"
+"Conjugation","iSensors",0.554478346379123,"Exogenous auxin
+(Martin-Arevalillo 2025)","Conjugation"
+"PAT","iSensors",0.407759932671058,"Exogenous auxin
+(Martin-Arevalillo 2025)","PAT"
+"IAA","iSensors",0.394853011618377,"Exogenous auxin
+(Martin-Arevalillo 2025)","IAA"
+"AARF","iSensors",0.575517581861088,"Exogenous auxin
+(Martin-Arevalillo 2025)","A-ARF"
+"DR5_ARF1_up","iSensors",0.664132523940167,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF1(up)"
+"DR5_ARF8_dn","iSensors",0.298447090267966,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF8(dn)"
+"DR5_ARF2_dn","iSensors",0.178332569836067,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF2(dn)"
+"ARF","UCell",0.601165101857479,"Exogenous auxin
+(Martin-Arevalillo 2025)","ARF"
+"Synthesis","UCell",0.417820876685168,"Exogenous auxin
+(Martin-Arevalillo 2025)","Synthesis"
+"Conjugation","UCell",0.598272747352106,"Exogenous auxin
+(Martin-Arevalillo 2025)","Conjugation"
+"PAT","UCell",0.447497117581451,"Exogenous auxin
+(Martin-Arevalillo 2025)","PAT"
+"IAA","UCell",0.427892099941816,"Exogenous auxin
+(Martin-Arevalillo 2025)","IAA"
+"AARF","UCell",0.54919174064506,"Exogenous auxin
+(Martin-Arevalillo 2025)","A-ARF"
+"DR5_ARF1_up","UCell",0.709939183340193,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF1(up)"
+"DR5_ARF8_dn","UCell",0.300090509552496,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF8(dn)"
+"DR5_ARF2_dn","UCell",0.149920078647519,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF2(dn)"
+"ARF","AUCell",0.583208916302007,"Exogenous auxin
+(Martin-Arevalillo 2025)","ARF"
+"Synthesis","AUCell",0.431072556086637,"Exogenous auxin
+(Martin-Arevalillo 2025)","Synthesis"
+"Conjugation","AUCell",0.601164620773456,"Exogenous auxin
+(Martin-Arevalillo 2025)","Conjugation"
+"PAT","AUCell",0.467705791716882,"Exogenous auxin
+(Martin-Arevalillo 2025)","PAT"
+"IAA","AUCell",0.440787233227184,"Exogenous auxin
+(Martin-Arevalillo 2025)","IAA"
+"AARF","AUCell",0.541215261176551,"Exogenous auxin
+(Martin-Arevalillo 2025)","A-ARF"
+"DR5_ARF1_up","AUCell",0.706220986463224,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF1(up)"
+"DR5_ARF8_dn","AUCell",0.311304000339844,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF8(dn)"
+"DR5_ARF2_dn","AUCell",0.154042799497456,"Exogenous auxin
+(Martin-Arevalillo 2025)","DR5.ARF2(dn)"
+"ARF","iSensors",0.544393136597811,"Endogenous gradient
+(Shahan root tip)","ARF"
+"Synthesis","iSensors",0.536995338980507,"Endogenous gradient
+(Shahan root tip)","Synthesis"
+"Conjugation","iSensors",0.585685963538355,"Endogenous gradient
+(Shahan root tip)","Conjugation"
+"PAT","iSensors",0.584211353537909,"Endogenous gradient
+(Shahan root tip)","PAT"
+"IAA","iSensors",0.715018291966121,"Endogenous gradient
+(Shahan root tip)","IAA"
+"AARF","iSensors",0.520950486124658,"Endogenous gradient
+(Shahan root tip)","A-ARF"
+"DR5_ARF1_up","iSensors",0.671902301265818,"Endogenous gradient
+(Shahan root tip)","DR5.ARF1(up)"
+"DR5_ARF8_dn","iSensors",0.805715816516849,"Endogenous gradient
+(Shahan root tip)","DR5.ARF8(dn)"
+"DR5_ARF2_dn","iSensors",0.617631228651703,"Endogenous gradient
+(Shahan root tip)","DR5.ARF2(dn)"
+"ARF","UCell",0.467496243828849,"Endogenous gradient
+(Shahan root tip)","ARF"
+"Synthesis","UCell",0.50711321992154,"Endogenous gradient
+(Shahan root tip)","Synthesis"
+"Conjugation","UCell",0.576797156898568,"Endogenous gradient
+(Shahan root tip)","Conjugation"
+"PAT","UCell",0.524970373427398,"Endogenous gradient
+(Shahan root tip)","PAT"
+"IAA","UCell",0.689831799305866,"Endogenous gradient
+(Shahan root tip)","IAA"
+"AARF","UCell",0.473004824413385,"Endogenous gradient
+(Shahan root tip)","A-ARF"
+"DR5_ARF1_up","UCell",0.627818688754871,"Endogenous gradient
+(Shahan root tip)","DR5.ARF1(up)"
+"DR5_ARF8_dn","UCell",0.774957045494942,"Endogenous gradient
+(Shahan root tip)","DR5.ARF8(dn)"
+"DR5_ARF2_dn","UCell",0.506666351540409,"Endogenous gradient
+(Shahan root tip)","DR5.ARF2(dn)"
+"ARF","AUCell",0.453943932995941,"Endogenous gradient
+(Shahan root tip)","ARF"
+"Synthesis","AUCell",0.494065651109355,"Endogenous gradient
+(Shahan root tip)","Synthesis"
+"Conjugation","AUCell",0.580701923066602,"Endogenous gradient
+(Shahan root tip)","Conjugation"
+"PAT","AUCell",0.533731854084563,"Endogenous gradient
+(Shahan root tip)","PAT"
+"IAA","AUCell",0.697901966765523,"Endogenous gradient
+(Shahan root tip)","IAA"
+"AARF","AUCell",0.469214692378796,"Endogenous gradient
+(Shahan root tip)","A-ARF"
+"DR5_ARF1_up","AUCell",0.629941467616662,"Endogenous gradient
+(Shahan root tip)","DR5.ARF1(up)"
+"DR5_ARF8_dn","AUCell",0.762166961206354,"Endogenous gradient
+(Shahan root tip)","DR5.ARF8(dn)"
+"DR5_ARF2_dn","AUCell",0.495063089323704,"Endogenous gradient
+(Shahan root tip)","DR5.ARF2(dn)"
