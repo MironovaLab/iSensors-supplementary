@@ -1,0 +1,19 @@
+ensembl_gene_id	external_gene_name	description	gene_biotype	in_panel
+Os01g0643300	PIN10A		protein_coding	TRUE
+Os01g0715600	OsPIN8		protein_coding	TRUE
+Os01g0802700	OsPIN9		protein_coding	TRUE
+Os01g0856500	OsLAX1		protein_coding	TRUE
+Os01g0919800	OsPIN5a		protein_coding	TRUE
+Os02g0743400	PIN1A	auxin efflux carrier component 1a-like [Source:NCBI gene (formerly Entrezgene);Acc:4330700]	protein_coding	TRUE
+Os03g0244600	OsLAX2		protein_coding	TRUE
+Os05g0447200	OsLAX3		protein_coding	TRUE
+Os05g0576900	PIN3B		protein_coding	TRUE
+Os06g0232300	PIN1C		protein_coding	TRUE
+Os06g0660200	OsPIN2		protein_coding	TRUE
+Os08g0529000	PIN5B		protein_coding	TRUE
+Os09g0505400	PIN5B		protein_coding	TRUE
+Os10g0147400	OsLAX4		protein_coding	TRUE
+Os11g0122800			protein_coding	TRUE
+Os11g0137000	PIN1B		protein_coding	TRUE
+Os11g0169200	OsLAX5		protein_coding	TRUE
+Os12g0133800	OsPIN1D		protein_coding	TRUE

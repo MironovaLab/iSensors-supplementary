@@ -1,0 +1,10 @@
+rice_annotation_original	Atrichoblast_d	Atrichoblast_m1	Atrichoblast_m2	Atrichoblast_t	CEI	Cortex_d	Cortex_e2	Cortex_m1	Cortex_m2	Cortex_t	Endodermis_e2	Endodermis_m1	Endodermis_m2	Endodermis_t	LRC	LRCEI	LRP	Metaxylem_d	Metaxylem_m1	Metaxylem_m2	Metaxylem_t	PCC_d	PCC_e1	PCC_t	PPP_d	PPP_e1	PPP_e2	PPP_m2	PPP_t	PSE_e2	PSE_t	Procambium_d	Procambium_e1	Procambium_e2	Procambium_t	Protoxylem_d	Protoxylem_e1	Protoxylem_e2	Protoxylem_m1	Protoxylem_m2	Protoxylem_t	SI	Trichoblast_e1	Trichoblast_e2	Trichoblast_m2	Trichoblast_t	XPP_d	XPP_e1	XPP_m1	XPP_m2	XPP_t	Young LRC
+Cortex	0	0	0	0	0	12	2	40	435	2244	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Endodermis	0	0	0	0	0	0	0	0	0	0	18	397	4	959	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Epidermis	341	153	1064	143	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	906	19	80	5783	0	0	0	0	0	0
+Exodermis	0	0	0	0	0	1	1	855	1773	272	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Meristem	0	0	0	0	241	0	0	0	0	0	0	0	0	0	0	25	2764	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	740	0	0	0	0	0	0	0	0	0	0
+Root_cap	0	0	0	0	0	0	0	0	0	0	0	0	0	0	605	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	298
+Sclerenchyma	0	0	0	0	0	12	1	403	982	950	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Vascular_cylinder	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	92	5	9	8	1	220	41	2	20	1	5	46	1	68	125	1	38	77	178	3	189	1	17	293	0	0	0	0	0	79	323	218	1169	347	0
+epidermis_near_root_hair	26	2	38	147	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	367	5	3	4420	0	0	0	0	0	0

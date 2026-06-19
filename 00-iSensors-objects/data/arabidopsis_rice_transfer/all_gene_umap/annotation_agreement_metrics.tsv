@@ -1,0 +1,4 @@
+comparison	cells	adjusted_rand_index	normalized_mutual_information
+All-gene cluster vs original Wang annotation	31108	0.531206220437164	0.655268625162594
+All-gene cluster vs accepted transferred fine annotation	17201	0.301044019788252	0.530300731277382
+Original Wang annotation vs accepted transferred fine annotation	17201	0.556286330176874	0.728320525499034

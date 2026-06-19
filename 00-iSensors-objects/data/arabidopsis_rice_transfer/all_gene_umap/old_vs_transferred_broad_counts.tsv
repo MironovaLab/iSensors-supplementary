@@ -1,0 +1,7 @@
+rice_broad_original	Cortex	Endodermis	Epidermis	Meristem_initials	Pericycle	Root_cap	Vascular
+Cortex	7983	0	0	0	0	0	0
+Endodermis	0	1378	0	0	0	0	0
+Epidermis	0	0	13497	0	0	0	0
+Meristem_initials	0	0	0	3770	0	0	0
+Root_cap	0	0	0	0	0	903	0
+Vascular	0	0	0	0	2210	0	1367

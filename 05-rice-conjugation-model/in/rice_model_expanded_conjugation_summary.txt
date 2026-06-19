@@ -1,0 +1,55 @@
+EXPANDED CONJUGATION MODEL
+
+Call:
+lm(formula = ARF ~ 0 + Synthesis + Conjugation + PAT, data = df_wide)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.11381 -0.01693  0.01263  0.02766  0.15380 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+Synthesis     2.1978     0.4874   4.509 3.63e-05 ***
+Conjugation   0.7806     0.1274   6.126 1.14e-07 ***
+PAT           0.5540     0.1579   3.510 0.000925 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.04566 on 53 degrees of freedom
+Multiple R-squared:  0.8892,	Adjusted R-squared:  0.8829 
+F-statistic: 141.7 on 3 and 53 DF,  p-value: < 2.2e-16
+
+
+OLD IAA MODEL RECOMPUTED ON IDENTICAL GROUPS
+
+Call:
+lm(formula = ARF ~ 0 + Synthesis + Old_IAA + PAT, data = df_wide)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.13021 -0.01222  0.02079  0.03838  0.14420 
+
+Coefficients:
+          Estimate Std. Error t value Pr(>|t|)    
+Synthesis  2.40375    0.59599   4.033 0.000177 ***
+Old_IAA    0.32439    0.08466   3.832 0.000339 ***
+PAT        0.16568    0.23250   0.713 0.479217    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0528 on 53 degrees of freedom
+Multiple R-squared:  0.8517,	Adjusted R-squared:  0.8433 
+F-statistic: 101.5 on 3 and 53 DF,  p-value: < 2.2e-16
+
+
+MODEL METRICS
+                                    model n_groups adjusted_R2       RMSE
+1                       Old OSA IAA panel       56   0.8433461 0.05137080
+2 Expanded ConjugationDeconjugation panel       56   0.8828765 0.04441888
+  residual_SE       AIC
+1  0.05280468 -165.5717
+2  0.04565871 -181.8570
+
+PANEL COVERAGE
+Rice genes used: 20 
+Arabidopsis source genes represented: 14 

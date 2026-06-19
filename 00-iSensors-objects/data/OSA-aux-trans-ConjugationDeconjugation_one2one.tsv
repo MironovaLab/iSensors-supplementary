@@ -1,0 +1,4 @@
+arabidopsis_gene	rice_gene	orthology_type	orthology_confidence	present_in_Wang_RNA	source_panel	local_panel
+AT3G06810	Os07g0675000	ortholog_one2one	1	TRUE	ATH-aux-trans-ConjugationDeconjugation	OSA-aux-trans-ConjugationDeconjugation
+AT4G05530	Os09g0133200	ortholog_one2one	1	TRUE	ATH-aux-trans-ConjugationDeconjugation	OSA-aux-trans-ConjugationDeconjugation
+AT2G47750	Os07g0671500	ortholog_one2one	1	TRUE	ATH-aux-trans-ConjugationDeconjugation	OSA-aux-trans-ConjugationDeconjugation
