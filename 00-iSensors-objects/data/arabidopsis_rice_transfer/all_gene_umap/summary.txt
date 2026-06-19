@@ -1,0 +1,9 @@
+Rice root cells: 31108
+RNA genes: 37960
+Variable genes used for PCA: 3000
+All-gene RNA clusters: 17
+Confident fine-label assignments: 17201 (55.3%)
+
+Important interpretation:
+Transferred fine labels were inferred within Wang-derived broad lineages, so broad old/new agreement is partly imposed by design.
+ARI/NMI therefore describe association and cluster alignment, not independent validation of biological truth.
