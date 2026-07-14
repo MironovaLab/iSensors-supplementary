@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Large output files (>100MB) - not suitable for normal git (GitHub hard-blocks >100MB)
+02-single-cell-data-analysis/out/iSensors_Auxin_FeaturePlots_split_mean.pdf
