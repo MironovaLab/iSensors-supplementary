@@ -4,7 +4,7 @@ library(tidyverse)
 library(RColorBrewer)
 library(scales)
 
-iSensors_obj <- readRDS(file = "02-single-cell-data-analysis/in/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
+iSensors_obj <- readRDS(file = "00-iSensors-objects/data/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
 
 
 #For supplementary Figure 4A
@@ -38,13 +38,13 @@ ggsave("Manuscript-Figures/out/Supplementary_AuxinTreated_DimPlot_splitted.pdf",
 
 
 # ── Figure S3: log2(AUX/CTR) per tissue, non-significant values masked ────────
-# Source: iSensors-supplementary/02-single-cell-data-analysis/02-SupplementaryFigure2.R
+# Source: DigitalSensor-Toolbox/09-single-cell-data-analysis/02-SupplementaryFigure2.R
 # Uses the same iSensors_obj loaded at the top of this file (iSensors_mean assay).
 
 library(pheatmap)
 
 assay_use    <- "iSensors_mean"
-de_csv_path  <- "iSensors-supplementary/02-single-cell-data-analysis/in/iSensors_DE_aux_vs_ctr_by_tissue.csv"
+de_csv_path  <- "Manuscript-Figures/in/iSensors_DE_aux_vs_ctr_by_tissue.csv"
 isensors_list <- rownames(iSensors_obj[[assay_use]])
 
 # ── Step 1: Differential expression per tissue (Wilcoxon, per cell type) ──────

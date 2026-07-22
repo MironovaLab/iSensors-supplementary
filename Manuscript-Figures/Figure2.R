@@ -4,7 +4,7 @@ library(tidyverse)
 library(RColorBrewer)
 library(scales)
 
-#iSensors object for auxin treated data was created here: iSensors-supplementary/02-single-cell-data-analysis/02-iSensors_AuxinTreatedRoot.R
+#iSensors object for auxin treated data was created here: DigitalSensor-Toolbox/09-single-cell-data-analysis/02-iSensors_AuxinTreatedRoot.R
 iSensors_obj <- readRDS(file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
 str(iSensors_obj@assays)
 
