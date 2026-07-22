@@ -1,7 +1,7 @@
 # FigureS_gradient_correlation.R
 # Auxin gradient Spearman rank correlation -- benchmark iSensors vs UCell / AUCell
 #
-# Design replicates 02-single-cell-data-analysis/02-endo-sc-root-spearman.R:
+# Design replicates DigitalSensor-Toolbox/09-single-cell-data-analysis/02-endo-sc-root-spearman.R:
 #   1. Per-cell-type average sensor score
 #   2. Rank those averages: rank(-means, ties="average")  [rank 1 = highest]
 #   3. Spearman rho between predicted rank and literature auxin rank
