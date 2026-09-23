@@ -5,7 +5,8 @@ Figure 8 and Extended Data Figure 8.
 
 The scored object (`out/GSE212230_iSensors_obj.rds`, ~322 MB) is **not stored in
 this repository** — it exceeds GitHub's file size limit. Regenerate it with the
-scripts below, or download it from the Zenodo deposit (DOI: *to be added*).
+scripts below, or request it from the corresponding author
+(victoria.mironova@ru.nl).
 
 ---
 
@@ -72,7 +73,7 @@ Seurat object** derived from GEO accession
 submission** — the pipeline here begins from the processed object. Anyone
 wishing to rebuild it from raw counts must repeat the original authors'
 preprocessing as described in Nolan et al. 2023. The object is ~33 GB and is
-therefore gitignored; it is available in the Zenodo deposit.
+therefore gitignored; it is available from the corresponding author on request.
 
 This is a known limitation of the current deposit rather than an oversight in
 the scripts, and is noted here so that users are not left searching for a step

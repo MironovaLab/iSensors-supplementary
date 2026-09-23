@@ -89,9 +89,13 @@ Figure outputs and all input tables are committed. The **scored Seurat objects a
 not** — they range from hundreds of megabytes to tens of gigabytes and exceed
 GitHub's limits. Two ways to obtain them:
 
-1. **Rebuild** from public accessions using the scripts in `00-iSensors-objects/`
-   and `00-BR-objects/`.
-2. **Download** from the Zenodo deposit (DOI: *to be added*).
+1. **Rebuild** them from the public accessions listed below, using the scripts in
+   `00-iSensors-objects/` and `00-BR-objects/`. This is the fully self-contained
+   route — every source dataset is publicly available.
+2. **Request the pre-computed objects** from the corresponding author
+   (victoria.mironova@ru.nl). These are provided as a convenience to save
+   recomputation; they are derived from the public datasets below and are the
+   subject of a separate forthcoming publication.
 
 ### Source datasets
 

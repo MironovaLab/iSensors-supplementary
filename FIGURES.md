@@ -11,8 +11,9 @@ source("Manuscript-Figures/Figure4.R")
 ```
 
 Objects under `00-iSensors-objects/data/` are too large for GitHub and are not
-included. Build them with the scripts in `00-iSensors-objects/`, or download them
-from the Zenodo deposit (DOI: *to be added*). See the README for details.
+included. Build them with the scripts in `00-iSensors-objects/` from the public
+accessions listed in the README, or request the pre-computed objects from the
+corresponding author (victoria.mironova@ru.nl).
 
 ---
 
