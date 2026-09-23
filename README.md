@@ -131,20 +131,6 @@ Root reannotation (Figure 4) additionally used `slingshot` 2.0.0 and `CytoTRACE`
 
 ---
 
-## Notes for Windows users
-
-Some paths in this repository are up to 127 characters. Windows limits paths to
-260 characters by default, so cloning into a deeply nested directory can cause a
-**fatal checkout failure** — the clone reports success but leaves an empty working
-tree. Either clone near the drive root (`C:\iSensors-supplementary`), or enable
-long paths once:
-
-```
-git config --global core.longpaths true
-```
-
----
-
 ## Licence and citation
 
 Released under the MIT licence. If you use this code or the
