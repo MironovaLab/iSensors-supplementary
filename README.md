@@ -147,8 +147,8 @@ git config --global core.longpaths true
 
 ## Licence and citation
 
-Released under the licence in [LICENSE](LICENSE). If you use this code or the
-iSensors framework, please cite the paper above and the
+Released under the MIT licence. If you use this code or the
+iSensors framework, please cite the paper (to be provided) and the
 [iSensors package](https://github.com/MironovaLab/iSensors).
 
 Questions and issues: https://github.com/MironovaLab/iSensors-supplementary/issues
