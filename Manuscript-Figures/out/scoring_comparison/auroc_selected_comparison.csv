@@ -1,5 +1,5 @@
 "SensorKey","Method","AUROC","Dataset","DisplayLabel"
-"ARF","iSensors",0.68197544684462,"Exogenous auxin
+"ARF","iSensors",0.707272686904745,"Exogenous auxin
 (Martin-Arevalillo 2025)","ARF"
 "Synthesis","iSensors",0.333832302077754,"Exogenous auxin
 (Martin-Arevalillo 2025)","Synthesis"
@@ -17,7 +17,7 @@
 (Martin-Arevalillo 2025)","DR5.ARF8(dn)"
 "DR5_ARF2_dn","iSensors",0.178332569836067,"Exogenous auxin
 (Martin-Arevalillo 2025)","DR5.ARF2(dn)"
-"ARF","UCell",0.601165101857479,"Exogenous auxin
+"ARF","UCell",0.606983849375967,"Exogenous auxin
 (Martin-Arevalillo 2025)","ARF"
 "Synthesis","UCell",0.417820876685168,"Exogenous auxin
 (Martin-Arevalillo 2025)","Synthesis"
@@ -35,25 +35,25 @@
 (Martin-Arevalillo 2025)","DR5.ARF8(dn)"
 "DR5_ARF2_dn","UCell",0.149920078647519,"Exogenous auxin
 (Martin-Arevalillo 2025)","DR5.ARF2(dn)"
-"ARF","AUCell",0.583208916302007,"Exogenous auxin
+"ARF","AUCell",0.586575689761591,"Exogenous auxin
 (Martin-Arevalillo 2025)","ARF"
-"Synthesis","AUCell",0.431072556086637,"Exogenous auxin
+"Synthesis","AUCell",0.430210629995822,"Exogenous auxin
 (Martin-Arevalillo 2025)","Synthesis"
-"Conjugation","AUCell",0.601164620773456,"Exogenous auxin
+"Conjugation","AUCell",0.601368735779555,"Exogenous auxin
 (Martin-Arevalillo 2025)","Conjugation"
-"PAT","AUCell",0.467705791716882,"Exogenous auxin
+"PAT","AUCell",0.46835162405118,"Exogenous auxin
 (Martin-Arevalillo 2025)","PAT"
-"IAA","AUCell",0.440787233227184,"Exogenous auxin
+"IAA","AUCell",0.440389214767309,"Exogenous auxin
 (Martin-Arevalillo 2025)","IAA"
-"AARF","AUCell",0.541215261176551,"Exogenous auxin
+"AARF","AUCell",0.53985011878037,"Exogenous auxin
 (Martin-Arevalillo 2025)","A-ARF"
-"DR5_ARF1_up","AUCell",0.706220986463224,"Exogenous auxin
+"DR5_ARF1_up","AUCell",0.706146650520423,"Exogenous auxin
 (Martin-Arevalillo 2025)","DR5.ARF1(up)"
-"DR5_ARF8_dn","AUCell",0.311304000339844,"Exogenous auxin
+"DR5_ARF8_dn","AUCell",0.311995762902028,"Exogenous auxin
 (Martin-Arevalillo 2025)","DR5.ARF8(dn)"
-"DR5_ARF2_dn","AUCell",0.154042799497456,"Exogenous auxin
+"DR5_ARF2_dn","AUCell",0.154361605901596,"Exogenous auxin
 (Martin-Arevalillo 2025)","DR5.ARF2(dn)"
-"ARF","iSensors",0.544393136597811,"Endogenous gradient
+"ARF","iSensors",0.544974516714857,"Endogenous gradient
 (Shahan root tip)","ARF"
 "Synthesis","iSensors",0.536995338980507,"Endogenous gradient
 (Shahan root tip)","Synthesis"
@@ -71,7 +71,7 @@
 (Shahan root tip)","DR5.ARF8(dn)"
 "DR5_ARF2_dn","iSensors",0.617631228651703,"Endogenous gradient
 (Shahan root tip)","DR5.ARF2(dn)"
-"ARF","UCell",0.467496243828849,"Endogenous gradient
+"ARF","UCell",0.465393322691925,"Endogenous gradient
 (Shahan root tip)","ARF"
 "Synthesis","UCell",0.50711321992154,"Endogenous gradient
 (Shahan root tip)","Synthesis"
@@ -89,21 +89,21 @@
 (Shahan root tip)","DR5.ARF8(dn)"
 "DR5_ARF2_dn","UCell",0.506666351540409,"Endogenous gradient
 (Shahan root tip)","DR5.ARF2(dn)"
-"ARF","AUCell",0.453943932995941,"Endogenous gradient
+"ARF","AUCell",0.451485222652404,"Endogenous gradient
 (Shahan root tip)","ARF"
-"Synthesis","AUCell",0.494065651109355,"Endogenous gradient
+"Synthesis","AUCell",0.492161237649499,"Endogenous gradient
 (Shahan root tip)","Synthesis"
-"Conjugation","AUCell",0.580701923066602,"Endogenous gradient
+"Conjugation","AUCell",0.576170644685113,"Endogenous gradient
 (Shahan root tip)","Conjugation"
-"PAT","AUCell",0.533731854084563,"Endogenous gradient
+"PAT","AUCell",0.530286012063558,"Endogenous gradient
 (Shahan root tip)","PAT"
-"IAA","AUCell",0.697901966765523,"Endogenous gradient
+"IAA","AUCell",0.698256463927976,"Endogenous gradient
 (Shahan root tip)","IAA"
-"AARF","AUCell",0.469214692378796,"Endogenous gradient
+"AARF","AUCell",0.467762166394695,"Endogenous gradient
 (Shahan root tip)","A-ARF"
-"DR5_ARF1_up","AUCell",0.629941467616662,"Endogenous gradient
+"DR5_ARF1_up","AUCell",0.632348903684628,"Endogenous gradient
 (Shahan root tip)","DR5.ARF1(up)"
-"DR5_ARF8_dn","AUCell",0.762166961206354,"Endogenous gradient
+"DR5_ARF8_dn","AUCell",0.762960117300117,"Endogenous gradient
 (Shahan root tip)","DR5.ARF8(dn)"
-"DR5_ARF2_dn","AUCell",0.495063089323704,"Endogenous gradient
+"DR5_ARF2_dn","AUCell",0.498118376211376,"Endogenous gradient
 (Shahan root tip)","DR5.ARF2(dn)"

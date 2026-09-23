@@ -54,7 +54,7 @@
 "ATH-aux-reg-DR5-ARF2-down",0.516150291144968,0.0139283833949019,"reg","DR5-ARF2-down","significant"
 "ATH-aux-reg-DR5-ARF8-down",0.543912491217529,0.00887904635671706,"reg","DR5-ARF8-down","significant"
 "ATH-aux-trans-A-ARF",0.574507568848515,0.00516639548122459,"trans","A-ARF","significant"
-"ATH-aux-trans-ARF",0.595470862780857,0.00345696914974596,"trans","ARF","significant"
+"ATH-aux-trans-ARF",0.597737164827597,0.00330466003331898,"trans","ARF","significant"
 "ATH-aux-reg-DR5-ARF1-up",0.720684050863226,0.000154682337890292,"reg","DR5-ARF1-up","significant"
 "ATH-aux-trans-Synthesis",0.721250626374911,0.000151971278622272,"trans","Synthesis","significant"
 "ATH-aux-trans-IAA",0.805670377615965,6.04619475925288e-06,"trans","IAA","significant"

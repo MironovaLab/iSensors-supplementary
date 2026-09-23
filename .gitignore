@@ -3,5 +3,20 @@
 .RData
 .Ruserdata
 
+.RDataTmp
+Rplots.pdf
+
+# Large binary data objects - never commit these (see Zenodo deposit)
+*.rds
+*.rds.gz
+*.RDS
+*.h5ad
+*.h5Seurat
+*.qs
+*.qs2
+*.loom
+*.mtx.gz
+!Tutorial-iSensors/data/*.rds
+
 # Large output files (>100MB) - not suitable for normal git (GitHub hard-blocks >100MB)
 02-single-cell-data-analysis/out/iSensors_Auxin_FeaturePlots_split_mean.pdf
