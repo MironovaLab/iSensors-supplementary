@@ -5,7 +5,7 @@ library(RColorBrewer)
 library(scales)
 
 #iSensors object for auxin treated data was created here: DigitalSensor-Toolbox/09-single-cell-data-analysis/02-iSensors_AuxinTreatedRoot.R
-iSensors_obj <- readRDS(file = "D:/!GitHub/DigitalSensor-Toolbox/iSensors-supplementary/00-iSensors-objects/data/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
+iSensors_obj <- readRDS(file = "00-iSensors-objects/data/iSensors-Martin-Arevalillo-auxin-root2025_mean.rds")
 str(iSensors_obj@assays)
 
 DefaultAssay(iSensors_obj) <-"iSensors_mean"
@@ -228,7 +228,7 @@ res_global <- pb_long %>%
 
 # Save statistics for reuse in Figure 4F arrow plot
 write.csv(res_global,
-          "iSensors-supplementary/Manuscript-Figures/in/Statistics-exo-scdata.csv",
+          "Manuscript-Figures/in/Statistics-exo-scdata.csv",
           row.names = FALSE)
 message("Saved Statistics-exo-scdata.csv")
 
