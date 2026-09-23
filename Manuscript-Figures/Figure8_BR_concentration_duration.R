@@ -60,7 +60,7 @@ SENSOR_LABELS <- c(
 LABEL_ORDER <- SENSOR_LABELS[SENSORS]  # BR sensors first (best -> worst), neg controls last
 
 cat("Loading GSE212230 iSensors object...\n")
-obj <- readRDS("../BRiSensors/out/GSE212230_iSensors_obj.rds")
+obj <- readRDS("00-BR-objects/out/GSE212230_iSensors_obj.rds")
 DefaultAssay(obj) <- "iSensors_mean"
 
 meta <- obj@meta.data %>%

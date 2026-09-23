@@ -44,7 +44,7 @@ suppressPackageStartupMessages({
 
 output_dir <- "Manuscript-Figures/out"
 dir.create(output_dir, showWarnings = FALSE)
-BR_DIR <- "../BRiSensors"
+BR_DIR <- "00-BR-objects"
 
 COL_REG   <- "#b15928"  # matches reg color convention from the Auxin reference figure
 COL_TRANS <- "#ff7f00"  # matches trans color convention from the Auxin reference figure
@@ -310,7 +310,7 @@ p_panelC <- wrap_elements(full = p_br_long) + wrap_elements(full = p_aux_long)
 # Panel F - BR (reg-late-up) vs Auxin (ARF), epidermis layout pair
 # (= original "Panel B" from 14-BR-ARF-spatial-anticorrelation.R)
 # ══════════════════════════════════════════════════════════════════════════
-REALISTIC_DIR <- "../RealisticLayouts"
+REALISTIC_DIR <- "RealisticLayouts"
 
 br_epi_scores <- read.csv(file.path(BR_DIR, "out/shahan_epidermis_BR_scores.csv"), stringsAsFactors = FALSE)
 br_epi_df <- br_epi_scores %>%

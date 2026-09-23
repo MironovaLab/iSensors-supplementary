@@ -30,7 +30,7 @@ suppressPackageStartupMessages({
 
 output_dir <- "Manuscript-Figures/out"
 dir.create(output_dir, showWarnings = FALSE)
-BR_DIR <- "../BRiSensors"
+BR_DIR <- "00-BR-objects"
 
 BR_GREEN <- c("white", "#C7E9C0", "#74C476", "#238B45", "#00441B")
 
