@@ -25,28 +25,28 @@ DimPlot(
 #Loading iSensors
 
 panel_set <- LoadSensors(setName = 'AuxinPanel', 
-                         species = 'AT', 
+                         species = 'ATH', 
                          hormone = 'aux', 
                          randomInfo = list('n' = 3, 'sizes' = c(100, 200, 300), majortrend = TRUE))
 summary(panel_set$panels)
-AT_aux_trans_Transport <- panel_set$panels$AT_aux_trans_Transport
+ATH_aux_trans_Transport <- panel_set$panels[["ATH-aux-trans-Transport"]]
 
 iSensors_obj <- CalcSensors(seu,
                       seurLayer = "data",
                       panelSet = panel_set,
-                      signals = c("mean_normed", "median"))
+                      signals = c("mean", "median"))
 summary(iSensors_obj@assays)
 
-DefaultAssay(iSensors_obj) <- "iSensors_mean_normed"
+DefaultAssay(iSensors_obj) <- "iSensors_mean"
 DimPlot(iSensors_obj, split.by = "orig.ident2",   group.by = "cluster_annot")
 
 DimPlot(iSensors_obj)
 
-FeaturePlot(iSensors_obj, features = "AT-aux-trans-Transport")
+FeaturePlot(iSensors_obj, features = "ATH-aux-trans-Transport")
 
 p_feat <- FeaturePlot(
   iSensors_obj,
-  features = c("AT-aux-trans-Transport", "AT-aux-trans-PolarAuxinTransport", "AT-aux-trans-ARF", "AT-aux-trans-Synthesis", "AT-aux-trans-IAA", "AT-aux-trans-ConjugationDeconjugation"),
+  features = c("ATH-aux-trans-Transport", "ATH-aux-trans-PolarAuxinTransport", "ATH-aux-trans-ARF", "ATH-aux-trans-Synthesis", "ATH-aux-trans-IAA", "ATH-aux-trans-ConjugationDeconjugation"),
 label = TRUE)
 p_feat
 
@@ -63,7 +63,7 @@ expr_cols <- brewer.pal(n = 3, name = "OrRd")
 
 p <- FeaturePlot(
   iSensors_obj,
-  features = c("AT-aux-trans-Transport","AT-aux-trans-ARF", "AT-aux-trans-Synthesis","AT-aux-trans-ConjugationDeconjugation"),
+  features = c("ATH-aux-trans-Transport","ATH-aux-trans-ARF", "ATH-aux-trans-Synthesis","ATH-aux-trans-ConjugationDeconjugation"),
   reduction = "umap",
   cols = expr_cols,
   min.cutoff = 0,
@@ -95,7 +95,7 @@ ggsave(
 
 p <- FeaturePlot(
   iSensors_obj,
-  features = c("AT-aux-trans-ARF", "AT-aux-trans-Synthesis"),
+  features = c("ATH-aux-trans-ARF", "ATH-aux-trans-Synthesis"),
   reduction = "umap",
   cols = expr_cols,
   min.cutoff = 0,
@@ -128,10 +128,10 @@ ggsave(
 
 
 sensors <- c(
-  "AT-aux-trans-Transport",
-  "AT-aux-trans-ARF",
-  "AT-aux-trans-Synthesis",
-  "AT-aux-trans-ConjugationDeconjugation"
+  "ATH-aux-trans-Transport",
+  "ATH-aux-trans-ARF",
+  "ATH-aux-trans-Synthesis",
+  "ATH-aux-trans-ConjugationDeconjugation"
 )
 
 
@@ -202,6 +202,14 @@ labels_col <- sub("__Ctr$|__Aux$", "", colnames(mat))
 
 
 mat <- cbind(mat_ctr, mat_aux)
+
+# z-score each sensor (row) across cell types and conditions;
+# a sensor with the same value everywhere gets 0
+row_z <- function(m) {
+  z <- t(scale(t(m)))
+  z[is.nan(z)] <- 0
+  z
+}
 mat_z <- row_z(mat)
 annotation_col <- data.frame(
   Condition = rep(c("Ctr", "Aux"), each = length(common_ct)),
@@ -249,7 +257,7 @@ dev.off()
 
 #Differentially expressed iSensors
 
-DefaultAssay(iSensors_obj) <- "iSensors_mean_normed"
+DefaultAssay(iSensors_obj) <- "iSensors_mean"
 
 DEG1 <- FindAllMarkers(iSensors_obj,group.by = "orig.ident2")
 DEG3 <- FindAllMarkers(iSensors_obj,group.by = c("cluster_annot", "orig.ident2"))
@@ -257,10 +265,10 @@ DEG3 <- FindAllMarkers(iSensors_obj,group.by = c("cluster_annot", "orig.ident2")
 
 
 sensors <- c(
-  "AT-aux-trans-Transport",
-  "AT-aux-trans-ARF",
-  "AT-aux-trans-Synthesis",
-  "AT-aux-trans-ConjugationDeconjugation"
+  "ATH-aux-trans-Transport",
+  "ATH-aux-trans-ARF",
+  "ATH-aux-trans-Synthesis",
+  "ATH-aux-trans-ConjugationDeconjugation"
 )
 
 res_ct <- lapply(sort(unique(iSensors_obj$cluster_annot)), function(ct) {
